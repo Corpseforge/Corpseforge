@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,26 +19,6 @@
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes logoPulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.05); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-    .animate-logo {
-      animation: logoPulse 3s infinite ease-in-out;
-    }
-    .lightning {
-      position: absolute;
-      width: 2px;
-      height: 80px;
-      background: linear-gradient(to bottom, #a855f7, transparent);
-      opacity: 0;
-      animation: strike 3s infinite;
-    }
-    @keyframes strike {
-      0%, 90%, 100% { opacity: 0; transform: translateY(-100px); }
-      95% { opacity: 1; transform: translateY(0); }
     }
     .scroll-fade {
       opacity: 0;
@@ -66,20 +46,15 @@
 </head>
 <body class="bg-black text-gray-200">
 
-  <!-- Random lightning flashes -->
-  <div class="lightning" style="left: 20%; animation-delay: 0s;"></div>
-  <div class="lightning" style="left: 50%; animation-delay: 1.2s;"></div>
-  <div class="lightning" style="left: 75%; animation-delay: 2.4s;"></div>
-
-  <!-- Hero mit Video & Fallback -->
+  <!-- Hero mit Video, Logo & Text -->
   <section class="relative h-screen overflow-hidden">
     <video autoplay muted loop class="absolute w-full h-full object-cover z-0">
       <source src="bandvideo.mp4" type="video/mp4">
       <img src="bandfoto.png" alt="Bandfoto" class="w-full h-full object-cover" />
     </video>
     <div class="z-10 flex flex-col items-center justify-center h-full text-center px-4 bg-black/60">
-      <h1 class="text-4xl md:text-6xl font-bold text-purple-300">Corpseforge</h1>
-      <p class="mt-6 text-xl text-gray-300">Love. Hate. Death. Dance.</p>
+      <img src="logo.png" alt="Corpseforge Logo" class="w-3/4 max-w-md mb-6">
+      <h1 class="text-2xl md:text-4xl font-bold text-purple-300">LOVE. HATE. DEATH. DANCE. DIE.</h1>
     </div>
   </section>
 
@@ -90,8 +65,24 @@
     <p>Im März 2025 erschien das erste Album <strong>Symphony of Death</strong>, gefolgt von <strong>Dark World</strong> und dem experimentellen <strong>LOVE HATE DEATH</strong>.</p>
   </section>
 
-  <!-- Musik mit Spotify Playlist -->
+  <!-- Veröffentlichungen -->
   <section class="bg-gray-900 py-16 px-4 scroll-fade">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-purple-300 mb-6">Bisherige Veröffentlichungen</h2>
+      <ul class="space-y-4 text-lg">
+        <li><strong>Unholy Night</strong> <span class="text-gray-400">[EP: 25. Dezember 2024]</span></li>
+        <li><strong>Symphony of Death</strong> <span class="text-gray-400">[Album: 12. März 2025]</span></li>
+        <li><strong>Morgue Disco</strong> <span class="text-gray-400">[Single: 18. März 2025]</span></li>
+        <li><strong>Eau De Cologne</strong> <span class="text-gray-400">[Single: 25. März 2025]</span></li>
+        <li><strong>My Cat Eat Your Dog</strong> <span class="text-gray-400">[Single: 01. April 2025]</span></li>
+        <li><strong>Dark World</strong> <span class="text-gray-400">[Album: 04. April 2025]</span></li>
+        <li><strong>Love Hate Death</strong> <span class="text-gray-400">[Album: 11. April 2025]</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Spotify Playlist -->
+  <section class="bg-gray-800 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold text-purple-300 mb-8">Musik</h2>
       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator&theme=0" width="100%" height="400" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -105,7 +96,7 @@
   </section>
 
   <!-- Media & Socials -->
-  <section class="bg-gray-800 py-16 px-4 scroll-fade">
+  <section class="bg-gray-900 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-bold text-purple-300 mb-6">Folgt uns</h2>
       <div class="flex justify-center space-x-6">
