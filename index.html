@@ -65,25 +65,23 @@
   </style>
 </head>
 <body class="bg-black text-gray-200">
+
   <!-- Random lightning flashes -->
   <div class="lightning" style="left: 20%; animation-delay: 0s;"></div>
   <div class="lightning" style="left: 50%; animation-delay: 1.2s;"></div>
   <div class="lightning" style="left: 75%; animation-delay: 2.4s;"></div>
 
-  <!-- Hero mit Video-Hintergrund und animiertem Logo -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden">
-  <!-- Video-Hintergrund -->
-  <video autoplay muted loop class="absolute w-full h-full object-cover z-0">
-    <source src="bandvideo.mp4" type="video/mp4">
-    Dein Browser unterstützt kein HTML5-Video.
-  </video>
-
-  <!-- Inhalt über dem Video -->
-  <div class="z-10 flex flex-col items-center justify-center text-center px-4">
-    <img src="logo.png" alt="Corpseforge Logo" class="w-3/4 max-w-xl animate-logo drop-shadow-lg">
-    <p class="mt-6 text-xl text-gray-300">Love. Hate. Death. Dance. Die.</p>
-  </div>
-</section>
+  <!-- Hero mit Video & Fallback -->
+  <section class="relative h-screen overflow-hidden">
+    <video autoplay muted loop class="absolute w-full h-full object-cover z-0">
+      <source src="bandvideo.mp4" type="video/mp4">
+      <img src="bandfoto.png" alt="Bandfoto" class="w-full h-full object-cover" />
+    </video>
+    <div class="z-10 flex flex-col items-center justify-center h-full text-center px-4 bg-black/60">
+      <h1 class="text-4xl md:text-6xl font-bold text-purple-300">Corpseforge</h1>
+      <p class="mt-6 text-xl text-gray-300">Love. Hate. Death. Dance.</p>
+    </div>
+  </section>
 
   <!-- Über die Band -->
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
@@ -93,29 +91,17 @@
   </section>
 
   <!-- Musik mit Spotify Playlist -->
-<section class="bg-gray-900 py-16 px-4 scroll-fade">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-3xl font-bold text-purple-300 mb-8">Musik</h2>
-
-    <!-- Deine eigene Playlist -->
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-    <ul class="space-y-4 mt-8">
-      <li><strong>Unholy Night</strong></li>
-      <li><strong>Symphony of Death</strong></li>
-      <li><strong>Dark World</strong></li>
-      <li><strong>LOVE HATE DEATH</strong></li>
-      <li><strong>Morgue Disco</strong></li>
-      <li><strong>Eau De Cologne</strong></li>
-      <li><strong>My Cat Eat Your Dog</strong></li>
-    </ul>
-  </div>
-</section>
+  <section class="bg-gray-900 py-16 px-4 scroll-fade">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-purple-300 mb-8">Musik</h2>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator&theme=0" width="100%" height="400" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
 
   <!-- Stil & Inhalte -->
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold text-purple-300 mb-4">Musikalischer Stil</h2>
-    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock. Textlich dreht sich alles um Liebe, Hass, Tod, Cyberpunk und Nekromantie – oft mit einem Augenzwinkern und explizitem Inhalt. Auf dem Album "Love Hate Death" kommen zudem auch ein paar japanische Passagen hinzu, als kleine Hommage,  da J-Bands gerne englisch- oder deutschsprachige Textzeilen in ihren Songs einbinden und Corpseforge dreht den Spieß jetzt um.</p>
+    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock. Textlich dreht sich alles um Liebe, Hass, Tod, Cyberpunk und Nekromantie – oft mit einem Augenzwinkern und explizitem Inhalt.</p>
   </section>
 
   <!-- Media & Socials -->
@@ -138,9 +124,7 @@
 
   <script>
     const faders = document.querySelectorAll('.scroll-fade');
-    const options = {
-      threshold: 0.1
-    };
+    const options = { threshold: 0.1 };
     const appearOnScroll = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -149,10 +133,10 @@
         }
       });
     }, options);
-
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
   </script>
+
 </body>
 </html>
