@@ -21,6 +21,55 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
+    /* Blitz-Effekt */
+    .flash {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 10px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+      animation: flashAnimation 0.3s ease-in-out forwards, flicker 0.1s infinite;
+      z-index: 9999;
+    }
+
+    @keyframes flashAnimation {
+      0% {
+        transform: scaleX(0.2);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scaleX(0.2);
+        opacity: 0;
+      }
+    }
+
+    /* Flicker-Effekt für den Blitz */
+    @keyframes flicker {
+      0% {
+        opacity: 0.8;
+      }
+      20% {
+        opacity: 1;
+      }
+      40% {
+        opacity: 0.7;
+      }
+      60% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        opacity: 0.9;
+      }
+    }
+
     /* Herzschlag-Animation für das Logo */
     @keyframes heartbeat {
       0%, 20% {
@@ -68,34 +117,12 @@
       80% { transform: translate(2px, -2px); }
       100% { transform: translate(0); }
     }
-
-    /* Blitz-Animation */
-    .flash {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.8);
-      pointer-events: none;
-      opacity: 0;
-      animation: flashAnimation 0.5s ease-in-out;
-    }
-
-    @keyframes flashAnimation {
-      0% { opacity: 0; }
-      50% { opacity: 0.8; }
-      100% { opacity: 0; }
-    }
   </style>
 </head>
 <body class="bg-black text-gray-200 relative">
 
   <!-- Blitz-Effekte -->
   <div id="blitz-container" class="absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-
-  <!-- Sound -->
-  <audio id="thunder-sound" src="thunder-sound.mp3" preload="auto"></audio>
 
   <!-- Hero Section with Video and Logo on top -->
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
@@ -176,6 +203,34 @@
     <p>&copy; 2025 Corpseforge. All rights reserved.</p>
   </footer>
 
+  <!-- Thunder Sound -->
+  <audio id="thunder-sound" src="thunder-sound.mp3" preload="auto"></audio>
+
+  <!-- Blitz-Effekt Skript -->
+  <script>
+    const blitzContainer = document.getElementById('blitz-container');
+    const thunderSound = document.getElementById('thunder-sound');
+
+    // Funktion um Blitz zu erzeugen
+    function createBlitz() {
+      const flash = document.createElement('div');
+      flash.classList.add('flash');
+      flash.style.left = `${Math.random() * 100}%`;  // Blitz von zufälliger Position
+      blitzContainer.appendChild(flash);
+
+      // Thunder Sound abspielen
+      thunderSound.play();
+
+      // Blitz nach 500ms entfernen
+      setTimeout(() => {
+        flash.remove();
+      }, 500);  // Blitz-Dauer
+    }
+
+    // Blitz alle 30 Sekunden
+    setInterval(createBlitz, 30000); // Alle 30 Sekunden ein Blitz
+  </script>
+
   <!-- Scroll Fade In Effect -->
   <script>
     const faders = document.querySelectorAll('.scroll-fade');
@@ -190,26 +245,6 @@
     }, options);
 
     faders.forEach(fader => appearOnScroll.observe(fader));
-
-    // Blitz-Animation
-    let thunderSound = document.getElementById('thunder-sound');
-    function createFlash() {
-      let flash = document.createElement('div');
-      flash.classList.add('flash');
-      document.getElementById('blitz-container').appendChild(flash);
-      thunderSound.play();
-
-      setTimeout(() => {
-        flash.remove();
-      }, 500); // Blitz-Dauer
-    }
-
-    // Blitze erstellen, max 5 gleichzeitig
-    setInterval(() => {
-      if (document.querySelectorAll('.flash').length < 5) {
-        createFlash();
-      }
-    }, 3000); // Blitzintervalle
   </script>
 
 </body>
