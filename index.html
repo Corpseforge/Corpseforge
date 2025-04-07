@@ -10,21 +10,18 @@
   <style>
     body {
       font-family: 'Orbitron', sans-serif;
+      animation: fadeIn 2s ease-in-out;
       background-color: #000;
       overflow-x: hidden;
-      height: 100vh;
-      margin: 0;
-      position: relative;
       cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1161.cur'), auto;
     }
 
-    /* Fade-in Animation */
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* Herzschlag-Animation (zwei schnelle Schläge und eine Pause) */
+    /* Herzschlag-Animation für das Logo */
     @keyframes heartbeat {
       0%, 20% {
         transform: scale(1);
@@ -47,128 +44,56 @@
       animation: heartbeat 1.5s ease-in-out infinite;
     }
 
-    /* Blitz-Effekt */
-    @keyframes lightning {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-    }
-
-    /* Blitz-Animation */
-    .lightning {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 2px;
-      height: 100vh;
-      background: linear-gradient(to bottom, #a855f7, transparent);
+    .scroll-fade {
       opacity: 0;
-      animation: lightning 0.6s ease-in-out infinite;
-      animation-delay: calc(30s * random()); /* Zufällige Verzögerung */
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* Blitz-Effekte erzeugen */
-    @keyframes random-blink {
-      0%, 100% {
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-    }
-
-    .lightning-strike {
-      animation: random-blink 2s linear infinite;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-      height: 100vh;
-      width: 2px;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-    }
-
-    video {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-
-    /* Inhalte im Vordergrund */
-    .content {
-      position: relative;
-      z-index: 10;
-      text-align: center;
-      color: #fff;
-      padding-top: 20%;
-    }
-
-    /* Abschnitt Styling */
-    section {
-      padding: 4rem 2rem;
-      color: #fff;
-    }
-
-    h2 {
-      font-size: 2rem;
+    .hover-glitch:hover {
       color: #a855f7;
-      text-align: center;
+      text-shadow: 1px 0 #a855f7, -1px 0 #9333ea;
+      animation: glitch 0.5s infinite;
     }
 
-    /* Spieler-Styles */
-    iframe {
-      border-radius: 12px;
-      margin-top: 20px;
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
     }
-
   </style>
 </head>
-<body>
+<body class="bg-black text-gray-200 relative">
 
-  <!-- Hero Section mit Video und Logo -->
+  <!-- Hero Section with Video and Logo on top -->
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
-    <!-- Video Hintergrund mit Fallback-Bild -->
-    <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0" onerror="this.style.display='none'; document.getElementById('fallback-image').style.display='block';">
+    <!-- Video Background -->
+    <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0">
       <source src="bandvideo.mp4" type="video/mp4" />
     </video>
-    <!-- Fallback Bild -->
-    <img id="fallback-image" src="bandfoto.pgn" alt="Fallback Image" class="absolute inset-0 w-full h-full object-cover z-0" style="display:none;">
-    <!-- Logo und Text über Video -->
-    <div class="relative z-10 text-center px-4 content">
+    <!-- Logo and Text Over Video -->
+    <div class="relative z-10 text-center px-4">
       <img src="logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
-      <p class="mt-6 text-xl">LOVE. HATE. DEATH. DANCE. DIE.</p>
+      <p class="mt-6 text-xl text-gray-300">LOVE. HATE. DEATH. DANCE. DIE.</p>
     </div>
   </section>
 
-  <!-- Blitz-Effekte -->
-  <div class="lightning-strike"></div> <!-- Blitz sichtbar nach einer zufälligen Verzögerung -->
-  <div class="lightning-strike" style="animation-delay: 3s;"></div> <!-- Blitz sichtbar nach 3s -->
-  <div class="lightning-strike" style="animation-delay: 6s;"></div> <!-- Blitz sichtbar nach 6s -->
-
   <!-- Über die Band -->
-  <section class="max-w-4xl mx-auto py-16 px-4">
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold text-purple-300 mb-4">Bandgeschichte</h2>
     <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet. Songwriting und Produktion übernimmt M. Gabriel, die Gesangsparts werden von Marty und Kairi übernommen. Erste Bekanntheit erlangte die Band über TikTok mit ihrer EP <em>Unholy Night</em>.</p>
     <p>Im März 2025 erschien das erste Album <strong>Symphony of Death</strong>, gefolgt von <strong>Dark World</strong> und dem experimentellen <strong>LOVE HATE DEATH</strong>.</p>
   </section>
 
   <!-- Musik mit Spotify Player -->
-  <section class="bg-gray-900 py-16 px-4">
+  <section class="bg-gray-900 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold text-purple-300 mb-8">Musik</h2>
       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -189,7 +114,7 @@
   </section>
 
   <!-- Bisherige Veröffentlichungen -->
-  <section class="max-w-4xl mx-auto py-16 px-4">
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold text-purple-300 mb-4">Bisherige Veröffentlichungen</h2>
     <ul class="list-disc list-inside text-gray-300">
       <li><strong>Unholy Night</strong> [EP: 25. Dezember 2024]</li>
@@ -202,10 +127,45 @@
     </ul>
   </section>
 
+  <!-- Stil & Inhalte -->
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold text-purple-300 mb-4">Musikalischer Stil</h2>
+    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock. Textlich dreht sich alles um Liebe, Hass, Tod, Cyberpunk und Nekromantie – oft mit einem Augenzwinkern und explizitem Inhalt.</p>
+  </section>
+
+  <!-- Media & Socials -->
+  <section class="bg-gray-800 py-16 px-4 scroll-fade">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-purple-300 mb-6">Folgt uns</h2>
+      <div class="flex justify-center space-x-6">
+        <a href="https://youtube.com/@corpseforgemusic?si=hf5XH_RvEnpArKc3" class="text-gray-300 hover-glitch" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vJIup9TfwU&_r=1" class="text-gray-300 hover-glitch" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="text-gray-300 hover-glitch" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="text-gray-300 hover-glitch" target="_blank">Spotify</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-black py-8 text-center text-sm text-gray-500">
     <p>&copy; 2025 Corpseforge. All rights reserved.</p>
   </footer>
+
+  <!-- Scroll Fade In Effect -->
+  <script>
+    const faders = document.querySelectorAll('.scroll-fade');
+    const options = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 
 </body>
 </html>
