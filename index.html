@@ -79,7 +79,7 @@
       background: rgba(255, 255, 255, 0.8);
       pointer-events: none;
       opacity: 0;
-      animation: flashAnimation 1s infinite;
+      animation: flashAnimation 0.5s ease-in-out;
     }
 
     @keyframes flashAnimation {
@@ -105,7 +105,7 @@
     </video>
     <!-- Logo and Text Over Video -->
     <div class="relative z-10 text-center px-4">
-      <img src="Logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
+      <img src="logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
       <p class="mt-6 text-xl text-gray-300">LOVE. HATE. DEATH. DANCE. DIE.</p>
     </div>
   </section>
@@ -201,7 +201,7 @@
 
       setTimeout(() => {
         flash.remove();
-      }, 1000); // Dauer des Blitzes
+      }, 500); // Blitz-Dauer
     }
 
     // Blitze erstellen, max 5 gleichzeitig
@@ -209,7 +209,7 @@
       if (document.querySelectorAll('.flash').length < 5) {
         createFlash();
       }
-    }, 2000); // Blitzintervalle
+    }, 3000); // Blitzintervalle
   </script>
 
 </body>
