@@ -24,7 +24,7 @@
     /* Blitz-Animation */
     .lightning-flash {
       position: fixed;
-      width: 2px;
+      width: 3px;
       height: 100vh;
       background: linear-gradient(to bottom, #a855f7, transparent);
       opacity: 0;
@@ -39,13 +39,13 @@
     }
 
     .animate-logo {
-      animation: logoPulse 3s infinite ease-in-out;
+      animation: heartbeat 1.5s infinite;
     }
 
-    @keyframes logoPulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.05); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     .scroll-fade {
@@ -174,10 +174,12 @@
       setTimeout(() => flash.remove(), 600);  // Blitz nach 600ms entfernen
     }
 
-    // Alle 3 Sekunden Blitze erzeugen (40% Wahrscheinlichkeit)
+    // Alle 30 Sekunden Blitze erzeugen (mehrere auf einmal)
     setInterval(() => {
-      if (Math.random() < 0.4) createFlash();  // 40% Chance, alle 3 Sekunden einen Blitz zu erzeugen
-    }, 3000);
+      for (let i = 0; i < 5; i++) {  // 5 Blitze auf einmal erzeugen
+        createFlash();
+      }
+    }, 30000);
   </script>
 
   <script>
