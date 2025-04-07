@@ -150,12 +150,16 @@
 
   <!-- Lightning Effect -->
   <script>
+    const thunderSound = new Audio('thunder-sound.mp3');  // Füge den Pfad zum Thunder-Sound ein
+
     function createFlash() {
       const flash = document.createElement('div');
       flash.classList.add('lightning-flash');
       flash.style.left = Math.random() * window.innerWidth + 'px';
       document.body.appendChild(flash);
       flash.style.animation = 'flash 0.6s ease-in-out';
+      
+      thunderSound.play();  // Sound abspielen
 
       setTimeout(() => flash.remove(), 600);
     }
