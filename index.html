@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -73,27 +73,27 @@
 
     /* Theme: LOVE */
     .theme-love {
-      background-color: #0e032d;
-      color: #ffffff;
+      background-color: #ffc0cb;
+      color: white;
     }
 
     .theme-love .section-title,
     .theme-love a[href*="spotify"],
     .theme-love footer p,
     .theme-love .hover-glitch:hover {
-      color: #f200e0 !important;
-      text-shadow: 1px 0 #f200e0, -1px 0 #f200e0;
+      color: #dda0dd !important;
+      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
     }
 
     .theme-love strong,
     .theme-love ul li,
     .theme-love .text-gray-300 {
-      color: #ffffff !important;
+      color: white !important;
     }
 
     /* Theme: HATE */
     .theme-hate {
-      background-color: #f5f5dc;
+      background-color: #39ff14;
       color: #000000;
     }
 
@@ -108,15 +108,15 @@
     .theme-hate .bg-gray-800 ul li,
     .theme-hate .bg-gray-900 ul li,
     .theme-hate .tracklist li {
-      color: #000000 !important;
+      color: #ffffff !important;
     }
 
     .theme-hate .hover-glitch:hover,
     .theme-hate footer p,
     .theme-hate .spotify-link,
     .theme-hate .bg-gray-900 a[href*="spotify"] {
-      color: #c30000 !important;
-      text-shadow: 1px 0 #c30000, -1px 0 #c30000;
+      color: #39ff14 !important;
+      text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
 
     .theme-hate p,
@@ -129,7 +129,80 @@
 </head>
 <body class="theme-death text-white relative transition-all duration-700" id="body">
 
-  <!-- Rest des HTML bleibt unverändert (siehe dein letzter Stand) -->
+  <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
+    <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0" id="bgVideo">
+      <source src="bandvideo.mp4" type="video/mp4" />
+    </video>
+    <div class="relative z-10 text-center px-4">
+      <img src="logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
+      <p class="mt-6 text-xl text-gray-300">
+        <span onclick="setTheme('love')" class="cursor-pointer hover-glitch transition-all duration-300">LOVE</span>. 
+        <span onclick="setTheme('hate')" class="cursor-pointer hover-glitch transition-all duration-300">HATE</span>. 
+        <span onclick="setTheme('death')" class="cursor-pointer hover-glitch transition-all duration-300">DEATH</span>.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold mb-4 section-title">Bandgeschichte</h2>
+    <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet...</p>
+    <p>Im März 2025 erschien das erste Album <strong>Symphony of Death</strong>, gefolgt von <strong>Dark World</strong> und dem experimentellen <strong>LOVE HATE DEATH</strong>.</p>
+  </section>
+
+  <section class="bg-gray-900 py-16 px-4 scroll-fade">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-8 section-title">Musik</h2>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <p class="text-center mt-4">
+        <a href="https://open.spotify.com/playlist/6fdTlZmpIfAanvCkjfMGRN" class="spotify-link" target="_blank">Ganze Playlist auf Spotify ansehen</a>
+      </p>
+      <div class="tracklist text-white mt-10">
+        <ul class="space-y-4">
+          <li><strong>Symphony of Death</strong></li>
+          <li><strong>Dark World</strong></li>
+          <li><strong>LOVE HATE DEATH</strong></li>
+          <li><strong>Morgue Disco</strong></li>
+          <li><strong>Eau De Cologne</strong></li>
+          <li><strong>My Cat Eat Your Dog</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold mb-4 section-title">Bisherige Veröffentlichungen</h2>
+    <ul class="list-disc list-inside">
+      <li><strong>Unholy Night</strong> [EP: 25. Dezember 2024]</li>
+      <li><strong>Symphony of Death</strong> [Album: 12. März 2025]</li>
+      <li><strong>Morgue Disco</strong> [Single: 18. März 2025]</li>
+      <li><strong>Eau De Cologne</strong> [Single: 25. März 2025]</li>
+      <li><strong>My Cat Eat Your Dog</strong> [Single: 01. April 2025]</li>
+      <li><strong>Dark World</strong> [Album: 04. April 2025]</li>
+      <li><strong>Love Hate Death</strong> [Album: 11. April 2025]</li>
+    </ul>
+  </section>
+
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold mb-4 section-title">Musikalischer Stil</h2>
+    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock...</p>
+  </section>
+
+  <section class="bg-gray-800 py-16 px-4 scroll-fade">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 section-title">Folgt uns</h2>
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="https://youtube.com/@corpseforgemusic?si=hf5XH_RvEnpArKc3" class="hover-glitch" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vJIup9TfwU&_r=1" class="hover-glitch" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="hover-glitch" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="hover-glitch" target="_blank">Spotify</a>
+      </div>
+      <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
+    </div>
+  </section>
+
+  <footer class="bg-black py-8 text-center text-sm">
+    <p>&copy; 2025 Corpseforge. All rights reserved.</p>
+  </footer>
 
   <script>
     const faders = document.querySelectorAll('.scroll-fade');
