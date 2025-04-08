@@ -14,7 +14,6 @@
       background-color: #000;
       overflow-x: hidden;
       cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1161.cur'), auto;
-      position: relative;
     }
 
     @keyframes fadeIn {
@@ -69,90 +68,9 @@
       80% { transform: translate(2px, -2px); }
       100% { transform: translate(0); }
     }
-
-    /* Blitz-Effekt */
-    .flash {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.8);
-      transform-origin: center;
-      animation: flashAnimation 0.3s ease-in-out forwards, flicker 0.1s infinite;
-      z-index: 9999;
-    }
-
-    .flash::before, .flash::after {
-      content: "";
-      position: absolute;
-      background: rgba(255, 255, 255, 0.8);
-      box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.8);
-    }
-
-    .flash::before {
-      width: 2px;
-      height: 30px;
-      left: -10px;
-      top: 50%;
-      transform: rotate(-45deg);
-      animation: flashBranch 0.3s ease-in-out forwards;
-    }
-
-    .flash::after {
-      width: 2px;
-      height: 30px;
-      left: 10px;
-      top: 50%;
-      transform: rotate(45deg);
-      animation: flashBranch 0.3s ease-in-out forwards;
-    }
-
-    @keyframes flashAnimation {
-      0% {
-        transform: scaleX(0.2);
-        opacity: 0.7;
-      }
-      50% {
-        transform: scaleX(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scaleX(0.2);
-        opacity: 0;
-      }
-    }
-
-    @keyframes flicker {
-      0% { opacity: 0.9; }
-      20% { opacity: 1; }
-      40% { opacity: 0.7; }
-      60% { opacity: 0.8; }
-      80% { opacity: 1; }
-      100% { opacity: 0.9; }
-    }
-
-    @keyframes flashBranch {
-      0% {
-        transform: scaleY(0.2);
-        opacity: 0;
-      }
-      50% {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scaleY(0.2);
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body class="bg-black text-gray-200 relative">
-
-  <!-- Blitz-Effekt hinzufügen -->
-  <div id="blitz-container"></div>
 
   <!-- Hero Section with Video and Logo on top -->
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
@@ -233,24 +151,21 @@
     <p>&copy; 2025 Corpseforge. All rights reserved.</p>
   </footer>
 
-  <!-- Blitz-Script -->
+  <!-- Scroll Fade In Effect -->
   <script>
-    const blitzContainer = document.getElementById('blitz-container');
-    const thunderSound = new Audio('thunder-sound.mp3'); // Beachte, dass du eine Thunder-Sound-Datei hast
+    const faders = document.querySelectorAll('.scroll-fade');
+    const options = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, options);
 
-    // Funktion für Blitz-Animation
-    function createBlitz() {
-      const flash = document.createElement('div');
-      flash.classList.add('flash');
-      blitzContainer.appendChild(flash);
-
-      thunderSound.play();  // Thunder Sound abspielen
-
-      setTimeout(() => flash.remove(), 500);  // Blitz nach 500ms entfernen
-    }
-
-    // Blitz alle 30 Sekunden auslösen
-    setInterval(createBlitz, 30000);
+    faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
+
 </body>
 </html>
