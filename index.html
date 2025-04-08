@@ -56,6 +56,7 @@
       animation: glitch 0.5s infinite;
     }
 
+    /* Theme: DEATH */
     .theme-death {
       background-color: #000000;
       color: white;
@@ -66,7 +67,7 @@
     }
 
     .theme-death a[href*="spotify"] {
-      color: white !important;
+      color: #ff0000 !important;
     }
 
     .theme-death .hover-glitch:hover {
@@ -74,12 +75,20 @@
       text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
     }
 
+    /* Theme: LOVE */
     .theme-love {
       background-color: #ffc0cb;
       color: white;
     }
 
-    .theme-love .section-title,
+    .theme-love .section-title {
+      color: #dda0dd !important;
+    }
+
+    .theme-love a[href*="spotify"] {
+      color: #dda0dd !important;
+    }
+
     .theme-love strong,
     .theme-love ul li,
     .theme-love .text-gray-300 {
@@ -91,17 +100,32 @@
       text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
     }
 
+    /* Theme: HATE */
     .theme-hate {
       background-color: #39ff14;
       color: #000000;
     }
 
-    .theme-hate,
     .theme-hate p,
     .theme-hate li,
-    .theme-hate a,
-    .theme-hate strong {
+    .theme-hate strong,
+    .theme-hate a {
       color: #000000 !important;
+    }
+
+    .theme-hate .bg-gray-800,
+    .theme-hate .bg-gray-900 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 .section-title,
+    .theme-hate .bg-gray-900 .section-title {
+      color: #39ff14 !important;
+    }
+
+    .theme-hate .bg-gray-800 a[href*="spotify"],
+    .theme-hate .bg-gray-900 a[href*="spotify"] {
+      color: #39ff14 !important;
     }
 
     .theme-hate .hover-glitch:hover {
@@ -109,23 +133,12 @@
       text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
 
-    .theme-hate .bg-gray-800,
-    .theme-hate .bg-gray-900 {
-      color: white;
-    }
-
-    .theme-hate .bg-gray-800 .section-title,
-    .theme-hate .bg-gray-900 .section-title,
-    .theme-hate .bg-gray-800 a[href*="spotify"],
-    .theme-hate .bg-gray-900 a[href*="spotify"] {
-      color: #39ff14 !important;
-    }
-
+    /* Footer Styles */
     footer a,
     .theme-love footer a,
     .theme-hate footer a,
     .theme-death footer a {
-      color: white;
+      color: white !important;
     }
 
     footer a.hover-glitch:hover {
@@ -146,18 +159,6 @@
       color: #39ff14 !important;
       text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
-
-    .heading-death {
-      color: #ff0000;
-    }
-
-    .heading-love {
-      color: #dda0dd;
-    }
-
-    .heading-hate {
-      color: #000000;
-    }
   </style>
 </head>
 <body class="theme-death text-white relative transition-all duration-700" id="body">
@@ -166,7 +167,6 @@
     <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0" id="bgVideo">
       <source src="bandvideo.mp4" type="video/mp4" />
     </video>
-
     <div class="relative z-10 text-center px-4">
       <img src="logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
       <p class="mt-6 text-xl text-gray-300">
