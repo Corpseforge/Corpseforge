@@ -271,6 +271,22 @@
     }, options);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
+    let audio = new Audio();
+
+    function playSound(theme) {
+      if (audio) {
+        audio.pause();
+      }
+      if (theme === 'love') {
+        audio = new Audio('love-theme.mp3');
+      } else if (theme === 'hate') {
+        audio = new Audio('hate-theme.mp3');
+      } else if (theme === 'death') {
+        audio = new Audio('death-theme.mp3');
+      }
+      audio.play();
+    }
+
     function setTheme(theme) {
       const body = document.getElementById('body');
       const video = document.getElementById('bgVideo');
@@ -284,6 +300,8 @@
       video.src = videoSrc;
       video.load();
       video.play();
+
+      playSound(theme);
     }
   </script>
 
