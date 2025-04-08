@@ -28,6 +28,15 @@
       100% { transform: scale(1); }
     }
 
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
     .heartbeat-logo {
       animation: heartbeat 1.5s ease-in-out infinite;
     }
@@ -43,18 +52,8 @@
     }
 
     .hover-glitch:hover {
-      color: #a855f7;
-      text-shadow: 1px 0 #a855f7, -1px 0 #9333ea;
+      text-shadow: 1px 0, -1px 0;
       animation: glitch 0.5s infinite;
-    }
-
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-2px, 2px); }
-      80% { transform: translate(2px, -2px); }
-      100% { transform: translate(0); }
     }
 
     .theme-death {
@@ -70,29 +69,40 @@
       color: #000000;
     }
 
+    .theme-love .section-title,
+    .theme-love a,
+    .theme-love .hover-glitch:hover {
+      color: #dda0dd !important;
+      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
+    }
+
+    .theme-love ul li,
+    .theme-love .text-gray-300,
+    .theme-love strong {
+      color: white !important;
+    }
+
+    .theme-hate,
+    .theme-hate p,
+    .theme-hate li,
     .theme-hate a,
     .theme-hate .section-title,
     .theme-hate strong {
-      color: #000000;
+      color: #000000 !important;
     }
 
-    .bg-gray-900,
-    .bg-gray-800 {
-      background-color: #1f2937;
+    .theme-hate .hover-glitch:hover {
+      color: #39ff14 !important;
+      text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
 
-    .theme-hate .bg-gray-900,
-    .theme-hate .bg-gray-800 {
-      color: #39ff14;
+    .theme-death a[href*="spotify"]:not(.text-purple-400) {
+      color: #ff0000 !important;
     }
 
-    .theme-hate .bg-gray-900 a,
-    .theme-hate .bg-gray-800 a,
-    .theme-hate .bg-gray-900 .section-title,
-    .theme-hate .bg-gray-800 .section-title,
-    .theme-hate .bg-gray-900 strong,
-    .theme-hate .bg-gray-800 strong {
-      color: #39ff14;
+    .theme-death .hover-glitch:hover {
+      color: #ff0000 !important;
+      text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
     }
 
     .heading-death {
@@ -112,12 +122,10 @@
 
   <!-- Hero Section -->
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
-    <!-- Video Background -->
     <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0" id="bgVideo">
       <source src="bandvideo.mp4" type="video/mp4" />
     </video>
 
-    <!-- Logo + Theme Switcher -->
     <div class="relative z-10 text-center px-4">
       <img src="logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
       <p class="mt-6 text-xl text-gray-300">
@@ -128,7 +136,7 @@
     </div>
   </section>
 
-  <!-- Sections -->
+  <!-- Content Sections -->
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold mb-4 section-title">Bandgeschichte</h2>
     <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet. Songwriting und Produktion übernimmt M. Gabriel, die Gesangsparts werden von Marty und Kairi übernommen. Erste Bekanntheit erlangte die Band über TikTok mit ihrer EP <em>Unholy Night</em>.</p>
@@ -138,11 +146,11 @@
   <section class="bg-gray-900 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-8 section-title">Musik</h2>
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <p class="text-center mt-4">
-        <a href="https://open.spotify.com/playlist/6fdTlZmpIfAanvCkjfMGRN" target="_blank" class="text-purple-400 hover:underline">Ganze Playlist auf Spotify ansehen</a>
+        <a href="https://open.spotify.com/playlist/6fdTlZmpIfAanvCkjfMGRN" target="_blank">Ganze Playlist auf Spotify ansehen</a>
       </p>
-      <ul class="space-y-4 mt-8 text-gray-300">
+      <ul class="space-y-4 mt-8">
         <li><strong>Symphony of Death</strong></li>
         <li><strong>Dark World</strong></li>
         <li><strong>LOVE HATE DEATH</strong></li>
@@ -155,7 +163,7 @@
 
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold mb-4 section-title">Bisherige Veröffentlichungen</h2>
-    <ul class="list-disc list-inside text-gray-300">
+    <ul class="list-disc list-inside">
       <li><strong>Unholy Night</strong> [EP: 25. Dezember 2024]</li>
       <li><strong>Symphony of Death</strong> [Album: 12. März 2025]</li>
       <li><strong>Morgue Disco</strong> [Single: 18. März 2025]</li>
@@ -171,26 +179,23 @@
     <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock. Textlich dreht sich alles um Liebe, Hass, Tod, Cyberpunk und Nekromantie – oft mit einem Augenzwinkern und explizitem Inhalt.</p>
   </section>
 
-  <!-- Media & Socials -->
   <section class="bg-gray-800 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6 section-title">Folgt uns</h2>
       <div class="flex justify-center space-x-6 mb-6">
-        <a href="https://youtube.com/@corpseforgemusic?si=hf5XH_RvEnpArKc3" class="text-gray-300 hover-glitch" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vJIup9TfwU&_r=1" class="text-gray-300 hover-glitch" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="text-gray-300 hover-glitch" target="_blank">Instagram</a>
-        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="text-gray-300 hover-glitch" target="_blank">Spotify</a>
+        <a href="https://youtube.com/@corpseforgemusic?si=hf5XH_RvEnpArKc3" class="hover-glitch" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vJIup9TfwU&_r=1" class="hover-glitch" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="hover-glitch" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="hover-glitch" target="_blank">Spotify</a>
       </div>
       <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-black py-8 text-center text-sm text-gray-500">
     <p>&copy; 2025 Corpseforge. All rights reserved.</p>
   </footer>
 
-  <!-- Scroll Fade In -->
   <script>
     const faders = document.querySelectorAll('.scroll-fade');
     const options = { threshold: 0.1 };
@@ -203,10 +208,7 @@
       });
     }, options);
     faders.forEach(fader => appearOnScroll.observe(fader));
-  </script>
 
-  <!-- Theme Switcher Script -->
-  <script>
     function setTheme(theme) {
       const body = document.getElementById('body');
       const titles = document.querySelectorAll('.section-title');
@@ -223,7 +225,6 @@
       let videoSrc = 'bandvideo.mp4';
       if (theme === 'love') videoSrc = 'video-love.mp4';
       else if (theme === 'hate') videoSrc = 'video-hate.mp4';
-
       video.src = videoSrc;
       video.load();
       video.play();
