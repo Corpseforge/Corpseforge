@@ -46,6 +46,7 @@
       transform: translateY(20px);
       transition: opacity 1s ease-out, transform 1s ease-out;
     }
+
     .scroll-fade.visible {
       opacity: 1;
       transform: translateY(0);
@@ -75,6 +76,10 @@
       text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
     }
 
+    .theme-death footer p {
+      color: #ff0000 !important;
+    }
+
     /* Theme: LOVE */
     .theme-love {
       background-color: #ffc0cb;
@@ -100,10 +105,18 @@
       text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
     }
 
+    .theme-love footer p {
+      color: #dda0dd !important;
+    }
+
     /* Theme: HATE */
     .theme-hate {
       background-color: #39ff14;
       color: #000000;
+    }
+
+    .theme-hate .section-title {
+      color: #000000 !important;
     }
 
     .theme-hate p,
@@ -115,6 +128,13 @@
 
     .theme-hate .bg-gray-800,
     .theme-hate .bg-gray-900 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 ul li,
+    .theme-hate .bg-gray-900 ul li,
+    .theme-hate .bg-gray-800 p,
+    .theme-hate .bg-gray-900 p {
       color: white !important;
     }
 
@@ -133,31 +153,8 @@
       text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
 
-    /* Footer Styles */
-    footer a,
-    .theme-love footer a,
-    .theme-hate footer a,
-    .theme-death footer a {
-      color: white !important;
-    }
-
-    footer a.hover-glitch:hover {
-      text-shadow: none;
-    }
-
-    .theme-love footer a.hover-glitch:hover {
-      color: #dda0dd !important;
-      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
-    }
-
-    .theme-death footer a.hover-glitch:hover {
-      color: #ff0000 !important;
-      text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
-    }
-
-    .theme-hate footer a.hover-glitch:hover {
+    .theme-hate footer p {
       color: #39ff14 !important;
-      text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
   </style>
 </head>
@@ -232,8 +229,8 @@
     </div>
   </section>
 
-  <footer class="bg-black py-8 text-center text-sm text-gray-500">
-    <p>&copy; 2025 Corpseforge. All rights reserved.</p>
+  <footer class="bg-black py-8 text-center text-sm">
+    <p>Alle Rechte liegen bei Corpseforge.</p>
   </footer>
 
   <script>
