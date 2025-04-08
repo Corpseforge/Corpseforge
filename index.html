@@ -58,9 +58,7 @@
     }
 
     .theme-death {
-      background-color: #000;
-      background-image: url('bloodsplatter.png'); /* Optional: eigenes Blutspritzer-Bild */
-      background-size: cover;
+      background-color: #000000;
     }
 
     .theme-love {
@@ -69,6 +67,32 @@
 
     .theme-hate {
       background-color: #39ff14;
+      color: #000000;
+    }
+
+    .theme-hate a,
+    .theme-hate .section-title,
+    .theme-hate strong {
+      color: #000000;
+    }
+
+    .bg-gray-900,
+    .bg-gray-800 {
+      background-color: #1f2937;
+    }
+
+    .theme-hate .bg-gray-900,
+    .theme-hate .bg-gray-800 {
+      color: #39ff14;
+    }
+
+    .theme-hate .bg-gray-900 a,
+    .theme-hate .bg-gray-800 a,
+    .theme-hate .bg-gray-900 .section-title,
+    .theme-hate .bg-gray-800 .section-title,
+    .theme-hate .bg-gray-900 strong,
+    .theme-hate .bg-gray-800 strong {
+      color: #39ff14;
     }
 
     .heading-death {
@@ -86,13 +110,6 @@
 </head>
 <body class="theme-death text-white relative transition-all duration-700" id="body">
 
-  <!-- Theme Switcher -->
-  <div class="fixed top-4 left-4 z-50 space-x-2">
-    <button onclick="setTheme('death')" class="bg-red-800 hover:bg-red-600 text-white px-3 py-1 rounded">Death</button>
-    <button onclick="setTheme('love')" class="bg-pink-400 hover:bg-pink-300 text-black px-3 py-1 rounded">Love</button>
-    <button onclick="setTheme('hate')" class="bg-green-500 hover:bg-green-400 text-black px-3 py-1 rounded">Hate</button>
-  </div>
-
   <!-- Hero Section -->
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
     <!-- Video Background -->
@@ -100,10 +117,14 @@
       <source src="bandvideo.mp4" type="video/mp4" />
     </video>
 
-    <!-- Logo -->
+    <!-- Logo + Theme Switcher -->
     <div class="relative z-10 text-center px-4">
       <img src="logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
-      <p class="mt-6 text-xl text-gray-300">LOVE. HATE. DEATH.</p>
+      <p class="mt-6 text-xl text-gray-300">
+        <span onclick="setTheme('love')" class="cursor-pointer hover-glitch transition-all duration-300">LOVE</span>. 
+        <span onclick="setTheme('hate')" class="cursor-pointer hover-glitch transition-all duration-300">HATE</span>. 
+        <span onclick="setTheme('death')" class="cursor-pointer hover-glitch transition-all duration-300">DEATH</span>.
+      </p>
     </div>
   </section>
 
@@ -160,7 +181,6 @@
         <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="text-gray-300 hover-glitch" target="_blank">Instagram</a>
         <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="text-gray-300 hover-glitch" target="_blank">Spotify</a>
       </div>
-      <!-- Bandfoto -->
       <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
     </div>
   </section>
