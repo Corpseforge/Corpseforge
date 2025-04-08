@@ -58,10 +58,37 @@
 
     .theme-death {
       background-color: #000000;
+      color: white;
+    }
+
+    .theme-death .section-title {
+      color: #ff0000 !important;
+    }
+
+    .theme-death a[href*="spotify"] {
+      color: white !important;
+    }
+
+    .theme-death .hover-glitch:hover {
+      color: #ff0000 !important;
+      text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
     }
 
     .theme-love {
       background-color: #ffc0cb;
+      color: white;
+    }
+
+    .theme-love .section-title,
+    .theme-love strong,
+    .theme-love ul li,
+    .theme-love .text-gray-300 {
+      color: white !important;
+    }
+
+    .theme-love .hover-glitch:hover {
+      color: #dda0dd !important;
+      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
     }
 
     .theme-hate {
@@ -69,24 +96,10 @@
       color: #000000;
     }
 
-    .theme-love .section-title,
-    .theme-love a,
-    .theme-love .hover-glitch:hover {
-      color: #dda0dd !important;
-      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
-    }
-
-    .theme-love ul li,
-    .theme-love .text-gray-300,
-    .theme-love strong {
-      color: white !important;
-    }
-
     .theme-hate,
     .theme-hate p,
     .theme-hate li,
     .theme-hate a,
-    .theme-hate .section-title,
     .theme-hate strong {
       color: #000000 !important;
     }
@@ -96,13 +109,42 @@
       text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
 
-    .theme-death a[href*="spotify"]:not(.text-purple-400) {
-      color: #ff0000 !important;
+    .theme-hate .bg-gray-800,
+    .theme-hate .bg-gray-900 {
+      color: white;
     }
 
-    .theme-death .hover-glitch:hover {
+    .theme-hate .bg-gray-800 .section-title,
+    .theme-hate .bg-gray-900 .section-title,
+    .theme-hate .bg-gray-800 a[href*="spotify"],
+    .theme-hate .bg-gray-900 a[href*="spotify"] {
+      color: #39ff14 !important;
+    }
+
+    footer a,
+    .theme-love footer a,
+    .theme-hate footer a,
+    .theme-death footer a {
+      color: white;
+    }
+
+    footer a.hover-glitch:hover {
+      text-shadow: none;
+    }
+
+    .theme-love footer a.hover-glitch:hover {
+      color: #dda0dd !important;
+      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
+    }
+
+    .theme-death footer a.hover-glitch:hover {
       color: #ff0000 !important;
       text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
+    }
+
+    .theme-hate footer a.hover-glitch:hover {
+      color: #39ff14 !important;
+      text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
 
     .heading-death {
@@ -120,7 +162,6 @@
 </head>
 <body class="theme-death text-white relative transition-all duration-700" id="body">
 
-  <!-- Hero Section -->
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
     <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0" id="bgVideo">
       <source src="bandvideo.mp4" type="video/mp4" />
@@ -136,10 +177,9 @@
     </div>
   </section>
 
-  <!-- Content Sections -->
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold mb-4 section-title">Bandgeschichte</h2>
-    <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet. Songwriting und Produktion übernimmt M. Gabriel, die Gesangsparts werden von Marty und Kairi übernommen. Erste Bekanntheit erlangte die Band über TikTok mit ihrer EP <em>Unholy Night</em>.</p>
+    <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet...</p>
     <p>Im März 2025 erschien das erste Album <strong>Symphony of Death</strong>, gefolgt von <strong>Dark World</strong> und dem experimentellen <strong>LOVE HATE DEATH</strong>.</p>
   </section>
 
@@ -176,7 +216,7 @@
 
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold mb-4 section-title">Musikalischer Stil</h2>
-    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock. Textlich dreht sich alles um Liebe, Hass, Tod, Cyberpunk und Nekromantie – oft mit einem Augenzwinkern und explizitem Inhalt.</p>
+    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock...</p>
   </section>
 
   <section class="bg-gray-800 py-16 px-4 scroll-fade">
