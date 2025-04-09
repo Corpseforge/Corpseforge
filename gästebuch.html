@@ -6,21 +6,47 @@
     <title>Gästebuch</title>
 </head>
 <body>
-    <h1>Willkommen in meinem Gästebuch!</h1>
-
+    <h1>Willkommen im Gästebuch!</h1>
     <form action="https://api.staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/guestbook" method="POST">
-        <label for="author">Name:</label>
-        <input type="text" id="author" name="author" required><br><br>
-        
-        <label for="message">Nachricht:</label><br>
-        <textarea id="message" name="message" rows="4" required></textarea><br><br>
-        
-        <input type="submit" value="Eintrag hinzufügen">
+        <div>
+            <label for="author">Dein Name:</label>
+            <input type="text" name="author" id="author" required>
+        </div>
+
+        <div>
+            <label for="message">Nachricht:</label>
+            <textarea name="message" id="message" required></textarea>
+        </div>
+
+        <div>
+            <input type="hidden" name="date" value="{{ now | date: "%Y-%m-%d" }}">
+        </div>
+
+        <div>
+            <button type="submit">Nachricht absenden</button>
+        </div>
     </form>
 
-    <h2>Einträge im Gästebuch:</h2>
-    <ul id="guestbook-entries">
-        <!-- Einträge werden hier angezeigt -->
+    <h2>Gästebuch Einträge</h2>
+    <ul id="entries">
+        <!-- Gästebuch Einträge werden hier angezeigt -->
     </ul>
+
+    <script>
+        // Holt die Gästebuch Einträge und zeigt sie an
+        fetch('https://raw.githubusercontent.com/Corpseforge/Corpseforge/main/_data/guestbook')
+            .then(response => response.json())
+            .then(data => {
+                const entriesContainer = document.getElementById('entries');
+                data.forEach(entry => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<strong>${entry.author}</strong>: ${entry.message} <br><em>${entry.date}</em>`;
+                    entriesContainer.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der Gästebuch Einträge:', error);
+            });
+    </script>
 </body>
 </html>
