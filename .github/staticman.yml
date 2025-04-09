@@ -1,23 +1,14 @@
-name: Staticman Workflow
-
-on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - "_data/guestbook/**"
-
-jobs:
-  staticman:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Run Staticman to process new guestbook entries
-        run: |
-          curl -X POST -d "{
-            \"author\": \"${{ github.actor }}\",
-            \"message\": \"${{ github.event.head_commit.message }}\"
-          }" https://api.staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/guestbook
+version: 3
+services:
+  - name: staticman
+    endpoint: https://api.staticman.net
+    branch: main
+    data:
+      folder: "_data/guestbook"
+    rules:
+      - field: "author"
+        type: "string"
+        required: true
+      - field: "message"
+        type: "string"
+        required: true
