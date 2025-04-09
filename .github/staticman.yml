@@ -1,14 +1,8 @@
-version: 3
-services:
-  - name: staticman
-    endpoint: https://api.staticman.net
-    branch: main
-    data:
-      folder: "_data/guestbook"
-    rules:
-      - field: "author"
-        type: "string"
-        required: true
-      - field: "message"
-        type: "string"
-        required: true
+# staticman.yml im `.github` Ordner
+
+name: Staticman API Config
+
+on:
+  push:
+    paths:
+      - .github/workflows/staticman.yml
