@@ -5,13 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutz - Corpseforge</title>
   <style>
+    /* Allgemeine Styles für den Body */
     body {
-      background-color: #000;
+      background: linear-gradient(to bottom, #0a0f0a, #000);
       color: #fff;
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       text-align: center;
+      overflow-x: hidden; /* Verhindert horizontalen Scrollbalken */
+    }
+
+    /* Container für die gesamte Seite */
+    .container {
+      width: 100%;
+      max-width: 1200px;  /* Maximalbreite für den Container */
+      margin: 0 auto;     /* Zentriert den Container */
+      padding: 0 15px;    /* Etwas Abstand zum Rand */
     }
 
     .logo {
@@ -25,9 +35,19 @@
       50% { transform: scale(1.1); }
     }
 
+    /* Video Container für das Bandvideo */
+    .video-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;  /* Höhe des Videos */
+      overflow: hidden;
+    }
+
     .bandvideo {
       width: 100%;
-      max-height: 400px;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -45,23 +65,12 @@
       text-align: left;
     }
 
-    .section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
-
     .section a {
       display: block;
       margin: 8px 0;
       color: white;
       text-decoration: none;
       font-size: 1.1rem;
-    }
-
-    .section a:hover {
-      text-decoration: underline;
     }
 
     .social-links {
@@ -75,11 +84,18 @@
       font-size: 1.2rem;
     }
 
-    .bandfoto {
+    /* Bild Container für das Bandfoto */
+    .image-container {
       width: 100%;
-      max-width: 800px;
-      margin: 30px auto;
-      display: block;
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .bandfoto {
+      width: auto;
+      max-width: 1000px;
+      height: auto;
     }
 
     footer {
@@ -88,82 +104,104 @@
       font-size: 0.9rem;
       color: #ccc;
     }
+
+    /* Responsive Anpassungen für kleine Bildschirme */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .textblock {
+        font-size: 0.9rem;
+      }
+
+      .video-container {
+        height: 250px; /* Für kleine Bildschirme schmaler */
+      }
+
+      .bandfoto {
+        width: 100%; /* Bild soll auf kleinen Bildschirmen die volle Breite ausfüllen */
+        max-width: 100%; /* Maximale Breite auf 100% setzen */
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Logo -->
-  <img src="logo.png" alt="Corpseforge Logo" class="logo">
+  <div class="container">
+    <!-- Logo -->
+    <img src="logo.png" alt="Corpseforge Logo" class="logo">
 
-  <!-- Bandvideo -->
-  <div class="video-container">
-    <video class="bandvideo" autoplay muted loop>
-      <source src="video-hate.mp4" type="video/mp4">
-      Dein Browser unterstützt dieses Video nicht.
-    </video>
+    <!-- Bandvideo -->
+    <div class="video-container">
+      <video class="bandvideo" autoplay muted loop>
+        <source src="video-hate.mp4" type="video/mp4">
+        Dein Browser unterstützt dieses Video nicht.
+      </video>
+    </div>
+
+    <!-- Überschrift -->
+    <h1>Datenschutz</h1>
+
+    <!-- Datenschutztext -->
+    <div class="textblock">
+      <p><strong>1. Allgemeine Hinweise</strong></p>
+      <p>Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Webseite gemäß Art. 13 DSGVO.</p>
+
+      <p><strong>2. Verantwortlicher</strong><br>
+      Martin Gabriel<br>
+      Solinger Straße 7<br>
+      08280 Aue<br>
+      E-Mail: Corpseforge@gmail.com</p>
+
+      <p><strong>3. Zugriffsdaten</strong><br>
+      Beim Besuch dieser Webseite werden durch den Webhoster automatisch Informationen (sogenannte Server-Logfiles) erfasst. Diese beinhalten z. B. die besuchte Seite, Uhrzeit, verwendeter Browser, Betriebssystem und IP-Adresse. Diese Daten dienen der technischen Überwachung und Sicherheit der Seite und werden nicht zur Identifikation verwendet.</p>
+
+      <p><strong>4. Eingebettete Inhalte von Drittanbietern</strong></p>
+      <p>Auf dieser Webseite sind Inhalte von Drittanbietern eingebettet (z. B. YouTube und Spotify). Beim Aufruf solcher Inhalte können Informationen wie Ihre IP-Adresse an die Server der Drittanbieter übertragen werden.</p>
+
+      <p><strong>YouTube</strong><br>
+      Unsere Website bindet Videos über die Plattform YouTube (Google Ireland Limited) im erweiterten Datenschutzmodus ein. Dennoch kann YouTube beim Starten eines Videos Daten erfassen. Weitere Infos finden Sie unter: <a href="https://policies.google.com/privacy" style="color: white;" target="_blank">https://policies.google.com/privacy</a></p>
+
+      <p><strong>Spotify</strong><br>
+      Zum Abspielen unserer Musik nutzen wir den Spotify Player (Spotify AB). Auch hierbei können Daten übertragen werden. Details unter: <a href="https://www.spotify.com/de/legal/privacy-policy/" style="color: white;" target="_blank">https://www.spotify.com/de/legal/privacy-policy/</a></p>
+
+      <p><strong>5. Ihre Rechte</strong><br>
+      Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zur Ausübung Ihrer Rechte wenden Sie sich bitte an die oben genannte Adresse.</p>
+
+      <p><strong>6. Keine kommerzielle Nutzung</strong><br>
+      Diese Website dient ausschließlich der Promotion der Band Corpseforge. Es erfolgt keine kommerzielle Verarbeitung personenbezogener Daten.</p>
+    </div>
+
+    <!-- Überblick -->
+    <div class="section">
+      <h2>Überblick</h2>
+      <a href="https://corpseforge.github.io/Corpseforge/">Start</a>
+      <a href="#">News</a>
+      <a href="#">Musik</a>
+      <a href="#">Videos</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <p><strong>Folgt Uns</strong></p>
+      <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      <a href="https://www.spotify.com/" target="_blank">Spotify</a>
+    </div>
+
+    <!-- Bandfoto -->
+    <div class="image-container">
+      <img src="bandfoto.png" alt="Bandfoto" class="bandfoto">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 Corpseforge. All rights reserved.
+    </footer>
   </div>
-
-  <!-- Überschrift -->
-  <h1>Datenschutz</h1>
-
-  <!-- Datenschutztext -->
-  <div class="textblock">
-    <p><strong>1. Allgemeine Hinweise</strong></p>
-    <p>Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Webseite gemäß Art. 13 DSGVO.</p>
-
-    <p><strong>2. Verantwortlicher</strong><br>
-    Martin Gabriel<br>
-    Solinger Straße 7<br>
-    08280 Aue<br>
-    E-Mail: Corpseforge@gmail.com</p>
-
-    <p><strong>3. Zugriffsdaten</strong><br>
-    Beim Besuch dieser Webseite werden durch den Webhoster automatisch Informationen (sogenannte Server-Logfiles) erfasst. Diese beinhalten z. B. die besuchte Seite, Uhrzeit, verwendeter Browser, Betriebssystem und IP-Adresse. Diese Daten dienen der technischen Überwachung und Sicherheit der Seite und werden nicht zur Identifikation verwendet.</p>
-
-    <p><strong>4. Eingebettete Inhalte von Drittanbietern</strong></p>
-    <p>Auf dieser Webseite sind Inhalte von Drittanbietern eingebettet (z. B. YouTube und Spotify). Beim Aufruf solcher Inhalte können Informationen wie Ihre IP-Adresse an die Server der Drittanbieter übertragen werden.</p>
-
-    <p><strong>YouTube</strong><br>
-    Unsere Website bindet Videos über die Plattform YouTube (Google Ireland Limited) im erweiterten Datenschutzmodus ein. Dennoch kann YouTube beim Starten eines Videos Daten erfassen. Weitere Infos finden Sie unter: <a href="https://policies.google.com/privacy" style="color: white;" target="_blank">https://policies.google.com/privacy</a></p>
-
-    <p><strong>Spotify</strong><br>
-    Zum Abspielen unserer Musik nutzen wir den Spotify Player (Spotify AB). Auch hierbei können Daten übertragen werden. Details unter: <a href="https://www.spotify.com/de/legal/privacy-policy/" style="color: white;" target="_blank">https://www.spotify.com/de/legal/privacy-policy/</a></p>
-
-    <p><strong>5. Ihre Rechte</strong><br>
-    Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zur Ausübung Ihrer Rechte wenden Sie sich bitte an die oben genannte Adresse.</p>
-
-    <p><strong>6. Keine kommerzielle Nutzung</strong><br>
-    Diese Website dient ausschließlich der Promotion der Band Corpseforge. Es erfolgt keine kommerzielle Verarbeitung personenbezogener Daten.</p>
-  </div>
-
-  <!-- Überblick -->
-  <div class="section">
-    <h2>Überblick</h2>
-    <a href="https://corpseforge.github.io/Corpseforge/">Start</a>
-    <a href="#">News</a>
-    <a href="#">Musik</a>
-    <a href="#">Videos</a>
-    <a href="impressum.html">Impressum</a>
-  </div>
-
-  <!-- Social Links -->
-  <div class="social-links">
-    <p><strong>Folgt Uns</strong></p>
-    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-    <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
-    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-    <a href="https://www.spotify.com/" target="_blank">Spotify</a>
-  </div>
-
-  <!-- Bandfoto -->
-  <div class="image-container">
-    <img src="bandfoto.png" alt="Bandfoto" class="bandfoto">
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Corpseforge. All rights reserved.
-  </footer>
 
 </body>
 </html>
