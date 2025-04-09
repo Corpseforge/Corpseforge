@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -32,18 +31,25 @@
     .video-container {
       display: flex;
       justify-content: center;
-      margin: 20px;
+      margin: 0 auto 60px;
+    }
+
+    .video-container video {
+      width: 100%;
+      max-width: 800px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     h1 {
       text-align: center;
-      margin-top: 40px;
+      margin: 80px 0 40px;
       font-size: 2.5em;
     }
 
     .album, .single, .ep {
       max-width: 700px;
-      margin: 40px auto;
+      margin: 60px auto;
       text-align: center;
       padding: 20px;
     }
@@ -57,19 +63,22 @@
     .tracklist {
       text-align: left;
       white-space: pre-line;
-      margin-top: 10px;
+      margin-top: 15px;
+      font-size: 1em;
+      line-height: 1.6em;
     }
 
     .button {
-      margin-top: 15px;
+      margin-top: 25px;
       display: inline-block;
-      padding: 10px 20px;
+      padding: 14px 28px;
       border: 2px solid white;
       color: white;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      border-radius: 8px;
+      font-size: 1.1em;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .button:hover {
@@ -79,22 +88,23 @@
 
     .not-available {
       display: inline-block;
-      padding: 8px 15px;
-      margin-top: 10px;
+      padding: 12px 22px;
+      margin-top: 25px;
       border: 2px solid white;
       color: red;
       background-color: white;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1.1em;
     }
 
     .socials {
       text-align: center;
-      margin: 60px 0 40px;
+      margin: 80px 0 40px;
     }
 
     .socials a {
-      margin: 0 10px;
+      margin: 0 12px;
       color: white;
       text-decoration: none;
       font-size: 1.2em;
@@ -102,7 +112,7 @@
 
     .bandfoto {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     .bandfoto img {
@@ -112,12 +122,12 @@
 
     .footer-links {
       text-align: center;
-      margin: 40px 0;
+      margin: 60px 0;
     }
 
     .footer-links a {
       display: block;
-      margin: 5px;
+      margin: 8px;
       color: white;
       text-decoration: none;
     }
@@ -137,6 +147,11 @@
       .tracklist {
         font-size: 0.95em;
       }
+
+      .button, .not-available {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
@@ -147,7 +162,9 @@
   </header>
 
   <div class="video-container">
-    <video src="video-love.mp4" controls width="100%" style="max-width: 800px;"></video>
+    <video autoplay loop muted playsinline>
+      <source src="video-love.mp4" type="video/mp4" />
+    </video>
   </div>
 
   <h1>Alben</h1>
@@ -193,7 +210,7 @@
       11. The Ferryman<br />
       12. Born as Nobody, Die as Nobody
     </div>
-    <a class="button" href="https://amazon.de/music/player/albums/B0F39JYW37?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_Ko7s2FCLY132e6ZAvLeStx3ep" target="_blank">Kaufen</a>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F39JYW37?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE" target="_blank">Kaufen</a>
   </div>
 
   <div class="album">
@@ -217,7 +234,7 @@
       14. Killed by the Bloodgod V2 (Bonustrack)<br />
       15. Killed by the Bloodgod V3 (Bonustrack)
     </div>
-    <a class="button" href="https://amazon.de/music/player/albums/B0F1M55DGG?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_UPRB7SRfb1gPYwFvb8oBOMwHY" target="_blank">Kaufen</a>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1M55DGG?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE" target="_blank">Kaufen</a>
   </div>
 
   <h1>Singles</h1>
@@ -226,21 +243,21 @@
     <img src="mceyd-cover.jpg" alt="My Cat eat your Dog Cover" />
     <h2>My Cat eat your Dog</h2>
     <div class="tracklist">Tracklist:<br />01. My Cat eat your Dog</div>
-    <a class="button" href="https://amazon.de/music/player/albums/B0F1ZFZZS4?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_mx5HLB6nU9ZjdRkpj161TeT1z" target="_blank">Kaufen</a>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1ZFZZS4" target="_blank">Kaufen</a>
   </div>
 
   <div class="single">
     <img src="edc-cover.jpg" alt="Eau de Cologne Cover" />
     <h2>Eau de Cologne</h2>
     <div class="tracklist">Tracklist:<br />01. Eau de Cologne</div>
-    <a class="button" href="https://amazon.de/music/player/albums/B0F1Z7MVZZ?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_9vZErdeRRsFUgxZfzQQBmNm6o" target="_blank">Kaufen</a>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1Z7MVZZ" target="_blank">Kaufen</a>
   </div>
 
   <div class="single">
     <img src="md-cover.jpg" alt="Morgue Disco Cover" />
     <h2>Morgue Disco</h2>
     <div class="tracklist">Tracklist:<br />01. Morgue Disco</div>
-    <a class="button" href="https://amazon.de/music/player/albums/B0F1WDPS8W?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_MBXzUaPyNYwGXF8RzwOH3m1rK" target="_blank">Kaufen</a>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1WDPS8W" target="_blank">Kaufen</a>
   </div>
 
   <h1>EP's</h1>
