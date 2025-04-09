@@ -257,7 +257,7 @@
   <!-- Neue Übersicht Sektion -->
     <h2 class="text-3xl font-bold mt-12 section-title">Übersicht</h2>
     <ul class="list-disc list-inside text-white mt-4">
-      <li><a href="#start" class="hover-glitch">Start</a></li>
+      <li><a href="#start" id="restart-link">Start</a></li>
       <li><a href="#news" class="hover-glitch">News</a></li>
       <li><a href="#musik" class="hover-glitch">Musik</a></li>
       <li><a href="#videos" class="hover-glitch">Videos</a></li>
@@ -316,6 +316,14 @@
 
       playSound(theme);
     }
+  </script>
+
+  <script>
+     document.getElementById("restart-link").addEventListener("click", function(e) {
+     e.preventDefault(); // verhindert das Standardverhalten des Links
+     location.reload(); // Seite neu laden
+     window.scrollTo(0, 0); // nach ganz oben scrollen (optional, meist überflüssig bei reload)
+    });
   </script>
 
 </body>
