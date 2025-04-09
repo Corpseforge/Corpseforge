@@ -197,16 +197,7 @@
     </div>
   </section>
 
-  <!-- Menü Button zwischen Video und Bandgeschichte -->
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
-    <div class="text-center mb-6">
-      <button class="bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-700 transition-all" onclick="document.getElementById('band-history').scrollIntoView({ behavior: 'smooth' })">
-        Bandgeschichte anzeigen
-      </button>
-    </div>
-  </section>
-
-  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade" id="band-history">
     <h2 class="text-3xl font-bold mb-4 section-title">Bandgeschichte</h2>
     <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet...</p>
     <p>Im März 2025 erschien das erste Album <strong>Symphony of Death</strong>, gefolgt von <strong>Dark World</strong> und dem experimentellen <strong>LOVE HATE DEATH</strong>.</p>
@@ -230,6 +221,19 @@
         </ul>
       </div>
     </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold mb-4 section-title">Bisherige Veröffentlichungen</h2>
+    <ul class="list-disc list-inside">
+      <li><strong>Unholy Night</strong> [EP: 25. Dezember 2024]</li>
+      <li><strong>Symphony of Death</strong> [Album: 12. März 2025]</li>
+      <li><strong>Morgue Disco</strong> [Single: 18. März 2025]</li>
+      <li><strong>Eau De Cologne</strong> [Single: 25. März 2025]</li>
+      <li><strong>My Cat Eat Your Dog</strong> [Single: 01. April 2025]</li>
+      <li><strong>Dark World</strong> [Album: 04. April 2025]</li>
+      <li><strong>Love Hate Death</strong> [Album: 11. April 2025]</li>
+    </ul>
   </section>
 
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
@@ -301,26 +305,5 @@
     }
   </script>
 
-  <footer class="bg-gray-900 py-4 text-center">
-    <p class="text-gray-500">© 2025 Corpseforge</p>
-  </footer>
-
-  <script>
-    document.addEventListener("scroll", function () {
-      let scrollPosition = window.scrollY;
-      let elements = document.querySelectorAll('.scroll-fade');
-      elements.forEach(function (element) {
-        if (scrollPosition + window.innerHeight > element.offsetTop) {
-          element.classList.add('visible');
-        }
-      });
-    });
-
-    function setTheme(theme) {
-      const body = document.getElementById('body');
-      body.classList.remove('theme-death', 'theme-love', 'theme-hate');
-      body.classList.add('theme-' + theme);
-    }
-  </script>
 </body>
 </html>
