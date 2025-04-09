@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Gästebuch</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #111; color: #eee; }
+    input, textarea { width: 100%; padding: 10px; margin-bottom: 10px; }
+    button { padding: 10px 20px; background: #444; color: white; border: none; cursor: pointer; }
+    .entry { margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Gästebuch</h1>
+
+  <form method="POST" action="https://staticman-netlify-app.netlify.app/v3/entry/github/Corpseforge/Corpseforge/main/guestbook">
+    <input name="name" placeholder="Dein Name" required>
+    <textarea name="message" placeholder="Deine Nachricht" required></textarea>
+    <button type="submit">Absenden</button>
+  </form>
+
+  <h2>Einträge:</h2>
+  <div id="entries">
+    Lade Einträge...
+  </div>
+
+  <script>
+    async function loadEntries() {
+      try {
+        const response = await fetch("https://api.github.com/repos/Corpseforge/Corpseforge/contents/_data/guestbook");
+        const files = await response.json();
+
+        const container = document.getElementById("entries");
+        container.innerHTML = "";
+
+        for (const file of files.reverse()) {
+          const res = await fetch(file.download_url);
+          const entry = await res.json();
+
+          const div = document.createElement("div");
+          div.className = "entry";
+          div.innerHTML = `<strong>${entry.name}</strong><br>${entry.message}`;
+          container.appendChild(div);
+        }
+      } catch (e) {
+        document.getElementById("entries").innerText = "Fehler beim Laden der Einträge.";
+        console.error(e);
+      }
+    }
+
+    loadEntries();
+  </script>
+</body>
+</html>
