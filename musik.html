@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musik – Corpseforge</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0e0016;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .heartbeat {
+      animation: heartbeat 1.5s infinite;
+      width: 150px;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2.5em;
+    }
+
+    .album, .single, .ep {
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .album img, .single img, .ep img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+    .tracklist {
+      text-align: left;
+      white-space: pre-line;
+      margin-top: 10px;
+    }
+
+    .button {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: white;
+      color: #0e0016;
+    }
+
+    .not-available {
+      display: inline-block;
+      padding: 8px 15px;
+      margin-top: 10px;
+      border: 2px solid white;
+      color: red;
+      background-color: white;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .socials {
+      text-align: center;
+      margin: 60px 0 40px;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+
+    .bandfoto {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .bandfoto img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .footer-links a {
+      display: block;
+      margin: 5px;
+      color: white;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .tracklist {
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo" class="heartbeat" />
+  </header>
+
+  <div class="video-container">
+    <video src="video-love.mp4" controls width="100%" style="max-width: 800px;"></video>
+  </div>
+
+  <h1>Alben</h1>
+
+  <div class="album">
+    <img src="lhd-cover.jpg" alt="Love Hate Death Cover" />
+    <h2>Love Hate Death</h2>
+    <div class="tracklist">
+      Tracklist:<br />
+      01. Love Hate Death<br />
+      02. Dickpic<br />
+      03. Deadly Love<br />
+      04. I Hate You<br />
+      05. Manhunt<br />
+      06. Shinigami<br />
+      07. Girl's Hell<br />
+      08. Mecha Kaiju Overdrive<br />
+      09. Celestial Warcry<br />
+      10. Digital Hellfire<br />
+      11. Neon Execution<br />
+      12. Red Room<br />
+      13. Ronin<br />
+      14. My Flame
+    </div>
+    <div class="button">Kaufen</div>
+  </div>
+
+  <div class="album">
+    <img src="dw-cover.jpg" alt="Dark World Cover" />
+    <h2>Dark World</h2>
+    <div class="tracklist">
+      Tracklist:<br />
+      01. World of Black<br />
+      02. Blood Rain<br />
+      03. Blood Moon Rising<br />
+      04. God Killer<br />
+      05. Hell is the Limit<br />
+      06. Dance of Shadows<br />
+      07. The Monster under your Bed<br />
+      08. Soul Eater<br />
+      09. Burn Bitch!<br />
+      10. I Love to Hate you<br />
+      11. The Ferryman<br />
+      12. Born as Nobody, Die as Nobody
+    </div>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F39JYW37?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_Ko7s2FCLY132e6ZAvLeStx3ep" target="_blank">Kaufen</a>
+  </div>
+
+  <div class="album">
+    <img src="sod-cover.jpg" alt="Symphony of Death Cover" />
+    <h2>Symphony of Death</h2>
+    <div class="tracklist">
+      Tracklist:<br />
+      01. Zombieland<br />
+      02. Melody of Decay<br />
+      03. Dark Magic<br />
+      04. Chainsaw Symphony<br />
+      05. Living and Dead<br />
+      06. Human Machine<br />
+      07. Cyberpunk<br />
+      08. Destroy your Body<br />
+      09. Time to Die<br />
+      10. Killed by the Bloodgod<br />
+      11. Story of Blood<br />
+      12. Río de Sangre<br />
+      13. Dark Light<br />
+      14. Killed by the Bloodgod V2 (Bonustrack)<br />
+      15. Killed by the Bloodgod V3 (Bonustrack)
+    </div>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1M55DGG?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_UPRB7SRfb1gPYwFvb8oBOMwHY" target="_blank">Kaufen</a>
+  </div>
+
+  <h1>Singles</h1>
+
+  <div class="single">
+    <img src="mceyd-cover.jpg" alt="My Cat eat your Dog Cover" />
+    <h2>My Cat eat your Dog</h2>
+    <div class="tracklist">Tracklist:<br />01. My Cat eat your Dog</div>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1ZFZZS4?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_mx5HLB6nU9ZjdRkpj161TeT1z" target="_blank">Kaufen</a>
+  </div>
+
+  <div class="single">
+    <img src="edc-cover.jpg" alt="Eau de Cologne Cover" />
+    <h2>Eau de Cologne</h2>
+    <div class="tracklist">Tracklist:<br />01. Eau de Cologne</div>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1Z7MVZZ?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_9vZErdeRRsFUgxZfzQQBmNm6o" target="_blank">Kaufen</a>
+  </div>
+
+  <div class="single">
+    <img src="md-cover.jpg" alt="Morgue Disco Cover" />
+    <h2>Morgue Disco</h2>
+    <div class="tracklist">Tracklist:<br />01. Morgue Disco</div>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F1WDPS8W?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_MBXzUaPyNYwGXF8RzwOH3m1rK" target="_blank">Kaufen</a>
+  </div>
+
+  <h1>EP's</h1>
+
+  <div class="ep">
+    <img src="un-cover.jpg" alt="Unholy Night Cover" />
+    <h2>Unholy Night</h2>
+    <div class="tracklist">
+      Tracklist:<br />
+      01. Blood Red Snow<br />
+      02. Fuck You Santa Claus<br />
+      03. Krampus is coming to Town<br />
+      04. Yule Children<br />
+      05. Heavy X-Mas<br />
+      06. Burning Tree
+    </div>
+    <div class="not-available">NOT AVAILABLE</div>
+  </div>
+
+  <h1>Folgt Uns</h1>
+  <div class="socials">
+    <a href="#">YouTube</a>
+    <a href="#">TikTok</a>
+    <a href="#">Instagram</a>
+    <a href="#">Spotify</a>
+  </div>
+
+  <div class="bandfoto">
+    <img src="bandfoto.png" alt="Bandfoto" />
+  </div>
+
+  <h1>Überblick</h1>
+  <div class="footer-links">
+    <a href="index.html">Start</a>
+    <a href="#">News</a>
+    <a href="#">Videos</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+
+  <footer>
+    &copy; 2025 Corpseforge. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
