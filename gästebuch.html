@@ -4,122 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gästebuch</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 20px auto;
-        }
-
-        .form-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container h2 {
-            margin-top: 0;
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0 20px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 4px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        .guestbook-entry {
-            background-color: white;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .guestbook-entry p {
-            margin: 5px 0;
-        }
-
-        .entry-author {
-            font-weight: bold;
-        }
-
-        .entry-message {
-            font-style: italic;
-        }
-
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
+    <h1>Willkommen in meinem Gästebuch!</h1>
 
-<header>
-    <h1>Willkommen im Gästebuch!</h1>
-</header>
+    <form action="https://api.staticman.net/v3/entry/Corpseforge/Corpseforge/master/_data/guestbook" method="POST">
+        <label for="author">Name:</label>
+        <input type="text" id="author" name="author" required><br><br>
+        
+        <label for="message">Nachricht:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        
+        <input type="submit" value="Eintrag hinzufügen">
+    </form>
 
-<div class="container">
-    <div class="form-container">
-        <h2>Hinterlasse einen Eintrag</h2>
-        <form action="https://your-staticman-url-here" method="POST">
-            <label for="author">Dein Name:</label>
-            <input type="text" id="author" name="author" required>
-            
-            <label for="message">Nachricht:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            
-            <input type="submit" value="Eintrag absenden">
-        </form>
-    </div>
-
-    <!-- Weitere Einträge können hier dynamisch angezeigt werden -->
-</div>
-
-<footer>
-    <p>&copy; 2025 Corpseforge - Alle Rechte vorbehalten</p>
-</footer>
-
+    <h2>Einträge im Gästebuch:</h2>
+    <ul id="guestbook-entries">
+        <!-- Einträge werden hier angezeigt -->
+    </ul>
 </body>
 </html>
