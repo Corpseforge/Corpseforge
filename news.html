@@ -3,148 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>News | Corpseforge</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>News - Corpseforge</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #001f3f, #000);
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(to bottom, #001F3F, #000);
       color: silver;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+      text-shadow: 0 0 5px #ccc;
     }
-    header img {
+
+    h1, h2, h3 {
+      text-align: center;
+      text-shadow: 0 0 10px;
+    }
+
+    h1 {
+      color: gold;
+      font-size: 3em;
+      text-shadow: 0 0 10px gold;
+      margin-top: 1em;
+    }
+
+    h2 {
+      color: gold;
+      text-shadow: 0 0 10px gold;
+    }
+
+    p {
+      max-width: 1000px;
+      margin: 1em auto;
+      padding: 0 1em;
+      font-size: 1.1em;
+    }
+
+    .logo {
       display: block;
       margin: 20px auto;
-      max-width: 200px;
+      width: 250px;
+      animation: heartbeat 2s infinite;
     }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.05); }
+    }
+
     .banner {
       width: 100%;
       height: auto;
       display: block;
     }
-    h1, h2 {
-      text-align: center;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin: 2em 0;
     }
-    h1 {
-      font-size: 3em;
-      color: gold;
-    }
-    h2 {
-      font-size: 1.8em;
-      color: gold;
-      margin-top: 40px;
-    }
-    p {
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-    .socials, .overview {
-      text-align: center;
-      margin: 60px 0;
-    }
-    .socials a, .overview a {
-      margin: 0 10px;
-      text-decoration: none;
+
+    .social-links a {
       color: silver;
-      transition: color 0.3s, text-shadow 0.3s;
+      text-decoration: none;
+      font-size: 1.5em;
+      transition: color 0.3s;
     }
-    .socials a:hover, .overview a:hover {
+
+    .social-links a:hover {
       color: gold;
-      text-shadow: 0 0 10px gold;
     }
+
+    ul {
+      list-style: none;
+      text-align: center;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 0.5em 0;
+    }
+
     footer {
       text-align: center;
-      padding: 30px 0;
+      margin: 3em 0;
       font-size: 0.9em;
       color: #aaa;
-    }
-    img.band {
-      max-width: 90%;
-      display: block;
-      margin: 40px auto;
-      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Corpseforge Logo">
-  </header>
-
-  <img class="banner" src="reaper.jpg" alt="Banner">
+  <img src="logo.png" alt="Corpseforge Logo" class="logo">
+  <img src="reaper.jpg" alt="Banner" class="banner">
 
   <h1>News</h1>
 
   <h2>Mittwoch, 08. April 2025</h2>
-  <p>Die Arbeiten an unserer Website sind vorerst abgeschlossen. In den nächsten Tagen versuchen wir, ein Gästebuch einzubinden, in dem ihr uns Grüße oder Ähnliches hinterlassen könnt. Sobald es soweit ist, werdet ihr hier informiert.</p>
+  <p>Die Arbeiten an unserer Website sind vorerst abgeschlossen. Wir versuchen in den nächsten Tagen noch ein Gästebuch mit einzubinden, wo ihr uns einen Gruß oder so hinterlassen könnt. Sobald uns dies gelungen ist, werdet ihr hier informiert.</p>
 
   <h2>Montag, 07. April 2025</h2>
-  <p>Alle Arbeiten an dem neuen Album "Love Hate Death" sind beendet. Das neue Album erscheint am Freitag, dem 11. April 2025, und ist auf Amazon als digitale Version verfügbar. Zudem kann das Album auf Spotify, Apple Music, YouTube Music, Deezer und Co. gestreamt werden. Wir wünschen euch viel Spaß beim Hören.</p>
+  <p>Alle Arbeiten an dem neuen Album "Love Hate Death" sind beendet. Das neue Album erscheint am Freitag, dem 11. April 2025 und ist auf Amazon als digitale Version verfügbar. Des Weiteren kann das Album auf Spotify, Apple Music, YouTube Music, Deezer und Co. gestreamt werden. Wir wünschen euch viel Spaß beim Hören.</p>
 
   <h2>Dienstag, 01. April 2025</h2>
-  <p>Die Arbeiten an dem Album "Dark World" sind final beendet. Das Album erscheint am Freitag, dem 04. April 2025, auf Amazon und kann ab dann auch auf Spotify, YouTube, Apple, Deezer und Co. gestreamt werden. Viel Spaß mit dem neuen Album!</p>
+  <p>Die Arbeiten an dem Album "Dark World" sind final beendet. Das Album erscheint am Freitag, dem 04. April 2025 auf Amazon. Ab da kann das Album auch auf Spotify, YouTube, Apple, Deezer und Co. gestreamt werden. Wir wünschen euch viel Spaß mit dem neuen Album.</p>
 
   <h2>Dienstag, 01. April 2025</h2>
   <p>Die neue Single "My Cat Eat Your Dog" ist jetzt erhältlich und kann überall gestreamt werden.</p>
 
   <h2>Mittwoch, 26. März 2025</h2>
-  <p>Ein kleiner Aprilscherz wartet auf euch: Ein Song für alle, die im Team Katze sind. Die neue Single "My Cat Eat Your Dog" erscheint am Dienstag, dem 01. April 2025, auf Amazon und kann ab Freitag, dem 28. März 2025, vorbestellt werden. Ab dem 01. April ist sie auch auf Spotify, YouTube, Apple, Deezer und Co. verfügbar.</p>
+  <p>Ein kleiner Aprilscherz wartet auf euch. Ein Song für jeden, der auch im Team Katze ist. Die neue Single "My Cat Eat Your Dog" erscheint am Dienstag, dem 01. April 2025 auf Amazon und kann ab Freitag, dem 28. März 2025 vorbestellt werden. Ab dem 01. April kann der Song auch auf Spotify, YouTube, Apple, Deezer und Co. gestreamt werden.</p>
 
   <h2>Dienstag, 25. März 2025</h2>
   <p>Die Single "Eau De Cologne" ist jetzt draußen. Sie kann auf Amazon gekauft und auf Spotify und Co. gestreamt werden.</p>
 
   <h2>Donnerstag, 20. März 2025</h2>
-  <p>Juhu, es ist soweit... Die Single "Eau De Cologne" kann ab jetzt auf Amazon vorbestellt werden.</p>
+  <p>Juhu, es ist soweit... die Single "Eau De Cologne" kann ab jetzt auf Amazon vorbestellt werden.</p>
 
   <h2>Dienstag, 18. März 2025</h2>
-  <p>Wir freuen uns, euch mitzuteilen, dass die neue Single "Eau De Cologne" bald veröffentlicht wird. Ab dem 20. März kann sie auf Amazon vorbestellt werden. Das Release ist dann am Dienstag, dem 25. März 2025. Ab dann ist sie auch auf Spotify, YouTube, Apple, Deezer und Co. verfügbar.</p>
+  <p>Wir freuen uns euch mitzuteilen, dass die neue Single "Eau De Cologne" nun bald veröffentlicht wird. Ab dem 20. März kann die Single auf Amazon vorbestellt werden. Das Release ist dann am Dienstag, dem 25. März 2025 und ab dann erhältlich und kann zudem auf Spotify, YouTube, Apple, Deezer und Co. gestreamt werden.</p>
 
   <h2>Dienstag, 18. März 2025</h2>
   <p>Tolle Neuigkeiten! Die Single "Morgue Disco" ist jetzt auf Amazon erhältlich und im Stream bei Spotify, YouTube, Apple, Deezer und Co.</p>
 
   <h2>Sonntag, 16. März 2025</h2>
-  <p>Das Album "Symphony of Death" wurde heute an unseren Partner DistroKid übergeben. Es geht am Dienstag, dem 18. März 2025, live und kann auf Amazon erworben werden.</p>
+  <p>Das Album "Symphony of Death" wurde heute an unseren Partner DistroKid übergeben und geht am Dienstag, dem 18. März 2025 live und kann auf Amazon erworben werden.</p>
 
   <h2>Mittwoch, 12. März 2025</h2>
-  <p>Da es weiterhin Probleme mit RoutNote gibt, unser Album "Symphony of Death" zu releasen, wechseln wir nun unseren Partner. Zukünftig werden wir unsere Musik über DistroKid veröffentlichen. Aufgrund der Umstände haben wir das Album vorab auf unserem YouTube-Kanal "Corpseforge" veröffentlicht. Weitere Infos folgen.</p>
+  <p>Da es weiterhin Probleme mit RouteNote gibt, unser Album "Symphony of Death" zu releasen, werden wir unsere Partnerschaft jetzt wechseln und ab sofort unsere Musik über DistroKid veröffentlichen. Aufgrund der Umstände haben wir das Album auf unserem YouTube-Channel "Corpseforge" für euch veröffentlicht. Weitere Informationen folgen in den nächsten Tagen.</p>
 
   <h2>Montag, 03. Februar 2025</h2>
-  <p>Leider gibt es weiterhin Schwierigkeiten, unser Album "Symphony of Death" zu veröffentlichen. Daher suchen wir nun nach Alternativen. Sobald es Neuigkeiten gibt, werdet ihr hier über die "News" informiert.</p>
+  <p>Leider gibt es weiterhin Schwierigkeiten, unser Album "Symphony of Death" zu veröffentlichen. Darum werden wir uns jetzt nach Alternativen umschauen. Sobald es etwas Neues gibt, werdet ihr hier über "News" informiert.</p>
 
   <h2>Donnerstag, 23. Januar 2025</h2>
-  <p>Wir haben es geschafft! Unser erstes Album "Symphony of Death" ist vollendet und wartet darauf, veröffentlicht und gehört zu werden. Ab wann es erhältlich ist, erfahrt ihr in den nächsten Tagen.</p>
+  <p>Wir haben es geschafft! Unser erstes Album "Symphony of Death" ist vollendet und wartet nun darauf, veröffentlicht und gehört zu werden. Ab wann das Album erhältlich ist, erfahrt ihr in den nächsten Tagen.</p>
 
   <h2>Mittwoch, 01. Januar 2025</h2>
-  <p>Wir wünschen euch ein gesundes neues Jahr! Wir haben bereits erste Ideen gesammelt und die ersten Songs geschrieben. Jetzt arbeiten wir an unserem ersten Album mit dem Titel "Symphony of Death". Weitere Infos folgen bald hier.</p>
+  <p>Wir wünschen euch ein gesundes neues Jahr. Wir haben erste Ideen gesammelt und die ersten Songs geschrieben. Jetzt arbeiten wir an unserem ersten Album. Der Albumtitel wird "Symphony of Death" sein. Weitere Infos werden wir im Laufe der Zeit hier veröffentlichen.</p>
 
   <h2>Mittwoch, 25. Dezember 2024</h2>
-  <p>Ho, Ho, Ho... Wir melden uns mit unheiligen Weihnachtsgrüßen! Heute ist unsere EP "Unholy Night" auf unserem TikTok-Kanal zu hören. We wish you a fucking X-Mas.</p>
+  <p>Ho, Ho, Ho... Wir melden uns mit unheiligen Weihnachtsgrüßen. Aber heute ist unsere EP "Unholy Night" auf unserem TikTok-Kanal zu hören. We wish you a fucking X-Mas.</p>
 
   <h2>Freitag, 20. Dezember 2024</h2>
-  <p>Hallo, wir sind Corpseforge und machen Musik! Du fragst dich jetzt bestimmt: "Wer?" Keine Sorge, das kommt schon noch. Schau ab und zu mal vorbei. (Spoiler: Es wird LAAUUUTTTT!)</p>
+  <p>Hallo, wir sind Corpseforge und machen Musik. Du wirst dich sicher jetzt fragen: "Wer?" Keine Sorge, das kommt schon noch. Schau ab und an mal vorbei. (Spoiler: Es wird LAAUUUTTTT)</p>
 
-  <div class="socials">
-    <h1>Folgt uns</h1>
+  <h1>Folge uns</h1>
+  <div class="social-links">
     <a href="#">YouTube</a>
     <a href="#">TikTok</a>
     <a href="#">Instagram</a>
     <a href="#">Spotify</a>
   </div>
 
-  <img src="bandfoto.png" alt="Bandfoto" class="band">
+  <img src="bandfoto.png" alt="Bandfoto" class="banner">
 
-  <div class="overview">
-    <h1>Überblick</h1>
-    <a href="index.html">Start</a>
-    <a href="musik.html">Musik</a>
-    <a href="videos.html">Videos</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-  </div>
+  <h1>Überblick</h1>
+  <ul>
+    <li><a href="index.html">Start</a></li>
+    <li><a href="musik.html">Musik</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="impressum.html">Impressum</a></li>
+    <li><a href="datenschutz.html">Datenschutz</a></li>
+  </ul>
 
   <footer>
     &copy; 2025 Corpseforge. All rights reserved.
