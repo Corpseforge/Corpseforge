@@ -17,7 +17,7 @@ jobs:
 
       - name: Run Staticman to process new guestbook entries
         env:
-          STATICMAN_TOKEN: ${{ secrets.STATICMAN_TOKEN }}  # Verwendung des Secrets
+          STATICMAN_TOKEN: ${{ secrets.STATICMAN_TOKEN }}  # Verwendung des Tokens
         run: |
           curl -X POST -H "Authorization: Bearer $STATICMAN_TOKEN" -d "{
             \"author\": \"${{ github.actor }}\",
