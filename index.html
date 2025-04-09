@@ -252,69 +252,6 @@
       </div>
       <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
     </div>
-
- </section>
-
-  <section /* Menü-Button (Toten Kopf Icon) */
-#menuButton {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
-  cursor: pointer;
-}
-
-#menuIcon {
-  width: 40px;
-  height: auto;
-}
-
-/* Das Side-Menü */
-#sideMenu {
-  position: fixed;
-  top: 0;
-  left: -250px;  /* Standardmäßig außerhalb des Sichtbereichs */
-  width: 250px;
-  height: 100%;
-  background-color: black;
-  color: white;
-  z-index: 99;
-  transition: 0.3s;  /* Sanfte Animation */
-  padding-top: 60px;  /* Abstand von oben */
-}
-
-#sideMenu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#sideMenu li {
-  padding: 10px;
-  text-align: center;
-}
-
-#sideMenu a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-#sideMenu a:hover {
-  background-color: #444;
-}
-
-/* Overlay Hintergrund */
-#overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);  /* Halbtransparentes Schwarz */
-  visibility: hidden;  /* Standardmäßig unsichtbar */
-  z-index: 98;
-}
   </section>
 
   <footer class="bg-black py-8 text-center text-sm">
@@ -367,48 +304,6 @@
       playSound(theme);
     }
   </script>
-    // Funktion zum Öffnen und Schließen des Menüs
-function toggleMenu() {
-  const sideMenu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
 
-  // Wenn das Menü geschlossen ist, öffne es
-  if (sideMenu.style.left === "-250px") {
-    sideMenu.style.left = "0";  // Menü erscheint
-    overlay.style.visibility = "visible";  // Overlay wird sichtbar
-  } else {
-    closeMenu();  // Menü schließen
-  }
-}
-
-// Funktion zum Schließen des Menüs
-function closeMenu() {
-  const sideMenu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
-
-  sideMenu.style.left = "-250px";  // Menü verschwindet
-  overlay.style.visibility = "hidden";  // Overlay wird unsichtbar
-}
-<script>
-
-</body>
-  <!-- Menü-Button -->
-<div id="menuButton" onclick="toggleMenu()">
-  <img src="skull.png" alt="Menu Button" id="menuIcon">
-</div>
-
-<!-- Das Overlay-Side-Menü -->
-<div id="sideMenu">
-  <ul>
-    <li><a href="#">News</a></li>
-    <li><a href="#">Musik</a></li>
-    <li><a href="#">Videos</a></li>
-    <li><a href="#">Impressum</a></li>
-    <li><a href="#">Datenschutz</a></li>
-  </ul>
-</div>
-
-<!-- Overlay zum Schließen des Menüs, wenn außerhalb geklickt wird -->
-<div id="overlay" onclick="closeMenu()"></div>
 </body>
 </html>
