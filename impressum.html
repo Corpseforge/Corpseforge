@@ -4,27 +4,239 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Impressum | Corpseforge</title>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      animation: fadeIn 2s ease-in-out;
+      overflow-x: hidden;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1161.cur'), auto;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heartbeat {
+      0%, 20% { transform: scale(1); }
+      25%, 45% { transform: scale(1.1); }
+      50%, 70% { transform: scale(1); }
+      75%, 95% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    .heartbeat-logo {
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hover-glitch:hover {
+      text-shadow: 1px 0, -1px 0;
+      animation: glitch 0.5s infinite;
+    }
+
+    /* Theme: DEATH */
+    .theme-death {
+      background-color: #000000;
+      color: white;
+    }
+
+    .theme-death .section-title {
+      color: #ff0000 !important;
+    }
+
+    .theme-death a[href*="spotify"] {
+      color: #ff0000 !important;
+    }
+
+    .theme-death .hover-glitch:hover {
+      color: #ff0000 !important;
+      text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
+    }
+
+    .theme-death footer p {
+      color: #ff0000 !important;
+    }
+
+    /* Theme: LOVE */
+    .theme-love {
+      background-color: #ffc0cb;
+      color: white;
+    }
+
+    .theme-love .section-title {
+      color: #dda0dd !important;
+    }
+
+    .theme-love a[href*="spotify"] {
+      color: #dda0dd !important;
+    }
+
+    .theme-love strong,
+    .theme-love ul li,
+    .theme-love .text-gray-300 {
+      color: white !important;
+    }
+
+    .theme-love .hover-glitch:hover {
+      color: #dda0dd !important;
+      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
+    }
+
+    .theme-love footer p {
+      color: #dda0dd !important;
+    }
+
+    /* Theme: HATE */
+    .theme-hate {
+      background-color: #39ff14;
+      color: #000000;
+    }
+
+    .theme-hate .section-title {
+      color: white !important;
+    }
+
+    .theme-hate p,
+    .theme-hate li,
+    .theme-hate strong,
+    .theme-hate a {
+      color: #000000 !important;
+    }
+
+    .theme-hate .bg-gray-800,
+    .theme-hate .bg-gray-900 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 ul li,
+    .theme-hate .bg-gray-900 ul li {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 p,
+    .theme-hate .bg-gray-900 p {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 a,
+    .theme-hate .bg-gray-900 a {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-900 a[href*="spotify"] {
+      color: #39ff14 !important;
+    }
+
+    .theme-hate .hover-glitch:hover {
+      color: #39ff14 !important;
+      text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
+    }
+
+    .theme-hate footer p {
+      color: #39ff14 !important;
+    }
+
+    .theme-hate .text-gray-300 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-900 .section-title {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-900 ul li {
+      color: white !important;
+    }
+
+    /* NEUE STYLES */
+    .theme-hate .tracklist li {
+      color: white !important;
+    }
+
+    .theme-hate .spotify-link {
+      color: #39ff14 !important;
+    }
+  </style>
 </head>
-<body class="bg-black text-white">
+<body class="theme-death text-white relative transition-all duration-700" id="body">
 
-  <div class="container">
-    <div class="text-center py-16">
-      <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-xs rounded shadow-lg">
-      <h1 class="text-3xl font-bold mt-6">Impressum</h1>
-      <p class="mt-4">Angaben gemäß § 5 TMG:</p>
-      <p>Martin Gabriel<br>Solinger Straße 7<br>08280 Aue</p>
-      <p>E-Mail: <a href="mailto:Corpseforge@gmail.com" class="text-blue-500">Corpseforge@gmail.com</a></p>
-      <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Martin Gabriel</p>
-      <p>Label: MG Records</p>
-      <p class="mt-8">Haftungsausschluss:<br>Diese Webseite dient ausschließlich der Promotion der Band Corpseforge...</p>
-    </div>
-  </div>
+  <header class="bg-black py-4 text-center">
+    <nav>
+      <ul class="flex justify-center space-x-6 text-lg">
+        <li><a href="index.html" class="text-white hover:text-gray-400">Startseite</a></li>
+        <li><a href="bandgeschichte.html" class="text-white hover:text-gray-400">Bandgeschichte</a></li>
+        <li><a href="musik.html" class="text-white hover:text-gray-400">Musik</a></li>
+        <li><a href="veroeffentlichungen.html" class="text-white hover:text-gray-400">Veröffentlichungen</a></li>
+        <li><a href="stil.html" class="text-white hover:text-gray-400">Musikalischer Stil</a></li>
+        <li><a href="impressum.html" class="text-white hover:text-gray-400">Impressum</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <footer class="bg-black py-8 text-center text-sm text-white">
-    <p>&copy; 2025 Corpseforge. All rights reserved.</p>
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold mb-4 section-title">Impressum</h2>
+    <p>Angaben gemäß § 5 TMG:</p>
+    <p>Martin Gabriel<br>Solinger Straße 7<br>08280 Aue</p>
+    <p>E-Mail: <a href="mailto:Corpseforge@gmail.com" class="text-blue-500">Corpseforge@gmail.com</a></p>
+    <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Martin Gabriel</p>
+    <p>Label: MG Records</p>
+
+    <h3 class="text-2xl font-bold mt-8">Haftungsausschluss</h3>
+    <p>Diese Webseite dient ausschließlich der Promotion der Band Corpseforge und stellt keine rechtliche Beratung dar.</p>
+  </section>
+
+  <footer class="bg-gray-900 py-8 text-center text-sm text-white">
+    <p>&copy; 2025 Corpseforge. Alle Rechte vorbehalten.</p>
   </footer>
-  
+
+  <script>
+    function setTheme(theme) {
+      document.body.classList.remove('theme-death', 'theme-love', 'theme-hate');
+      document.body.classList.add(`theme-${theme}`);
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Scroll fade effect
+    const sections = document.querySelectorAll('.scroll-fade');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+          section.classList.add('visible');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
