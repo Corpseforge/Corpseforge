@@ -25,13 +25,13 @@
       50% { transform: scale(1.1); }
     }
 
-    /* Bandvideo Einstellungen übernommen */
+    /* Bandvideo - Völlig von links nach rechts ohne Spalten */
     .bandvideo {
-      width: 100%; /* Setzt das Video auf 100% der Breite */
-      max-width: 1200px; /* Maximale Breite des Videos */
+      width: 100%; /* Video nimmt die gesamte Breite der Seite ein */
       height: auto; /* Beibehaltung der Proportionen */
       object-fit: cover;
-      margin: 0 auto; /* Zentriert das Video */
+      display: block;
+      margin: 0; /* Entfernt jegliche Ränder oder Abstände */
     }
 
     h1 {
@@ -67,10 +67,10 @@
       font-size: 1.2rem;
     }
 
-    /* Bandfoto Einstellungen übernommen */
+    /* Bandfoto - Exakt mittig positioniert */
     .bandfoto {
-      width: 100%; /* Setzt die Breite des Bandfotos auf 100% */
-      max-width: 800px; /* Maximale Breite von 800px */
+      width: 100%; /* Bild nimmt die gesamte Breite der Seite ein */
+      max-width: 1000px; /* Maximale Breite für das Bild */
       margin: 30px auto; /* Zentriert das Bild */
       display: block;
     }
@@ -145,7 +145,7 @@
     <a href="#">News</a>
     <a href="#">Musik</a>
     <a href="#">Videos</a>
-    <a href="impressum.html">Impressum</a>
+    <a href="Impressum.html">Impressum</a>
   </div>
 
   <!-- Social Links -->
