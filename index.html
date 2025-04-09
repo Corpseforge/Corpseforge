@@ -57,7 +57,6 @@
       animation: glitch 0.5s infinite;
     }
 
-    /* Theme: DEATH */
     .theme-death {
       background-color: #000000;
       color: white;
@@ -80,7 +79,6 @@
       color: #ff0000 !important;
     }
 
-    /* Theme: LOVE */
     .theme-love {
       background-color: #ffc0cb;
       color: white;
@@ -109,7 +107,6 @@
       color: #dda0dd !important;
     }
 
-    /* Theme: HATE */
     .theme-hate {
       background-color: #39ff14;
       color: #000000;
@@ -171,7 +168,6 @@
       color: white !important;
     }
 
-    /* NEUE STYLES */
     .theme-hate .tracklist li {
       color: white !important;
     }
@@ -230,80 +226,26 @@
       <li><strong>Symphony of Death</strong> [Album: 12. März 2025]</li>
       <li><strong>Morgue Disco</strong> [Single: 18. März 2025]</li>
       <li><strong>Eau De Cologne</strong> [Single: 25. März 2025]</li>
-      <li><strong>My Cat Eat Your Dog</strong> [Single: 01. April 2025]</li>
-      <li><strong>Dark World</strong> [Album: 04. April 2025]</li>
-      <li><strong>Love Hate Death</strong> [Album: 11. April 2025]</li>
+      <li><strong>My Cat Eat Your Dog</strong> [Single: 2. April 2025]</li>
     </ul>
   </section>
 
-  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
-    <h2 class="text-3xl font-bold mb-4 section-title">Musikalischer Stil</h2>
-    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock...</p>
-  </section>
-
-  <section class="bg-gray-800 py-16 px-4 scroll-fade">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6 section-title">Folgt uns</h2>
-      <div class="flex justify-center space-x-6 mb-6">
-        <a href="https://youtube.com/@corpseforgemusic?si=hf5XH_RvEnpArKc3" class="hover-glitch" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vJIup9TfwU&_r=1" class="hover-glitch" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="hover-glitch" target="_blank">Instagram</a>
-        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="hover-glitch" target="_blank">Spotify</a>
-      </div>
-      <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
-    </div>
-  </section>
-
-  <footer class="bg-black py-8 text-center text-sm">
-    <p>&copy; 2025 Corpseforge. All rights reserved.</p>
+  <footer class="bg-gray-900 py-8 mt-12">
+    <p class="text-center text-gray-300">&copy; 2025 Corpseforge. Alle Rechte vorbehalten.</p>
   </footer>
 
   <script>
-    const faders = document.querySelectorAll('.scroll-fade');
-    const options = { threshold: 0.1 };
-    const appearOnScroll = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
+    window.addEventListener("scroll", () => {
+      document.querySelectorAll('.scroll-fade').forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('visible');
         }
       });
-    }, options);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-
-    let audio = new Audio();
-
-    function playSound(theme) {
-      if (audio) {
-        audio.pause();
-      }
-      if (theme === 'love') {
-        audio = new Audio('love-theme.mp3');
-      } else if (theme === 'hate') {
-        audio = new Audio('hate-theme.mp3');
-      } else if (theme === 'death') {
-        audio = new Audio('death-theme1.mp3');
-      }
-      audio.play();
-    }
+    });
 
     function setTheme(theme) {
-      const body = document.getElementById('body');
-      const video = document.getElementById('bgVideo');
-
-      body.classList.remove('theme-death', 'theme-love', 'theme-hate');
-      body.classList.add(`theme-${theme}`);
-
-      let videoSrc = 'bandvideo.mp4';
-      if (theme === 'love') videoSrc = 'video-love.mp4';
-      else if (theme === 'hate') videoSrc = 'video-hate.mp4';
-      video.src = videoSrc;
-      video.load();
-      video.play();
-
-      playSound(theme);
+      document.getElementById("body").className = "theme-" + theme + " text-white relative transition-all duration-700";
     }
   </script>
-
 </body>
 </html>
