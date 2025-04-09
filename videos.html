@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Corpseforge</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, #2b0000, #000);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        header img {
+            width: 200px;
+            max-width: 80%;
+        }
+
+        video.background-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 0 5px gold;
+        }
+
+        .video-block {
+            margin-bottom: 60px;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 0 auto;
+            border: 5px solid gold;
+            border-radius: 10px;
+        }
+
+        .video-title {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 1.2em;
+        }
+
+        .video-buttons {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .button {
+            padding: 12px 25px;
+            background: white;
+            color: black;
+            font-weight: bold;
+            border: 2px solid gold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .socials, .overview {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .socials a {
+            margin: 0 15px;
+            color: gold;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .overview p, .overview a {
+            color: white;
+            margin: 5px 0;
+            display: block;
+            text-decoration: none;
+        }
+
+        .overview a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .video-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+    </header>
+
+    <video class="background-video" src="bandvideo.mp4" autoplay muted loop></video>
+
+    <div class="content">
+        <h1>Videos</h1>
+
+        <div class="video-block">
+            <iframe src="https://www.youtube.com/embed/8E7W_6v6xnU" frameborder="0" allowfullscreen></iframe>
+            <div class="video-title">Corpseforge - My Cat eat your Dog</div>
+            <div class="video-buttons">
+                <a class="button" href="https://youtu.be/8E7W_6v6xnU" target="_blank">YouTube</a>
+                <button class="button" onclick="copyLink('https://www.deineseite.de/videos#video1')">Teilen</button>
+            </div>
+        </div>
+
+        <div class="video-block">
+            <iframe src="https://www.youtube.com/embed/8EOjsaw9RCI" frameborder="0" allowfullscreen></iframe>
+            <div class="video-title">Corpseforge - Eau de Cologne</div>
+            <div class="video-buttons">
+                <a class="button" href="https://youtu.be/8EOjsaw9RCI" target="_blank">YouTube</a>
+                <button class="button" onclick="copyLink('https://www.deineseite.de/videos#video2')">Teilen</button>
+            </div>
+        </div>
+
+        <div class="video-block">
+            <iframe src="https://www.youtube.com/embed/HgLUAxcDjS0" frameborder="0" allowfullscreen></iframe>
+            <div class="video-title">Corpseforge - Morgue Disco</div>
+            <div class="video-buttons">
+                <a class="button" href="https://youtu.be/HgLUAxcDjS0" target="_blank">YouTube</a>
+                <button class="button" onclick="copyLink('https://www.deineseite.de/videos#video3')">Teilen</button>
+            </div>
+        </div>
+
+        <div class="socials">
+            <h2>Folge uns</h2>
+            <a href="#">YouTube</a>
+            <a href="#">TikTok</a>
+            <a href="#">Instagram</a>
+            <a href="#">Spotify</a>
+        </div>
+
+        <div class="bandfoto">
+            <img src="bandfoto.png" alt="Bandfoto" style="width:100%; max-width:800px; display:block; margin:40px auto; border-radius:10px;">
+        </div>
+
+        <div class="overview">
+            <h2>Überblick</h2>
+            <a href="index.html">Start</a>
+            <p>News</p>
+            <a href="musik.html">Musik</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Corpseforge. All Rights Reserved.
+    </footer>
+
+    <script>
+        function copyLink(link) {
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Link kopiert!');
+            });
+        }
+    </script>
+</body>
+</html>
