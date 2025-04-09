@@ -31,12 +31,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      height: 400px;  /* Höhe des Videos */
+      overflow: hidden;
     }
 
     .bandvideo {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
     }
 
@@ -92,6 +93,26 @@
       padding: 20px;
       font-size: 0.9rem;
       color: #ccc;
+    }
+
+    /* Responsive Anpassungen für kleine Bildschirme */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .textblock {
+        font-size: 0.9rem;
+      }
+
+      .video-container {
+        height: 250px; /* Für kleine Bildschirme schmaler */
+      }
+
+      .bandfoto {
+        width: 100%; /* Bild soll auf kleinen Bildschirmen die volle Breite ausfüllen */
+        max-width: 100%; /* Maximale Breite auf 100% setzen */
+      }
     }
   </style>
 </head>
