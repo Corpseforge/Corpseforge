@@ -183,6 +183,18 @@
 </head>
 <body class="theme-death text-white relative transition-all duration-700" id="body">
 
+  <header class="bg-black py-4 text-center">
+    <nav>
+      <ul class="flex justify-center space-x-6 text-lg">
+        <li><a href="#bandgeschichte" class="text-white hover:text-gray-400">Bandgeschichte</a></li>
+        <li><a href="#musik" class="text-white hover:text-gray-400">Musik</a></li>
+        <li><a href="#veroeffentlichungen" class="text-white hover:text-gray-400">Veröffentlichungen</a></li>
+        <li><a href="#stil" class="text-white hover:text-gray-400">Musikalischer Stil</a></li>
+        <li><a href="#folgt-uns" class="text-white hover:text-gray-400">Folgt uns</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
     <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0" id="bgVideo">
       <source src="bandvideo.mp4" type="video/mp4" />
@@ -197,13 +209,13 @@
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+  <section id="bandgeschichte" class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold mb-4 section-title">Bandgeschichte</h2>
     <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet...</p>
     <p>Im März 2025 erschien das erste Album <strong>Symphony of Death</strong>, gefolgt von <strong>Dark World</strong> und dem experimentellen <strong>LOVE HATE DEATH</strong>.</p>
   </section>
 
-  <section class="bg-gray-900 py-16 px-4 scroll-fade">
+  <section id="musik" class="bg-gray-900 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-8 section-title">Musik</h2>
       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -214,96 +226,41 @@
         <ul class="space-y-4">
           <li><strong>Symphony of Death</strong></li>
           <li><strong>Dark World</strong></li>
-          <li><strong>LOVE HATE DEATH</strong></li>
-          <li><strong>Morgue Disco</strong></li>
-          <li><strong>Eau De Cologne</strong></li>
-          <li><strong>My Cat Eat Your Dog</strong></li>
+          <li><strong>Hate and Love</strong></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
-    <h2 class="text-3xl font-bold mb-4 section-title">Bisherige Veröffentlichungen</h2>
-    <ul class="list-disc list-inside">
-      <li><strong>Unholy Night</strong> [EP: 25. Dezember 2024]</li>
-      <li><strong>Symphony of Death</strong> [Album: 12. März 2025]</li>
-      <li><strong>Morgue Disco</strong> [Single: 18. März 2025]</li>
-      <li><strong>Eau De Cologne</strong> [Single: 25. März 2025]</li>
-      <li><strong>My Cat Eat Your Dog</strong> [Single: 01. April 2025]</li>
-      <li><strong>Dark World</strong> [Album: 04. April 2025]</li>
-      <li><strong>Love Hate Death</strong> [Album: 11. April 2025]</li>
-    </ul>
-  </section>
-
-  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
-    <h2 class="text-3xl font-bold mb-4 section-title">Musikalischer Stil</h2>
-    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock...</p>
-  </section>
-
-  <section class="bg-gray-800 py-16 px-4 scroll-fade">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-6 section-title">Folgt uns</h2>
-      <div class="flex justify-center space-x-6 mb-6">
-        <a href="https://youtube.com/@corpseforgemusic?si=hf5XH_RvEnpArKc3" class="hover-glitch" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vJIup9TfwU&_r=1" class="hover-glitch" target="_blank">TikTok</a>
-        <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="hover-glitch" target="_blank">Instagram</a>
-        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="hover-glitch" target="_blank">Spotify</a>
-      </div>
-      <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
-    </div>
-  </section>
-
-  <footer class="bg-black py-8 text-center text-sm">
-    <p>&copy; 2025 Corpseforge. All rights reserved.</p>
+  <footer class="bg-gray-900 py-8 text-center mt-16">
+    <p>&copy; 2025 Corpseforge | Alle Rechte vorbehalten</p>
   </footer>
 
   <script>
-    const faders = document.querySelectorAll('.scroll-fade');
-    const options = { threshold: 0.1 };
-    const appearOnScroll = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
+    function setTheme(theme) {
+      document.body.classList.remove('theme-death', 'theme-love', 'theme-hate');
+      document.body.classList.add(`theme-${theme}`);
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Scroll fade effect
+    const sections = document.querySelectorAll('.scroll-fade');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        if (section.getBoundingClientRect().top < window.innerHeight) {
+          section.classList.add('visible');
         }
       });
-    }, options);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-
-    let audio = new Audio();
-
-    function playSound(theme) {
-      if (audio) {
-        audio.pause();
-      }
-      if (theme === 'love') {
-        audio = new Audio('love-theme.mp3');
-      } else if (theme === 'hate') {
-        audio = new Audio('hate-theme.mp3');
-      } else if (theme === 'death') {
-        audio = new Audio('death-theme.mp3');
-      }
-      audio.play();
-    }
-
-    function setTheme(theme) {
-      const body = document.getElementById('body');
-      const video = document.getElementById('bgVideo');
-
-      body.classList.remove('theme-death', 'theme-love', 'theme-hate');
-      body.classList.add(`theme-${theme}`);
-
-      let videoSrc = 'bandvideo.mp4';
-      if (theme === 'love') videoSrc = 'video-love.mp4';
-      else if (theme === 'hate') videoSrc = 'video-hate.mp4';
-      video.src = videoSrc;
-      video.load();
-      video.play();
-
-      playSound(theme);
-    }
+    });
   </script>
-
 </body>
 </html>
