@@ -1,242 +1,153 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impressum | Corpseforge</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum - Corpseforge</title>
   <style>
     body {
-      font-family: 'Orbitron', sans-serif;
-      animation: fadeIn 2s ease-in-out;
-      overflow-x: hidden;
-      cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1161.cur'), auto;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .logo {
+      width: 200px;
+      margin: 20px auto;
+      animation: heartbeat 1.5s infinite;
     }
 
     @keyframes heartbeat {
-      0%, 20% { transform: scale(1); }
-      25%, 45% { transform: scale(1.1); }
-      50%, 70% { transform: scale(1); }
-      75%, 95% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
 
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-2px, 2px); }
-      80% { transform: translate(2px, -2px); }
-      100% { transform: translate(0); }
+    .bandvideo {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
     }
 
-    .heartbeat-logo {
-      animation: heartbeat 1.5s ease-in-out infinite;
+    h1 {
+      font-size: 2.5rem;
+      margin: 40px 0 20px;
     }
 
-    .scroll-fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
+    .textblock {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: left;
     }
 
-    .scroll-fade.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
     }
 
-    .hover-glitch:hover {
-      text-shadow: 1px 0, -1px 0;
-      animation: glitch 0.5s infinite;
-    }
-
-    /* Theme: DEATH */
-    .theme-death {
-      background-color: #000000;
+    .section a {
+      display: block;
+      margin: 8px 0;
       color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
     }
 
-    .theme-death .section-title {
-      color: #ff0000 !important;
+    .section a:hover {
+      text-decoration: underline;
     }
 
-    .theme-death a[href*="spotify"] {
-      color: #ff0000 !important;
+    .social-links {
+      margin: 40px 0;
     }
 
-    .theme-death .hover-glitch:hover {
-      color: #ff0000 !important;
-      text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
-    }
-
-    .theme-death footer p {
-      color: #ff0000 !important;
-    }
-
-    /* Theme: LOVE */
-    .theme-love {
-      background-color: #ffc0cb;
+    .social-links a {
+      margin: 0 10px;
       color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
     }
 
-    .theme-love .section-title {
-      color: #dda0dd !important;
+    .bandfoto {
+      width: 100%;
+      max-width: 800px;
+      margin: 30px auto;
+      display: block;
     }
 
-    .theme-love a[href*="spotify"] {
-      color: #dda0dd !important;
-    }
-
-    .theme-love strong,
-    .theme-love ul li,
-    .theme-love .text-gray-300 {
-      color: white !important;
-    }
-
-    .theme-love .hover-glitch:hover {
-      color: #dda0dd !important;
-      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
-    }
-
-    .theme-love footer p {
-      color: #dda0dd !important;
-    }
-
-    /* Theme: HATE */
-    .theme-hate {
-      background-color: #39ff14;
-      color: #000000;
-    }
-
-    .theme-hate .section-title {
-      color: white !important;
-    }
-
-    .theme-hate p,
-    .theme-hate li,
-    .theme-hate strong,
-    .theme-hate a {
-      color: #000000 !important;
-    }
-
-    .theme-hate .bg-gray-800,
-    .theme-hate .bg-gray-900 {
-      color: white !important;
-    }
-
-    .theme-hate .bg-gray-800 ul li,
-    .theme-hate .bg-gray-900 ul li {
-      color: white !important;
-    }
-
-    .theme-hate .bg-gray-800 p,
-    .theme-hate .bg-gray-900 p {
-      color: white !important;
-    }
-
-    .theme-hate .bg-gray-800 a,
-    .theme-hate .bg-gray-900 a {
-      color: white !important;
-    }
-
-    .theme-hate .bg-gray-900 a[href*="spotify"] {
-      color: #39ff14 !important;
-    }
-
-    .theme-hate .hover-glitch:hover {
-      color: #39ff14 !important;
-      text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
-    }
-
-    .theme-hate footer p {
-      color: #39ff14 !important;
-    }
-
-    .theme-hate .text-gray-300 {
-      color: white !important;
-    }
-
-    .theme-hate .bg-gray-900 .section-title {
-      color: white !important;
-    }
-
-    .theme-hate .bg-gray-900 ul li {
-      color: white !important;
-    }
-
-    /* NEUE STYLES */
-    .theme-hate .tracklist li {
-      color: white !important;
-    }
-
-    .theme-hate .spotify-link {
-      color: #39ff14 !important;
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #ccc;
     }
   </style>
 </head>
-<body class="theme-death text-white relative transition-all duration-700" id="body">
+<body>
 
-  <header class="bg-black py-4 text-center">
-    <nav>
-      <ul class="flex justify-center space-x-6 text-lg">
-        <li><a href="index.html" class="text-white hover:text-gray-400">Startseite</a></li>
-        <li><a href="bandgeschichte.html" class="text-white hover:text-gray-400">Bandgeschichte</a></li>
-        <li><a href="musik.html" class="text-white hover:text-gray-400">Musik</a></li>
-        <li><a href="veroeffentlichungen.html" class="text-white hover:text-gray-400">Veröffentlichungen</a></li>
-        <li><a href="stil.html" class="text-white hover:text-gray-400">Musikalischer Stil</a></li>
-        <li><a href="impressum.html" class="text-white hover:text-gray-400">Impressum</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Logo -->
+  <img src="logo.png" alt="Corpseforge Logo" class="logo">
 
-  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
-    <h2 class="text-3xl font-bold mb-4 section-title">Impressum</h2>
-    <p>Angaben gemäß § 5 TMG:</p>
-    <p>Martin Gabriel<br>Solinger Straße 7<br>08280 Aue</p>
-    <p>E-Mail: <a href="mailto:Corpseforge@gmail.com" class="text-blue-500">Corpseforge@gmail.com</a></p>
-    <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Martin Gabriel</p>
-    <p>Label: MG Records</p>
+  <!-- Bandvideo -->
+  <video class="bandvideo" autoplay muted loop>
+    <source src="bandvideo.mp4" type="video/mp4">
+    Dein Browser unterstützt dieses Video nicht.
+  </video>
 
-    <h3 class="text-2xl font-bold mt-8">Haftungsausschluss</h3>
-    <p>Diese Webseite dient ausschließlich der Promotion der Band Corpseforge und stellt keine rechtliche Beratung dar.</p>
-  </section>
+  <!-- Überschrift -->
+  <h1>Impressum</h1>
 
-  <footer class="bg-gray-900 py-8 text-center text-sm text-white">
-    <p>&copy; 2025 Corpseforge. Alle Rechte vorbehalten.</p>
+  <!-- Impressumstext -->
+  <div class="textblock">
+    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+    <p>Martin Gabriel<br>
+    Solinger Straße 7<br>
+    08280 Aue</p>
+
+    <p>E-Mail: Corpseforge@gmail.com</p>
+
+    <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+    Martin Gabriel</p>
+
+    <p><strong>Label:</strong> MG Records</p>
+
+    <p><strong>Haftungsausschluss:</strong><br>
+    Diese Webseite dient ausschließlich der Promotion der Band Corpseforge und meiner Musik. Alle Inhalte, einschließlich der Musik und Texte, sind mein geistiges Eigentum und unterliegen meinem Urheberrecht. Alle Rechte an den Werken liegen bei mir. Die Seite ist nicht kommerziell und soll ausschließlich dazu dienen, meine Musik und die von Corpseforge zu präsentieren und zu unterstützen.</p>
+  </div>
+
+  <!-- Überblick -->
+  <div class="section">
+    <h2>Überblick</h2>
+    <a href="https://corpseforge.github.io/Corpseforge/?fbclid=PAY2xjawJhtbdleHRuA2FlbQIxMQABpw8RSIBY5ESRhsfOHhj7L_o481d4Grt9t2Cxi5vbcS0-Ho3HXxWK80FFsF7a_aem_gs7Lf8aBR2-gf0CQ8IfA0g">Start</a>
+    <a href="#">News</a>
+    <a href="#">Musik</a>
+    <a href="#">Videos</a>
+    <a href="#">Datenschutz</a>
+  </div>
+
+  <!-- Social Links -->
+  <div class="social-links">
+    <p><strong>Folgt Uns</strong></p>
+    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+    <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://www.spotify.com/" target="_blank">Spotify</a>
+  </div>
+
+  <!-- Bandfoto -->
+  <img src="bandfoto.jpg" alt="Bandfoto" class="bandfoto">
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Corpseforge. All rights reserved.
   </footer>
 
-  <script>
-    function setTheme(theme) {
-      document.body.classList.remove('theme-death', 'theme-love', 'theme-hate');
-      document.body.classList.add(`theme-${theme}`);
-    }
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Scroll fade effect
-    const sections = document.querySelectorAll('.scroll-fade');
-    window.addEventListener('scroll', () => {
-      sections.forEach(section => {
-        if (section.getBoundingClientRect().top < window.innerHeight) {
-          section.classList.add('visible');
-        }
-      });
-    });
-  </script>
 </body>
 </html>
