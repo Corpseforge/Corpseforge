@@ -16,10 +16,8 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Staticman to process new guestbook entries
-        env:
-          STATICMAN_TOKEN: ${{ secrets.STATICMAN_TOKEN }}  # Verwendung des Tokens
         run: |
-          curl -X POST -H "Authorization: Bearer $STATICMAN_TOKEN" -d "{
+          curl -X POST -d "{
             \"author\": \"${{ github.actor }}\",
             \"message\": \"${{ github.event.head_commit.message }}\"
           }" https://api.staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/guestbook
