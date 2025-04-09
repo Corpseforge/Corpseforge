@@ -25,8 +25,10 @@
       50% { transform: scale(1.1); }
     }
 
+    /* Desktop Version - Zentrierung des Videos */
     .bandvideo {
       width: 100%; /* Setzt das Video auf 100% der Breite */
+      max-width: 1200px; /* Maximale Breite des Videos für größere Bildschirmgrößen */
       height: auto; /* Beibehaltung der Proportionen */
       object-fit: cover;
       margin: 0 auto; /* Zentriert das Video */
@@ -65,6 +67,7 @@
       font-size: 1.2rem;
     }
 
+    /* Desktop Version - Zentrierung des Bandfotos */
     .bandfoto {
       width: 100%; /* Setzt die Breite des Bandfotos auf 100% */
       max-width: 800px; /* Maximale Breite von 800px */
@@ -77,6 +80,17 @@
       padding: 20px;
       font-size: 0.9rem;
       color: #ccc;
+    }
+
+    /* Responsive Version für Mobilgeräte */
+    @media (max-width: 768px) {
+      .bandvideo {
+        width: 100%; /* Video bleibt auf 100% Breite */
+      }
+      .bandfoto {
+        width: 100%; /* Bandfoto bleibt auf 100% Breite */
+        max-width: 100%; /* Maximale Breite für mobile Geräte */
+      }
     }
   </style>
 </head>
