@@ -25,13 +25,19 @@
       50% { transform: scale(1.1); }
     }
 
-    /* Bandvideo - Völlig von links nach rechts ohne Spalten */
+    /* Video Container für das Bandvideo */
+    .video-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
     .bandvideo {
-      width: 100%; /* Video nimmt die gesamte Breite der Seite ein */
-      height: auto; /* Beibehaltung der Proportionen */
+      width: 100%;
+      height: auto;
       object-fit: cover;
-      display: block;
-      margin: 0; /* Entfernt jegliche Ränder oder Abstände */
     }
 
     h1 {
@@ -67,12 +73,18 @@
       font-size: 1.2rem;
     }
 
-    /* Bandfoto - Exakt mittig positioniert */
+    /* Bild Container für das Bandfoto */
+    .image-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
     .bandfoto {
-      width: 100%; /* Bild nimmt die gesamte Breite der Seite ein */
-      max-width: 1000px; /* Maximale Breite für das Bild */
-      margin: 30px auto; /* Zentriert das Bild */
-      display: block;
+      width: auto;
+      max-width: 1000px;
+      height: auto;
     }
 
     footer {
@@ -80,17 +92,6 @@
       padding: 20px;
       font-size: 0.9rem;
       color: #ccc;
-    }
-
-    /* Responsive Version für Mobilgeräte */
-    @media (max-width: 768px) {
-      .bandvideo {
-        width: 100%; /* Video bleibt auf 100% Breite */
-      }
-      .bandfoto {
-        width: 100%; /* Bandfoto bleibt auf 100% Breite */
-        max-width: 100%; /* Maximale Breite für mobile Geräte */
-      }
     }
   </style>
 </head>
@@ -100,10 +101,12 @@
   <img src="logo.png" alt="Corpseforge Logo" class="logo">
 
   <!-- Bandvideo -->
-  <video class="bandvideo" autoplay muted loop>
-    <source src="video-hate.mp4" type="video/mp4">
-    Dein Browser unterstützt dieses Video nicht.
-  </video>
+  <div class="video-container">
+    <video class="bandvideo" autoplay muted loop>
+      <source src="video-hate.mp4" type="video/mp4">
+      Dein Browser unterstützt dieses Video nicht.
+    </video>
+  </div>
 
   <!-- Überschrift -->
   <h1>Datenschutz</h1>
@@ -145,7 +148,7 @@
     <a href="#">News</a>
     <a href="#">Musik</a>
     <a href="#">Videos</a>
-    <a href="Impressum.html">Impressum</a>
+    <a href="impressum.html">Impressum</a>
   </div>
 
   <!-- Social Links -->
@@ -158,7 +161,9 @@
   </div>
 
   <!-- Bandfoto -->
-  <img src="bandfoto.png" alt="Bandfoto" class="bandfoto">
+  <div class="image-container">
+    <img src="bandfoto.png" alt="Bandfoto" class="bandfoto">
+  </div>
 
   <!-- Footer -->
   <footer>
