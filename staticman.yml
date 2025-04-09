@@ -1,12 +1,9 @@
-name: Gästebuch
-allowedFields:
-  - name
-  - message
-requiredFields:
-  - name
-  - message
-format: json
-path: "_data/guestbook"
-branch: main
-generateFileName: "date-{{ timestamp }}"
-moderation: false
+fields:
+  - name: "author"
+    label: "Name"
+    placeholder: "Dein Name"
+    required: true
+  - name: "message"
+    label: "Nachricht"
+    placeholder: "Deine Nachricht"
+    required: true
