@@ -1,0 +1,12 @@
+<!-- gaestebuch.html -->
+<h1>Gästebuch</h1>
+
+<form method="POST" action="https://staticman3.herokuapp.com/v3/entry/Corpseforge/Corpseforge/main/comments">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="message">Nachricht:</label><br>
+  <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+  <button type="submit">Eintrag absenden</button>
+</form>
