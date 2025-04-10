@@ -1,44 +1,76 @@
----
-layout: default
-title: Gästebuch
----
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gästebuch</title>
+</head>
+<body>
+    <h1>Gästebuch</h1>
+    <form action="https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments" method="POST" id="comment-form">
+        <input type="hidden" name="slug" value="max-mustermann">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="message">Nachricht:</label>
+            <textarea name="message" id="message" rows="4" required></textarea>
+        </div>
+        <div>
+            <label for="date">Datum:</label>
+            <input type="date" name="date" id="date" required>
+        </div>
+        <button type="submit">Kommentar Absenden</button>
+    </form>
 
-<h1>Gästebuch</h1>
+    <h2>Kommentare:</h2>
+    <div id="comments-list"></div>
 
-<!-- Debugging: Anzeigen der geladenen Kommentare als JSON -->
-<h2>Debugging: Kommentare als JSON</h2>
-<pre>{{ site.data.comments | jsonify }}</pre>
+    <script>
+        // Funktion zum Laden der Kommentare
+        fetch('/_data/comments')
+            .then(response => response.json())
+            .then(data => {
+                const commentsList = document.getElementById('comments-list');
+                data.forEach(comment => {
+                    const div = document.createElement('div');
+                    div.classList.add('comment');
+                    div.innerHTML = `<strong>${comment.name}</strong> <em>(${comment.date})</em><p>${comment.message}</p>`;
+                    commentsList.appendChild(div);
+                });
+            })
+            .catch(error => console.error('Error loading comments:', error));
 
-<!-- Gästebuch Einträge -->
-<h2>Einträge</h2>
-{% assign eintraege = site.data.comments %}
-{% if eintraege.size > 0 %}
-  <ul>
-    {% for eintrag in eintraege %}
-      <li>
-        <strong>{{ eintrag.name }}</strong><br>
-        <p>{{ eintrag.message | newline_to_br }}</p>
-        <em>Am: {{ eintrag.date }}</em>
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>Es gibt noch keine Einträge im Gästebuch.</p>
-{% endif %}
+        // Formular-Absenden mit Fetch API
+        document.getElementById('comment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-<!-- Formular für neue Einträge -->
-<h2>Neuen Eintrag hinzufügen</h2>
-<form action="https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments" method="POST">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name" required><br><br>
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                message: formData.get('message'),
+                date: formData.get('date'),
+                slug: formData.get('slug')
+            };
 
-  <label for="message">Nachricht:</label><br>
-  <textarea name="message" id="message" rows="4" required></textarea><br><br>
-
-  <label for="date">Datum:</label>
-  <input type="date" name="date" id="date" value="{{ 'now' | date: '%Y-%m-%d' }}" required><br><br>
-
-  <input type="hidden" name="staticman[fields][token]" value="ghp_wpMEBiOYbDYCboXKIRAvGj3HRaO8sY3hBZ5Q">
-
-  <button type="submit">Eintrag absenden</button>
-</form>
+            fetch('https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Kommentar wurde erfolgreich gesendet!');
+                    location.reload(); // Seite neu laden, um den neuen Kommentar anzuzeigen
+                } else {
+                    alert('Fehler beim Senden des Kommentars');
+                }
+            })
+            .catch(error => console.error('Fehler beim Senden:', error));
+        });
+    </script>
+</body>
+</html>
