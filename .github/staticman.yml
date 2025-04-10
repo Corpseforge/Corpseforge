@@ -1,8 +1,0 @@
-# staticman.yml im `.github` Ordner
-
-name: Staticman API Config
-
-on:
-  push:
-    paths:
-      - .github/workflows/staticman.yml
