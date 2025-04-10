@@ -11,7 +11,7 @@ title: Gästebuch
 
 <!-- Gästebuch Einträge -->
 <h2>Einträge</h2>
-{% assign eintraege = site.data.comments | sort: 'date' %}
+{% assign eintraege = site.data.comments %}
 {% if eintraege.size > 0 %}
   <ul>
     {% for eintrag in eintraege %}
