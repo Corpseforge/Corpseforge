@@ -18,5 +18,5 @@ comments:
       type: date
       options:
         format: "iso8601"
-  endpoint: "https://staticman.net"
+  endpoint: "https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments"
 repository: "Corpseforge/Corpseforge"
