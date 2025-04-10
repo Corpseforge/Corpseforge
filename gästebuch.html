@@ -11,37 +11,41 @@ layout: default
 </head>
 <body>
   <h1>Gästebuch</h1>
-  <form id="commentForm" method="post">
+  
+  <!-- Kommentarformular -->
+  <form id="commentForm" method="POST">
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" placeholder="Dein Name" required><br><br>
 
     <label for="message">Nachricht:</label><br>
     <textarea name="message" id="message" rows="4" cols="50" placeholder="Deine Nachricht" required></textarea><br><br>
 
-    <!-- Das Datum wird hier durch JavaScript gesetzt -->
+    <!-- Das Datum wird hier automatisch gesetzt -->
     <input type="text" name="date" id="date" hidden><br><br>
 
     <button type="submit">Kommentar absenden</button>
   </form>
 
   <script>
-    // Setze das Datum dynamisch (heutiges Datum)
-    document.getElementById("date").value = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+    // Setze das Datum automatisch auf das heutige Datum im Format YYYY-MM-DD
+    document.getElementById("date").value = new Date().toISOString().split('T')[0]; 
 
+    // Formularübermittlung verhindern, um die API direkt anzusprechen
     document.getElementById("commentForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // Verhindert die Standardformularübermittlung
+      e.preventDefault(); // Verhindert die Standard-Formularübermittlung
 
       // Formulardaten sammeln
       const formData = new FormData(this);
       const data = {
         name: formData.get("name"),
         message: formData.get("message"),
-        date: formData.get("date"), // Dynamisches Datum
+        date: formData.get("date"), // Automatisch gesetztes Datum
       };
 
-      console.log("Daten die gesendet werden:", data); // Debugging-Ausgabe
+      // Debugging-Ausgabe der gesammelten Daten
+      console.log("Daten, die gesendet werden:", data);
 
-      // Senden der Daten an Staticman
+      // Senden der Daten an Staticman API
       fetch("https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments", {
         method: "POST",
         headers: {
