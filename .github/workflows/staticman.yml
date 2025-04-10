@@ -13,15 +13,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Neueste Version von checkout
+      uses: actions/checkout@v2
 
     - name: Run Staticman to add comments
       run: |
         curl -X POST "https://staticman3.herokuapp.com/v3/entry/Corpseforge/Corpseforge/main/_data/comments" \
         -H "Content-Type: application/json" \
-        -d '{
-              "name": "New Comment",
-              "message": "This is a test comment.",
-              "date": "2025-04-10",
-              "slug": "new-comment-test"
-            }'
+        -d '{"name":"New Comment","message":"This is a test comment.","date":"2025-04-10"}'
