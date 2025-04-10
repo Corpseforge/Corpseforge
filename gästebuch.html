@@ -38,7 +38,8 @@ title: Gästebuch
   <label for="date">Datum:</label>
   <input type="date" name="date" id="date" value="{{ 'now' | date: '%Y-%m-%d' }}" required><br><br>
 
-  <input type="hidden" name="staticman[fields][token]" value="ghp_wpMEBiOYbDYCboXKIRAvGj3HRaO8sY3hBZ5Q"> <!-- Token Hier könnte der Token durch eine sichere Methode ersetzt werden -->
+  <!-- Hier kann man das Token automatisch über Staticman einfügen -->
+  <input type="hidden" name="staticman[fields][token]" value="ghp_wpMEBiOYbDYCboXKIRAvGj3HRaO8sY3hBZ5Q">
 
   <button type="submit">Eintrag absenden</button>
 </form>
