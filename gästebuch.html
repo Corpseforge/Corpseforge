@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -14,12 +18,16 @@
     <label for="message">Nachricht:</label><br>
     <textarea name="message" id="message" rows="4" cols="50" placeholder="Deine Nachricht" required></textarea><br><br>
 
-    <input type="text" name="date" id="date" value="2025-04-10" hidden><br><br>
+    <!-- Das Datum wird hier durch JavaScript gesetzt -->
+    <input type="text" name="date" id="date" hidden><br><br>
 
     <button type="submit">Kommentar absenden</button>
   </form>
 
   <script>
+    // Setze das Datum dynamisch (heutiges Datum)
+    document.getElementById("date").value = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+
     document.getElementById("commentForm").addEventListener("submit", function(e) {
       e.preventDefault(); // Verhindert die Standardformularübermittlung
 
@@ -28,8 +36,10 @@
       const data = {
         name: formData.get("name"),
         message: formData.get("message"),
-        date: formData.get("date"),
+        date: formData.get("date"), // Dynamisches Datum
       };
+
+      console.log("Daten die gesendet werden:", data); // Debugging-Ausgabe
 
       // Senden der Daten an Staticman
       fetch("https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments", {
