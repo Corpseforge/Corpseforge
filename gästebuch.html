@@ -10,3 +10,19 @@
 
   <button type="submit">Eintrag absenden</button>
 </form>
+
+<hr>
+<h2>Einträge</h2>
+
+<ul>
+  {% assign eintraege = site.data.comments | sort: "date" | reverse %}
+  {% for eintrag in eintraege %}
+    <li>
+      <strong>{{ eintrag.name }}</strong><br>
+      {{ eintrag.message | newline_to_br }}<br>
+      <small>{{ eintrag.date }}</small>
+    </li>
+    <hr>
+  {% endfor %}
+</ul>
+
