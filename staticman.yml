@@ -1,0 +1,9 @@
+# staticman.yml
+comments:
+  type: yaml
+  path: "_data/comments"
+  permalink: "/comments/{year}/{month}/{day}/{slug}/"
+  limit: 50
+  required_fields:
+    - name
+    - message
