@@ -15,16 +15,16 @@ fields:
   - name: slug
     label: Slug
     type: string
-    required: true
+    required: false # Optional, da er automatisch gesetzt wird
 hooks:
   - type: add_files
     path: "_data/comments"
     files:
-      - name: "{{ options.slug }}.yml"
+      - name: "{{ options.slug | downcase | replace: ' ', '-' }}.yml" # Automatisch generierter Slug aus dem Namen
         content: |
           name: "{{ fields.name }}"
           message: "{{ fields.message }}"
           date: "{{ fields.date }}"
-          slug: "{{ options.slug }}"
+          slug: "{{ options.slug | downcase | replace: ' ', '-' }}"
           created_at: "{{ date }}"
           updated_at: "{{ date }}"
