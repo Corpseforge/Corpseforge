@@ -7,7 +7,7 @@ comments:
     - "message"
   branch: "main"
   path: "_data/comments/{YYYY}-{MM}-{DD}-{HHmmss}.md"
-  filename: "entry-{timestamp}.md"  # Achte darauf, dass es eine .md Datei ist
+  filename: "entry-{timestamp}"
   format: "yaml"
   frontmatterType: "yaml"
   moderation: false
