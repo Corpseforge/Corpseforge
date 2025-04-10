@@ -22,11 +22,9 @@ hooks:
     files:
       - name: "{{ options.slug }}.md"
         content: |
-          ---
           name: "{{ fields.name }}"
           message: "{{ fields.message }}"
           date: "{{ fields.date }}"
           slug: "{{ options.slug }}"
           created_at: "{{ date }}"
           updated_at: "{{ date }}"
-          ---
