@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '_data/comments/**'
+      - '_data/comments/**'  # Pfad für den Ordner, der die Kommentare enthält
 
 jobs:
   build:
@@ -20,5 +20,3 @@ jobs:
         curl -X POST "https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments" \
         -H "Content-Type: application/json" \
         -d '{"name":"New Comment","message":"This is a test comment.","date":"2025-04-10"}'
-      env:
-        GITHUB_TOKEN: ${{ secrets.Guestbook_TOKEN }}
