@@ -1,7 +1,4 @@
----
-layout: default
----
-
+<!-- gästebuch.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,69 +7,36 @@ layout: default
   <title>Gästebuch</title>
 </head>
 <body>
-  <h1>Gästebuch</h1>
-  
-  <!-- Kommentarformular -->
-  <form id="commentForm" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" placeholder="Dein Name" required><br><br>
-
-    <label for="message">Nachricht:</label><br>
-    <textarea name="message" id="message" rows="4" cols="50" placeholder="Deine Nachricht" required></textarea><br><br>
-
-    <!-- Das Datum wird hier automatisch gesetzt -->
-    <input type="text" name="date" id="date" hidden><br><br>
-
+  <h1>Willkommen im Gästebuch!</h1>
+  <form id="commentForm">
+    <input type="text" id="name" placeholder="Dein Name" required />
+    <textarea id="message" placeholder="Deine Nachricht" required></textarea>
     <button type="submit">Kommentar absenden</button>
   </form>
 
   <script>
-    // Setze das Datum automatisch auf das heutige Datum im Format YYYY-MM-DD
-    document.getElementById("date").value = new Date().toISOString().split('T')[0]; 
+    document.getElementById('commentForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
 
-    // Formularübermittlung verhindern, um die API direkt anzusprechen
-    document.getElementById("commentForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // Verhindert die Standard-Formularübermittlung
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+      const date = new Date().toISOString();
 
-      // Formulardaten sammeln
-      const formData = new FormData(this);
-      const data = {
-        name: formData.get("name"),
-        message: formData.get("message"),
-        date: formData.get("date"), // Automatisch gesetztes Datum
-      };
-
-      // Debugging-Ausgabe der gesammelten Daten
-      console.log("Daten, die gesendet werden:", data);
-
-      // Senden der Daten an Staticman API
-      fetch("https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(data),
-})
-.then(response => {
-  if (!response.ok) {
-    // Wenn die Antwort nicht erfolgreich war, logge den Fehler
-    console.error("API-Antwort war nicht erfolgreich", response);
-    alert("Es gab ein Problem beim Absenden des Kommentars.");
-    return;
-  }
-  return response.json();
-})
-.then(result => {
-  console.log("Kommentar erfolgreich gesendet:", result);
-  alert("Dein Kommentar wurde erfolgreich gesendet!");
-  // Formular zurücksetzen
-  document.getElementById("commentForm").reset();
-})
-.catch(error => {
-  console.error("Fehler beim Absenden des Kommentars:", error);
-  alert("Es gab ein Problem beim Absenden deines Kommentars.");
-});
+      const response = await fetch('/api/comments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, message, date }),
       });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('Kommentar erfolgreich abgesendet!');
+      } else {
+        alert('Fehler beim Absenden des Kommentars.');
+      }
     });
   </script>
 </body>
