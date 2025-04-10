@@ -1,7 +1,10 @@
-# staticman.yml
 comments:
-  allowedFields: ["name", "message"]
-  requiredFields: ["name", "message"]
+  allowedFields:
+    - "name"
+    - "message"
+  requiredFields:
+    - "name"
+    - "message"
   branch: "main"
   path: "_data/comments/{YYYY}-{MM}-{DD}-{HHmmss}.md"
   filename: "entry-{timestamp}"
@@ -14,9 +17,6 @@ comments:
     date:
       type: date
       options:
-        format: iso8601
-
-        endpoint: "https://staticman3.herokuapp.com"
-branch: "main"
+        format: "iso8601"
+  endpoint: "https://staticman3.herokuapp.com"
 repository: "Corpseforge/Corpseforge"
-
