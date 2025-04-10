@@ -7,97 +7,73 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            max-width: 600px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .comments {
+        .comment-box {
             margin-top: 20px;
         }
         .comment {
             background-color: #f9f9f9;
             padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
     <h1>Gästebuch</h1>
-    <form id="guestbookForm">
-        <input type="text" id="name" placeholder="Dein Name" required><br>
-        <textarea id="message" placeholder="Deine Nachricht" required></textarea><br>
-        <button type="submit">Kommentar Absenden</button>
+    <form id="commentForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="message">Kommentar:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+        
+        <button type="submit">Kommentar absenden</button>
     </form>
 
-    <div class="comments" id="commentsContainer">
-        <h2>Kommentare</h2>
+    <div id="comments" class="comment-box">
+        <!-- Kommentare werden hier angezeigt -->
     </div>
-</div>
 
-<script>
-    // Lade bestehende Kommentare aus dem lokalen Speicher
-    function loadComments() {
-        const comments = JSON.parse(localStorage.getItem('guestbookComments')) || [];
-        const commentsContainer = document.getElementById('commentsContainer');
-        commentsContainer.innerHTML = '<h2>Kommentare</h2>';
-        
-        comments.forEach(comment => {
-            const commentDiv = document.createElement('div');
-            commentDiv.classList.add('comment');
-            commentDiv.innerHTML = `
-                <strong>${comment.name}</strong> <small>(${comment.date})</small>
-                <p>${comment.message}</p>
-            `;
-            commentsContainer.appendChild(commentDiv);
-        });
-    }
-
-    // Kommentar absenden
-    document.getElementById('guestbookForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const name = document.getElementById('name').value;
-        const message = document.getElementById('message').value;
-        const date = new Date().toLocaleString();
-
-        if (name && message) {
-            const newComment = { name, message, date };
-            const comments = JSON.parse(localStorage.getItem('guestbookComments')) || [];
-            comments.push(newComment);
-            localStorage.setItem('guestbookComments', JSON.stringify(comments));
-            loadComments();
-
-            // Formular zurücksetzen
-            document.getElementById('guestbookForm').reset();
+    <script>
+        // Holt die Kommentare von der Markdown-Datei
+        async function loadComments() {
+            const response = await fetch('https://raw.githubusercontent.com/DEIN_GITHUB_USER/DEIN_REPOSITORY/main/comments.md');
+            const data = await response.text();
+            const comments = data.split("\n\n"); // Jedes Kommentar ist durch zwei Zeilenumbrüche getrennt
+            const commentsContainer = document.getElementById('comments');
+            commentsContainer.innerHTML = '';
+            comments.forEach(comment => {
+                commentsContainer.innerHTML += `<div class="comment">${comment}</div>`;
+            });
         }
-    });
 
-    // Kommentare beim Laden der Seite anzeigen
-    loadComments();
-</script>
+        // Fügt einen neuen Kommentar hinzu
+        document.getElementById('commentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
 
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const date = new Date().toLocaleString();
+
+            // Formatieren des neuen Kommentars
+            const newComment = `**${name}** (${date})\n\n${message}\n\n`;
+
+            // GitHub-API oder ein anderer Mechanismus, um den Kommentar hinzuzufügen
+
+            // Hier kannst du eine API oder GitHub Actions einrichten, um den Kommentar in die Markdown-Datei zu schreiben.
+            // Das erfordert, dass du die API so einrichtest, dass sie den neuen Kommentar in die `comments.md` Datei auf GitHub hochlädt.
+
+            // Lade die neuen Kommentare neu
+            await loadComments();
+
+            // Leere das Formular
+            document.getElementById('commentForm').reset();
+        });
+
+        // Lade die Kommentare beim Laden der Seite
+        loadComments();
+    </script>
 </body>
 </html>
