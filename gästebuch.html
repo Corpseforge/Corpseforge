@@ -47,22 +47,31 @@ layout: default
 
       // Senden der Daten an Staticman API
       fetch("https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-      .then(response => response.json())
-      .then(result => {
-        console.log("Kommentar erfolgreich gesendet:", result);
-        alert("Dein Kommentar wurde erfolgreich gesendet!");
-        // Optional: Formular zurücksetzen
-        document.getElementById("commentForm").reset();
-      })
-      .catch(error => {
-        console.error("Fehler beim Absenden des Kommentars:", error);
-        alert("Es gab ein Problem beim Absenden deines Kommentars.");
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+})
+.then(response => {
+  if (!response.ok) {
+    // Wenn die Antwort nicht erfolgreich war, logge den Fehler
+    console.error("API-Antwort war nicht erfolgreich", response);
+    alert("Es gab ein Problem beim Absenden des Kommentars.");
+    return;
+  }
+  return response.json();
+})
+.then(result => {
+  console.log("Kommentar erfolgreich gesendet:", result);
+  alert("Dein Kommentar wurde erfolgreich gesendet!");
+  // Formular zurücksetzen
+  document.getElementById("commentForm").reset();
+})
+.catch(error => {
+  console.error("Fehler beim Absenden des Kommentars:", error);
+  alert("Es gab ein Problem beim Absenden deines Kommentars.");
+});
       });
     });
   </script>
