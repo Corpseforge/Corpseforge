@@ -1,17 +1,26 @@
-# staticman.yml
-
-staticman:
-  api:
-    url: https://staticman3.herokuapp.com/v3/entry
-    repo: Corpseforge/Corpseforge
-    branch: main
-    token: $STATICMAN_TOKEN  # Das Token wird als Umgebungsvariable gesetzt
-
-  data:
-    comments:
-      path: _data/comments  # Der Pfad, an dem die Kommentare gespeichert werden
-      format: yaml  # Format der gespeicherten Kommentare
-      fieldNames:
-        name: name   # Feld für den Namen
-        message: message  # Feld für die Nachricht
-        date: date   # Feld für das Datum
+version: 3
+fields:
+  - name: name
+    label: Name
+    type: string
+    required: true
+  - name: message
+    label: Nachricht
+    type: text
+    required: true
+  - name: date
+    label: Datum
+    type: date
+    required: true
+hooks:
+  - type: add_files
+    path: "_data/comments"
+    files:
+      - name: "{{ options.slug }}.yml"
+        content: |
+          name: "{{ fields.name }}"
+          message: "{{ fields.message }}"
+          date: "{{ fields.date }}"
+          slug: "{{ options.slug }}"
+          created_at: "{{ date }}"
+          updated_at: "{{ date }}"
