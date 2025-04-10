@@ -12,22 +12,18 @@ title: Gästebuch
 </head>
 <body>
     <h1>Gästebuch</h1>
-    <form action="https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments" method="POST" id="comment-form">
-        <input type="hidden" name="slug" value="max-mustermann">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" required>
-        </div>
-        <div>
-            <label for="message">Nachricht:</label>
-            <textarea name="message" id="message" rows="4" required></textarea>
-        </div>
-        <div>
-            <label for="date">Datum:</label>
-            <input type="date" name="date" id="date" required>
-        </div>
-        <button type="submit">Kommentar Absenden</button>
-    </form>
+    <form id="comment-form" action="https://staticman.net/v3/entry/Corpseforge/Corpseforge/main/_data/comments" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    
+    <button type="submit">Submit Comment</button>
+</form>
 
     <h2>Kommentare:</h2>
     <div id="comments-list"></div>
