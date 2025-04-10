@@ -11,8 +11,8 @@ title: Gästebuch
 
 <!-- Gästebuch Einträge -->
 <h2>Einträge</h2>
-{% assign eintraege = site.data.comments | sort: "date" | reverse %}
-{% if eintraege.size > 0 %}
+{% assign eintraege = site.data.comments | sort: 'date' %}
+{% for eintrag in eintraege %}
   <ul>
     {% for eintrag in eintraege %}
       <li>
@@ -28,7 +28,7 @@ title: Gästebuch
 
 <!-- Formular für neue Einträge -->
 <h2>Neuen Eintrag hinzufügen</h2>
-<form action="https://staticman3.herokuapp.com/v3/entry/Corpseforge/Corpseforge/main/comments" method="POST">
+<form action="https://staticman3.herokuapp.com/v3/entry/Corpseforge/Corpseforge/main/_data/comments" method="POST">
   <label for="name">Name:</label>
   <input type="text" name="name" id="name" required><br><br>
 
