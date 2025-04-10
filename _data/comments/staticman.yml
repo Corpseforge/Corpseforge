@@ -18,5 +18,5 @@ comments:
       type: date
       options:
         format: "iso8601"
-  endpoint: "https://staticman3.herokuapp.com"
+  endpoint: "https://staticman.net"
 repository: "Corpseforge/Corpseforge"
