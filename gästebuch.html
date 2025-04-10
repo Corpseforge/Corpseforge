@@ -1,65 +1,103 @@
-<!-- gästebuch.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gästebuch</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gästebuch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            max-width: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .comments {
+            margin-top: 20px;
+        }
+        .comment {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
-  <h1>Willkommen im Gästebuch!</h1>
 
-  <form id="commentForm">
-    <input type="text" id="name" placeholder="Dein Name" required />
-    <textarea id="message" placeholder="Deine Nachricht" required></textarea>
-    <button type="submit">Kommentar absenden</button>
-  </form>
+<div class="container">
+    <h1>Gästebuch</h1>
+    <form id="guestbookForm">
+        <input type="text" id="name" placeholder="Dein Name" required><br>
+        <textarea id="message" placeholder="Deine Nachricht" required></textarea><br>
+        <button type="submit">Kommentar Absenden</button>
+    </form>
 
-  <div id="commentsList"></div>
+    <div class="comments" id="commentsContainer">
+        <h2>Kommentare</h2>
+    </div>
+</div>
 
-  <script>
-    // Funktion zum Laden der Kommentare
-    async function loadComments() {
-      const response = await fetch('/api/comments');
-      const comments = await response.json();
-
-      const commentsList = document.getElementById('commentsList');
-      commentsList.innerHTML = ''; // Leert die Kommentare vor dem Neuladen
-
-      comments.forEach(comment => {
-        const commentElement = document.createElement('div');
-        commentElement.innerHTML = `<strong>${comment.name}</strong> - ${comment.date}<p>${comment.message}</p>`;
-        commentsList.appendChild(commentElement);
-      });
+<script>
+    // Lade bestehende Kommentare aus dem lokalen Speicher
+    function loadComments() {
+        const comments = JSON.parse(localStorage.getItem('guestbookComments')) || [];
+        const commentsContainer = document.getElementById('commentsContainer');
+        commentsContainer.innerHTML = '<h2>Kommentare</h2>';
+        
+        comments.forEach(comment => {
+            const commentDiv = document.createElement('div');
+            commentDiv.classList.add('comment');
+            commentDiv.innerHTML = `
+                <strong>${comment.name}</strong> <small>(${comment.date})</small>
+                <p>${comment.message}</p>
+            `;
+            commentsContainer.appendChild(commentDiv);
+        });
     }
 
-    // Lade die Kommentare beim Laden der Seite
-    loadComments();
+    // Kommentar absenden
+    document.getElementById('guestbookForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    document.getElementById('commentForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+        const date = new Date().toLocaleString();
 
-      const name = document.getElementById('name').value;
-      const message = document.getElementById('message').value;
-      const date = new Date().toISOString();
+        if (name && message) {
+            const newComment = { name, message, date };
+            const comments = JSON.parse(localStorage.getItem('guestbookComments')) || [];
+            comments.push(newComment);
+            localStorage.setItem('guestbookComments', JSON.stringify(comments));
+            loadComments();
 
-      const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, message, date }),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        alert('Kommentar erfolgreich abgesendet!');
-        loadComments(); // Kommentare nach dem Absenden neu laden
-      } else {
-        alert('Fehler beim Absenden des Kommentars.');
-      }
+            // Formular zurücksetzen
+            document.getElementById('guestbookForm').reset();
+        }
     });
-  </script>
+
+    // Kommentare beim Laden der Seite anzeigen
+    loadComments();
+</script>
+
 </body>
 </html>
