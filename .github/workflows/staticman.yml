@@ -1,0 +1,22 @@
+name: Staticman Comments
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '_data/comments/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run Staticman to add comments
+      run: |
+        curl -X POST "https://staticman3.herokuapp.com/v3/entry/Corpseforge/Corpseforge/main/_data/comments" \
+        -H "Content-Type: application/json" \
+        -d '{"name":"New Comment","message":"This is a test comment.","date":"2025-04-10"}'
