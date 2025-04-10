@@ -1,32 +1,44 @@
 ---
 layout: default
+title: Gästebuch
 ---
 
-<!-- gaestebuch.html -->
 <h1>Gästebuch</h1>
 
-<form method="POST" action="https://staticman3.herokuapp.com/v3/entry/Corpseforge/Corpseforge/main/_data/comments">
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name" required><br><br>
+<!-- Debugging: Anzeigen der geladenen Kommentare als JSON -->
+<h2>Debugging: Kommentare als JSON</h2>
+<pre>{{ site.data.comments | jsonify }}</pre>
+
+<!-- Gästebuch Einträge -->
+<h2>Einträge</h2>
+{% assign eintraege = site.data.comments | sort: "date" | reverse %}
+{% if eintraege.size > 0 %}
+  <ul>
+    {% for eintrag in eintraege %}
+      <li>
+        <strong>{{ eintrag.name }}</strong><br>
+        <p>{{ eintrag.message | newline_to_br }}</p>
+        <em>Am: {{ eintrag.date }}</em>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Es gibt noch keine Einträge im Gästebuch.</p>
+{% endif %}
+
+<!-- Formular für neue Einträge -->
+<h2>Neuen Eintrag hinzufügen</h2>
+<form action="https://staticman3.herokuapp.com/v3/entry/Corpseforge/Corpseforge/main/comments" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" required><br><br>
 
   <label for="message">Nachricht:</label><br>
-  <textarea id="message" name="message" rows="5" required></textarea><br><br>
+  <textarea name="message" id="message" rows="4" required></textarea><br><br>
+
+  <label for="date">Datum:</label>
+  <input type="date" name="date" id="date" value="{{ 'now' | date: '%Y-%m-%d' }}" required><br><br>
+
+  <input type="hidden" name="staticman[fields][token]" value="STATICMAN_TOKEN">
 
   <button type="submit">Eintrag absenden</button>
 </form>
-
-<hr>
-<h2>Einträge</h2>
-
-<ul>
-  {% assign eintraege = site.data.comments | sort: "date" | reverse %}
-  {% for eintrag in eintraege %}
-    <li>
-      <strong>{{ eintrag.name }}</strong><br>
-      {{ eintrag.message | newline_to_br }}<br>
-      <small>{{ eintrag.date }}</small>
-    </li>
-    <hr>
-  {% endfor %}
-</ul>
-
