@@ -8,13 +8,34 @@
 </head>
 <body>
   <h1>Willkommen im Gästebuch!</h1>
+
   <form id="commentForm">
     <input type="text" id="name" placeholder="Dein Name" required />
     <textarea id="message" placeholder="Deine Nachricht" required></textarea>
     <button type="submit">Kommentar absenden</button>
   </form>
 
+  <div id="commentsList"></div>
+
   <script>
+    // Funktion zum Laden der Kommentare
+    async function loadComments() {
+      const response = await fetch('/api/comments');
+      const comments = await response.json();
+
+      const commentsList = document.getElementById('commentsList');
+      commentsList.innerHTML = ''; // Leert die Kommentare vor dem Neuladen
+
+      comments.forEach(comment => {
+        const commentElement = document.createElement('div');
+        commentElement.innerHTML = `<strong>${comment.name}</strong> - ${comment.date}<p>${comment.message}</p>`;
+        commentsList.appendChild(commentElement);
+      });
+    }
+
+    // Lade die Kommentare beim Laden der Seite
+    loadComments();
+
     document.getElementById('commentForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
@@ -34,6 +55,7 @@
 
       if (result.success) {
         alert('Kommentar erfolgreich abgesendet!');
+        loadComments(); // Kommentare nach dem Absenden neu laden
       } else {
         alert('Fehler beim Absenden des Kommentars.');
       }
