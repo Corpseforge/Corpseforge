@@ -1,1 +1,17 @@
-
+# staticman.yml
+comments:
+  allowedFields: ["name", "message"]
+  requiredFields: ["name", "message"]
+  branch: "main"
+  path: "_data/comments/{YYYY}-{MM}-{DD}-{HHmmss}.md"
+  filename: "entry-{timestamp}"
+  format: "yaml"
+  frontmatterType: "yaml"
+  moderation: false
+  reCaptcha:
+    enabled: false
+  generatedFields:
+    date:
+      type: date
+      options:
+        format: iso8601
