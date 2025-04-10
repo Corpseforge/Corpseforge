@@ -20,7 +20,7 @@ hooks:
   - type: add_files
     path: "_data/comments"
     files:
-      - name: "{{ options.slug }}.md"
+      - name: "{{ options.slug }}.yml"
         content: |
           name: "{{ fields.name }}"
           message: "{{ fields.message }}"
