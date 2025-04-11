@@ -1,10 +1,11 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Corpseforge</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,10 +14,12 @@
       overflow-x: hidden;
       cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1161.cur'), auto;
     }
+
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
     @keyframes heartbeat {
       0%, 20% { transform: scale(1); }
       25%, 45% { transform: scale(1.1); }
@@ -24,6 +27,7 @@
       75%, 95% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
+
     @keyframes glitch {
       0% { transform: translate(0); }
       20% { transform: translate(-2px, 2px); }
@@ -32,61 +36,349 @@
       80% { transform: translate(2px, -2px); }
       100% { transform: translate(0); }
     }
-    .heartbeat-logo { animation: heartbeat 1.5s ease-in-out infinite; }
+
+    .heartbeat-logo {
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
     .scroll-fade {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease-out, transform 1s ease-out;
     }
+
     .scroll-fade.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     .hover-glitch:hover {
+      text-shadow: 1px 0, -1px 0;
       animation: glitch 0.5s infinite;
     }
+
+    /* Theme: DEATH */
     .theme-death {
-      background-color: #2a0000;
+      background-color: #000000;
       color: white;
     }
-    .theme-death .section-title,
-    .theme-death footer p,
+
+    .theme-death .section-title {
+      color: #ff0000 !important;
+    }
+
     .theme-death a[href*="spotify"] {
-      color: #ff4d4d !important;
+      color: #ff0000 !important;
     }
+
     .theme-death .hover-glitch:hover {
-      color: #ff4d4d !important;
-      text-shadow: 1px 0 #ff4d4d, -1px 0 #ff4d4d;
+      color: #ff0000 !important;
+      text-shadow: 1px 0 #ff0000, -1px 0 #ff0000;
     }
+
+    .theme-death footer p {
+      color: #ff0000 !important;
+    }
+
+    /* Theme: LOVE */
     .theme-love {
-      background-color: #33001a;
+      background-color: #ffc0cb;
       color: white;
     }
-    .theme-love .section-title,
-    .theme-love footer p,
+
+    .theme-love .section-title {
+      color: #dda0dd !important;
+    }
+
     .theme-love a[href*="spotify"] {
-      color: #ff99cc !important;
+      color: #dda0dd !important;
     }
+
+    .theme-love strong,
+    .theme-love ul li,
+    .theme-love .text-gray-300 {
+      color: white !important;
+    }
+
     .theme-love .hover-glitch:hover {
-      color: #ff99cc !important;
-      text-shadow: 1px 0 #ff99cc, -1px 0 #ff99cc;
+      color: #dda0dd !important;
+      text-shadow: 1px 0 #dda0dd, -1px 0 #dda0dd;
     }
+
+    .theme-love footer p {
+      color: #dda0dd !important;
+    }
+
+    /* Theme: HATE */
     .theme-hate {
-      background-color: #003300;
-      color: white;
+      background-color: #39ff14;
+      color: #000000;
     }
-    .theme-hate .section-title,
-    .theme-hate footer p,
-    .theme-hate a[href*="spotify"] {
+
+    .theme-hate .section-title {
+      color: white !important;
+    }
+
+    .theme-hate p,
+    .theme-hate li,
+    .theme-hate strong,
+    .theme-hate a {
+      color: #000000 !important;
+    }
+
+    .theme-hate .bg-gray-800,
+    .theme-hate .bg-gray-900 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 ul li,
+    .theme-hate .bg-gray-900 ul li {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 p,
+    .theme-hate .bg-gray-900 p {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 a,
+    .theme-hate .bg-gray-900 a {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-900 a[href*="spotify"] {
       color: #39ff14 !important;
     }
+
     .theme-hate .hover-glitch:hover {
       color: #39ff14 !important;
       text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
     }
+
+    .theme-hate footer p {
+      color: #39ff14 !important;
+    }
+
+    .theme-hate .text-gray-300 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-900 .section-title {
+      color: white !important;
+    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corpseforge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      animation: fadeIn 2s ease-in-out;
+      overflow-x: hidden;
+      cursor: url('https://cur.cursors-4u.net/cursors/cur-13/cur1161.cur'), auto;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heartbeat {
+      0%, 20% { transform: scale(1); }
+      25%, 45% { transform: scale(1.1); }
+      50%, 70% { transform: scale(1); }
+      75%, 95% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+
+    .heartbeat-logo {
+      animation: heartbeat 1.5s ease-in-out infinite;
+    }
+
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .scroll-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hover-glitch:hover {
+      text-shadow: 1px 0, -1px 0;
+      animation: glitch 0.5s infinite;
+    }
+
+    /* Theme: DEATH */
+    .theme-death {
+      background-color: #2a0000; /* Dunkles Weinrot, fast Schwarz */
+      color: white;
+    }
+
+    .theme-death .section-title {
+      color: #ff4d4d !important; /* Helles Blutrot */
+    }
+
+    .theme-death a[href*="spotify"] {
+      color: #ff4d4d !important;
+    }
+
+    .theme-death .hover-glitch:hover {
+      color: #ff4d4d !important;
+      text-shadow: 1px 0 #ff4d4d, -1px 0 #ff4d4d;
+    }
+
+    .theme-death footer p {
+      color: #ff4d4d !important;
+    }
+
+    /* Theme: LOVE */
+    .theme-love {
+      background-color: #33001a; /* Dunkles Rosa, fast Schwarz */
+      color: white;
+    }
+
+    .theme-love .section-title {
+      color: #ff99cc !important; /* Helles Rosa */
+    }
+
+    .theme-love a[href*="spotify"] {
+      color: #ff99cc !important;
+    }
+
+    .theme-love strong,
+    .theme-love ul li,
+    .theme-love .text-gray-300 {
+      color: white !important;
+    }
+
+    .theme-love .hover-glitch:hover {
+      color: #ff99cc !important;
+      text-shadow: 1px 0 #ff99cc, -1px 0 #ff99cc;
+    }
+
+    .theme-love footer p {
+      color: #ff99cc !important;
+    }
+
+    /* Theme: HATE */
+    .theme-hate {
+      background-color: #003300; /* Dunkelgrün, fast Schwarz */
+      color: white;
+    }
+
+    .theme-hate .section-title {
+      color: #39ff14 !important; /* Giftgrün */
+    }
+
+    .theme-hate p,
+    .theme-hate li,
+    .theme-hate strong,
+    .theme-hate a {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800,
+    .theme-hate .bg-gray-900 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 ul li,
+    .theme-hate .bg-gray-900 ul li {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 p,
+    .theme-hate .bg-gray-900 p {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-800 a,
+    .theme-hate .bg-gray-900 a {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-900 a[href*="spotify"] {
+      color: #39ff14 !important;
+    }
+
+    .theme-hate .hover-glitch:hover {
+      color: #39ff14 !important;
+      text-shadow: 1px 0 #39ff14, -1px 0 #39ff14;
+    }
+
+    .theme-hate footer p {
+      color: #39ff14 !important;
+    }
+
+    .theme-hate .text-gray-300 {
+      color: white !important;
+    }
+
+    .theme-hate .bg-gray-900 .section-title {
+      color: #39ff14 !important;
+    }
+
+    .theme-hate .bg-gray-900 ul li {
+      color: white !important;
+    }
+
+    /* Social Media Links */
+    .social-links {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .social-links .follow-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .social-buttons a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      border: 1px solid white;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .social-buttons a:hover {
+      background: white;
+      color: black;
+    }
+
+    /* Anpassung der Social
+::contentReference[oaicite:2]{index=2}
+ 
   </style>
 </head>
 <body class="theme-death text-white relative transition-all duration-700" id="body">
+
   <section class="relative h-screen flex flex-col items-center justify-center bg-cover bg-center overflow-hidden">
     <video autoplay loop muted class="absolute inset-0 w-full h-full object-cover z-0" id="bgVideo">
       <source src="bandvideo.mp4" type="video/mp4" />
@@ -94,25 +386,27 @@
     <div class="relative z-10 text-center px-4">
       <img src="logo.png" alt="Corpseforge" class="w-3/4 max-w-xl heartbeat-logo drop-shadow-lg mx-auto">
       <p class="mt-6 text-xl text-gray-300">
-        <span onclick="setTheme('love')" class="cursor-pointer hover-glitch">LOVE</span>. 
-        <span onclick="setTheme('hate')" class="cursor-pointer hover-glitch">HATE</span>. 
-        <span onclick="setTheme('death')" class="cursor-pointer hover-glitch">DEATH</span>.
+        <span onclick="setTheme('love')" class="cursor-pointer hover-glitch transition-all duration-300">LOVE</span>. 
+        <span onclick="setTheme('hate')" class="cursor-pointer hover-glitch transition-all duration-300">HATE</span>. 
+        <span onclick="setTheme('death')" class="cursor-pointer hover-glitch transition-all duration-300">DEATH</span>.
       </p>
     </div>
   </section>
+
   <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
     <h2 class="text-3xl font-bold mb-4 section-title">Bandgeschichte</h2>
     <p class="mb-4">Corpseforge wurde im Dezember 2024 in Köln gegründet...</p>
     <p>Im März 2025 erschien das erste Album <strong>Symphony of Death</strong>, gefolgt von <strong>Dark World</strong> und dem experimentellen <strong>LOVE HATE DEATH</strong>.</p>
   </section>
+
   <section class="bg-gray-900 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-3xl font-bold mb-8 section-title">Musik</h2>
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN" width="100%" height="152" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6fdTlZmpIfAanvCkjfMGRN?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <p class="text-center mt-4">
-        <a href="https://open.spotify.com/playlist/6fdTlZmpIfAanvCkjfMGRN" class="hover-glitch" target="_blank">Ganze Playlist auf Spotify ansehen</a>
+        <a href="https://open.spotify.com/playlist/6fdTlZmpIfAanvCkjfMGRN" class="spotify-link" target="_blank">Ganze Playlist auf Spotify ansehen</a>
       </p>
-      <div class="text-white mt-10">
+      <div class="tracklist text-white mt-10">
         <ul class="space-y-4">
           <li><strong>Symphony of Death</strong></li>
           <li><strong>Dark World</strong></li>
@@ -124,33 +418,56 @@
       </div>
     </div>
   </section>
+
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold mb-4 section-title">Bisherige Veröffentlichungen</h2>
+    <ul class="list-disc list-inside">
+      <li><strong>Unholy Night</strong> [EP: 25. Dezember 2024]</li>
+      <li><strong>Symphony of Death</strong> [Album: 12. März 2025]</li>
+      <li><strong>Morgue Disco</strong> [Single: 18. März 2025]</li>
+      <li><strong>Eau De Cologne</strong> [Single: 25. März 2025]</li>
+      <li><strong>My Cat Eat Your Dog</strong> [Single: 01. April 2025]</li>
+      <li><strong>Dark World</strong> [Album: 04. April 2025]</li>
+      <li><strong>Love Hate Death</strong> [Album: 11. April 2025]</li>
+    </ul>
+  </section>
+
+  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade">
+    <h2 class="text-3xl font-bold mb-4 section-title">Musikalischer Stil</h2>
+    <p>Corpseforge vermischt Death Metal, Deathcore, Trancecore, Punkcore, Dubstep, EDM, K-Pop, J-Pop und J-Rock...</p>
+  </section>
+
   <section class="bg-gray-800 py-16 px-4 scroll-fade">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6 section-title">Folgt uns</h2>
-      <div class="flex justify-center space-x-6 mb-6 text-3xl">
-        <a href="https://youtube.com/@corpseforgemusic" class="hover-glitch" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://www.tiktok.com/@corpseforge" class="hover-glitch" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.instagram.com/corpseforge" class="hover-glitch" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M" class="hover-glitch" target="_blank"><i class="fab fa-spotify"></i></a>
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="https://youtube.com/@corpseforgemusic?si=hf5XH_RvEnpArKc3" class="hover-glitch" target="_blank">YouTube</a>
+        <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vJIup9TfwU&_r=1" class="hover-glitch" target="_blank">TikTok</a>
+        <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" class="hover-glitch" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=kHyQfFKkS5-DImb9Kg9Q8g" class="hover-glitch" target="_blank">Spotify</a>
       </div>
       <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
     </div>
   </section>
-  <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade text-center">
-    <h2 class="text-3xl font-bold mt-12 section-title">Übersicht</h2>
-    <ul class="list-disc list-inside text-white mt-4 inline-block text-left">
-      <li><a href="#start" id="restart-link" class="hover-glitch">Start</a></li>
-      <li><a href="bandmembers.html" class="hover-glitch">Bandmembers</a></li>
-      <li><a href="news.html" class="hover-glitch">News</a></li>
-      <li><a href="musik.html" class="hover-glitch">Musik</a></li>
-      <li><a href="videos.html" class="hover-glitch">Videos</a></li>
-      <li><a href="impressum.html" class="hover-glitch">Impressum</a></li>
-      <li><a href="datenschutz.html" class="hover-glitch">Datenschutz</a></li>
-    </ul>
-  </section>
+
+  <!-- Neue Übersicht Sektion -->
+    <section class="max-w-4xl mx-auto py-16 px-4 scroll-fade text-center">
+  <h2 class="text-3xl font-bold mt-12 section-title">Übersicht</h2>
+  <ul class="list-disc list-inside text-white mt-4 inline-block text-left">
+    <li><a href="#start" id="restart-link" class="hover-glitch">Start</a></li>
+    <li><a href="bandmembers.html" class="hover-glitch">Bandmembers</a></li>
+    <li><a href="news.html" class="hover-glitch">News</a></li>
+    <li><a href="musik.html" class="hover-glitch">Musik</a></li>
+    <li><a href="videos.html" class="hover-glitch">Videos</a></li>
+    <li><a href="impressum.html" class="hover-glitch">Impressum</a></li>
+    <li><a href="datenschutz.html" class="hover-glitch">Datenschutz</a></li>
+  </ul>
+    </section>
+
   <footer class="bg-black py-8 text-center text-sm">
     <p>&copy; 2025 Corpseforge. All rights reserved.</p>
   </footer>
+
   <script>
     const faders = document.querySelectorAll('.scroll-fade');
     const options = { threshold: 0.1 };
@@ -163,32 +480,48 @@
       });
     }, options);
     faders.forEach(fader => appearOnScroll.observe(fader));
+
     let audio = new Audio();
+
     function playSound(theme) {
-      if (audio) audio.pause();
-      if (theme === 'love') audio = new Audio('love-theme.mp3');
-      else if (theme === 'hate') audio = new Audio('hate-theme.mp3');
-      else if (theme === 'death') audio = new Audio('death-theme.mp3');
+      if (audio) {
+        audio.pause();
+      }
+      if (theme === 'love') {
+        audio = new Audio('love-theme.mp3');
+      } else if (theme === 'hate') {
+        audio = new Audio('hate-theme.mp3');
+      } else if (theme === 'death') {
+        audio = new Audio('death-theme.mp3');
+      }
       audio.play();
     }
+
     function setTheme(theme) {
       const body = document.getElementById('body');
       const video = document.getElementById('bgVideo');
+
       body.classList.remove('theme-death', 'theme-love', 'theme-hate');
       body.classList.add(`theme-${theme}`);
+
       let videoSrc = 'bandvideo.mp4';
       if (theme === 'love') videoSrc = 'video-love.mp4';
       else if (theme === 'hate') videoSrc = 'video-hate.mp4';
       video.src = videoSrc;
       video.load();
       video.play();
+
       playSound(theme);
     }
-    document.getElementById("restart-link").addEventListener("click", function(e) {
-      e.preventDefault();
-      location.reload();
-      window.scrollTo(0, 0);
+  </script>
+
+  <script>
+     document.getElementById("restart-link").addEventListener("click", function(e) {
+     e.preventDefault(); // verhindert das Standardverhalten des Links
+     location.reload(); // Seite neu laden
+     window.scrollTo(0, 0); // nach ganz oben scrollen (optional, meist überflüssig bei reload)
     });
   </script>
+
 </body>
 </html>
