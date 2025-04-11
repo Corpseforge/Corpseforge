@@ -3,6 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bandmembers | Corpseforge</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -62,15 +63,20 @@ h1, h2 {
 }
 
 .center-video {
-  max-width: 600px;
+  max-width: 45%;
   margin: 50px auto;
   text-align: center;
 }
 
 .center-video video {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+}
+
+.center-video p {
+  margin-top: 10px;
+  white-space: pre-line;
 }
 
 .socials {
@@ -82,11 +88,19 @@ h1, h2 {
   margin-bottom: 20px;
 }
 
-.socials a {
-  display: block;
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  font-size: 2em;
+}
+
+.social-links a {
   color: #bfa03b;
-  margin: 5px 0;
   text-decoration: none;
+  transition: 0.2s;
+  position: relative;
 }
 
 .overview {
@@ -103,6 +117,7 @@ h1, h2 {
   color: #bfa03b;
   margin: 5px 0;
   text-decoration: none;
+  font-size: 1.1em;
 }
 
 footer {
@@ -112,9 +127,31 @@ footer {
   margin: 40px 0 20px;
 }
 
+/* Distortion Hover Effekt */
+a:hover, .social-links a:hover {
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: skew(-2deg, 2deg); }
+  25% { transform: skew(2deg, -1deg); }
+  50% { transform: skew(-1deg, 1deg); }
+  75% { transform: skew(1deg, -2deg); }
+  100% { transform: skew(0deg, 0deg); }
+}
+
 @media (max-width: 768px) {
   .member {
     max-width: 90%;
+  }
+
+  .center-video {
+    max-width: 90%;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
   }
 }
 
@@ -138,7 +175,9 @@ Keyboarder</p>
     </div>
   </div>  <div class="center-video">
     <video src="marty.mp4" autoplay muted loop playsinline></video>
-    <p>Marty<br>Frontsänger<br>Gitarrist</p>
+    <p>Marty
+Frontsänger
+Gitarrist</p>
   </div>  <div class="member-row">
     <div class="member">
       <video src="julz.mp4" autoplay muted loop playsinline></video>
@@ -152,10 +191,12 @@ Bassist</p>
     </div>
   </div>  <div class="socials">
     <h2>Folg Uns</h2>
-    <a href="https://youtube.com/@corpseforgemusic?si=LNSm2nWJNqTPzLlb" target="_blank">YouTube</a>
-    <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vSJHKeB9Ec&_r=1" target="_blank">TikTok</a>
-    <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" target="_blank">Instagram</a>
-    <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=xWkBDphZSJmPMCjiZ4amow" target="_blank">Spotify</a>
+    <div class="social-links">
+      <a href="https://youtube.com/@corpseforgemusic?si=LNSm2nWJNqTPzLlb" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vSJHKeB9Ec&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=xWkBDphZSJmPMCjiZ4amow" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+    </div>
   </div><video class="video-full" src="corpseforge-2.mp4" autoplay muted loop playsinline></video>
 
   <div class="overview">
