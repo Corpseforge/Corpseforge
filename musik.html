@@ -4,7 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Musik – Corpseforge</title>
+
+  <!-- Font Awesome für Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Rx2dNVq8ldoZGLQVKbqqFHF+G1M6TwuhZm4FgmZBo+UGr6zW27hFfL/6jKguo0YvWWYOqtwfY+a6yZ54myI4Kg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- AOS Animationen -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -98,37 +109,42 @@
       font-size: 1.1em;
     }
 
-  .social-links {
-  margin: 40px 0;
-  text-align: center;
-}
+    .social-links {
+      margin: 40px 0;
+      text-align: center;
+    }
 
-.social-links .follow-title {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
+    .social-links .follow-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
 
-.social-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-.social-buttons a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  border: 1px solid white;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
+    .social-buttons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
 
-.social-buttons a:hover {
-  background: white;
-  color: black;
-}
+    .social-buttons a:hover {
+      background-color: white;
+      color: #0e0016;
+      transform: scale(1.2) rotate(5deg);
+    }
 
     .bandfoto {
       text-align: center;
@@ -177,19 +193,19 @@
 </head>
 <body>
 
-  <header>
+  <header data-aos="fade-down">
     <img src="logo.png" alt="Logo" class="heartbeat" />
   </header>
 
-  <div class="video-container">
+  <div class="video-container" data-aos="fade-up">
     <video autoplay loop muted playsinline>
       <source src="video-love.mp4" type="video/mp4" />
     </video>
   </div>
 
-  <h1>Alben</h1>
+  <h1 data-aos="zoom-in">Alben</h1>
 
-  <div class="album">
+  <div class="album" data-aos="fade-up">
     <img src="lhd-cover.jpg" alt="Love Hate Death Cover" />
     <h2>Love Hate Death</h2>
     <div class="tracklist">
@@ -209,10 +225,10 @@
       13. Ronin<br />
       14. My Flame
     </div>
-    <div class="button">Kaufen</div>
+    <a class="button" href="https://amazon.de/music/player/albums/B0F3W6NY8W?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE&ref=dm_sh_yQGK9sg8zpwj4t6WId3GJG1kT" target="_blank">Kaufen</a>
   </div>
 
-  <div class="album">
+  <div class="album" data-aos="fade-up">
     <img src="dw-cover.jpg" alt="Dark World Cover" />
     <h2>Dark World</h2>
     <div class="tracklist">
@@ -233,7 +249,7 @@
     <a class="button" href="https://amazon.de/music/player/albums/B0F39JYW37?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE" target="_blank">Kaufen</a>
   </div>
 
-  <div class="album">
+  <div class="album" data-aos="fade-up">
     <img src="sod-cover.jpg" alt="Symphony of Death Cover" />
     <h2>Symphony of Death</h2>
     <div class="tracklist">
@@ -257,32 +273,32 @@
     <a class="button" href="https://amazon.de/music/player/albums/B0F1M55DGG?marketplaceId=A1PA6795UKMFR9&musicTerritory=DE" target="_blank">Kaufen</a>
   </div>
 
-  <h1>Singles</h1>
+  <h1 data-aos="zoom-in">Singles</h1>
 
-  <div class="single">
+  <div class="single" data-aos="fade-up">
     <img src="mceyd-cover.jpg" alt="My Cat eat your Dog Cover" />
     <h2>My Cat eat your Dog</h2>
     <div class="tracklist">Tracklist:<br />01. My Cat eat your Dog</div>
     <a class="button" href="https://amazon.de/music/player/albums/B0F1ZFZZS4" target="_blank">Kaufen</a>
   </div>
 
-  <div class="single">
+  <div class="single" data-aos="fade-up">
     <img src="edc-cover.jpg" alt="Eau de Cologne Cover" />
     <h2>Eau de Cologne</h2>
     <div class="tracklist">Tracklist:<br />01. Eau de Cologne</div>
     <a class="button" href="https://amazon.de/music/player/albums/B0F1Z7MVZZ" target="_blank">Kaufen</a>
   </div>
 
-  <div class="single">
+  <div class="single" data-aos="fade-up">
     <img src="md-cover.jpg" alt="Morgue Disco Cover" />
     <h2>Morgue Disco</h2>
     <div class="tracklist">Tracklist:<br />01. Morgue Disco</div>
     <a class="button" href="https://amazon.de/music/player/albums/B0F1WDPS8W" target="_blank">Kaufen</a>
   </div>
 
-  <h1>EP's</h1>
+  <h1 data-aos="zoom-in">EP's</h1>
 
-  <div class="ep">
+  <div class="ep" data-aos="fade-up">
     <img src="un-cover.jpg" alt="Unholy Night Cover" />
     <h2>Unholy Night</h2>
     <div class="tracklist">
@@ -297,21 +313,21 @@
     <div class="not-available">NOT AVAILABLE</div>
   </div>
 
-  <div class="social-links">
-  <p class="follow-title"><strong>Folgt Uns</strong></p>
-  <div class="social-buttons">
-    <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-    <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
-    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-    <a href="https://www.spotify.com/" target="_blank">Spotify</a>
+  <div class="social-links" data-aos="fade-up">
+    <p class="follow-title"><strong>Folgt Uns</strong></p>
+    <div class="social-buttons">
+      <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.spotify.com/" target="_blank"><i class="fab fa-spotify"></i></a>
+    </div>
   </div>
-</div>
 
-  <div class="bandfoto">
+  <div class="bandfoto" data-aos="fade-up">
     <img src="bandfoto.png" alt="Bandfoto" />
   </div>
 
-  <h1>Überblick</h1>
+  <h1 data-aos="zoom-in">Überblick</h1>
   <div class="footer-links">
     <a href="index.html">Start</a>
     <a href="bandmembers.html">Bandmembers</a>
@@ -325,5 +341,10 @@
     &copy; 2025 Corpseforge. All Rights Reserved.
   </footer>
 
+  <!-- AOS Animation Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
