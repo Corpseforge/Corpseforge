@@ -45,6 +45,14 @@ h1 {
   font-size: 1.1rem;
   line-height: 1.7;
   text-align: left;
+  white-space: pre-wrap;
+}
+
+.typewriter {
+  display: inline;
+  border-right: 2px solid #bfa03b;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .section {
@@ -140,21 +148,7 @@ footer {
 <body>  <img src="logo.png" alt="Corpseforge Logo" class="logo">  <video class="bandvideo" autoplay muted loop playsinline>
     <source src="bandvideo.mp4" type="video/mp4">
     Dein Browser unterstützt dieses Video nicht.
-  </video>  <h1>Impressum</h1>  <div class="textblock">
-    <p><strong>Angaben gemäß § 5 TMG:</strong></p>
-    <p>Martin Gabriel<br>
-    Solinger Straße 7<br>
-    08280 Aue</p><p>E-Mail: Corpseforge@gmail.com</p>
-
-<p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-Martin Gabriel</p>
-
-<p><strong>Label:</strong> MG Records</p>
-
-<p><strong>Haftungsausschluss:</strong><br>
-Diese Webseite dient ausschließlich der Promotion der Band Corpseforge und meiner Musik. Alle Inhalte, einschließlich der Musik und Texte, sind mein geistiges Eigentum und unterliegen meinem Urheberrecht. Alle Rechte an den Werken liegen bei mir. Die Seite ist nicht kommerziell und soll ausschließlich dazu dienen, meine Musik und die von Corpseforge zu präsentieren und zu unterstützen.</p>
-
-  </div>  <div class="section">
+  </video>  <h1>Impressum</h1>  <div class="textblock" id="typewriter"></div>  <div class="section">
     <h2>Überblick</h2>
     <a href="index.html">Start</a>
     <a href="bandmembers.html">Bandmembers</a>
@@ -172,5 +166,31 @@ Diese Webseite dient ausschließlich der Promotion der Band Corpseforge und mein
     </div>
   </div>  <img src="bandfoto.png" alt="Bandfoto" class="bandfoto">  <footer>
     &copy; 2025 Corpseforge. All rights reserved.
-  </footer></body>
+  </footer>  <script>
+    const text = `Angaben gemäß § 5 TMG:
+Martin Gabriel
+Solinger Straße 7
+08280 Aue
+
+E-Mail: Corpseforge@gmail.com
+
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
+Martin Gabriel
+
+Label: MG Records
+
+Haftungsausschluss:
+Diese Webseite dient ausschließlich der Promotion der Band Corpseforge und meiner Musik. Alle Inhalte, einschließlich der Musik und Texte, sind mein geistiges Eigentum und unterliegen meinem Urheberrecht. Alle Rechte an den Werken liegen bei mir. Die Seite ist nicht kommerziell und soll ausschließlich dazu dienen, meine Musik und die von Corpseforge zu präsentieren und zu unterstützen.`;
+
+    const target = document.getElementById('typewriter');
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        target.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 25);
+      }
+    }
+    window.addEventListener('load', typeWriter);
+  </script></body>
 </html>
