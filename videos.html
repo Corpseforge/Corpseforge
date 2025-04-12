@@ -2,15 +2,20 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <title>Videos - Corpseforge</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       background: linear-gradient(to bottom, #2b0000, #000);
       color: white;
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
     }
 
     header {
@@ -23,23 +28,41 @@
       max-width: 80%;
     }
 
-    video.background-video {
+    .background-video-wrapper {
+      position: relative;
       width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+      padding-top: 56.25%; /* 16:9 Verhältnis */
+      overflow: hidden;
+    }
+
+    video.background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
     h1, h2 {
       text-align: center;
       color: #fff;
-      text-shadow: 0 0 5px gold;
+      text-shadow: 0 0 10px gold;
+      margin-bottom: 1em;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 2em;
     }
 
     .video-block {
@@ -59,7 +82,7 @@
     .video-title {
       text-align: center;
       margin-top: 15px;
-      font-size: 1.2em;
+      font-size: 1.3em;
     }
 
     .video-buttons {
@@ -88,41 +111,42 @@
       transform: scale(1.05);
     }
 
-    .social-links {
-      margin: 40px 0;
+    .socials {
       text-align: center;
+      margin: 60px 0 40px;
     }
 
-    .social-links .follow-title {
-      font-size: 1.5rem;
+    .socials h2 {
+      font-size: 2em;
       margin-bottom: 20px;
     }
 
-    .social-buttons {
+    .social-links {
       display: flex;
       justify-content: center;
+      gap: 30px;
       flex-wrap: wrap;
-      gap: 20px;
+      margin-bottom: 40px;
     }
 
-    .social-buttons a {
+    .social-links a {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      font-size: 1.5rem;
+      font-size: 2em;
       border: 2px solid white;
       color: white;
       text-decoration: none;
       transition: all 0.3s ease;
     }
 
-    .social-buttons a:hover {
+    .social-links a:hover {
       background: white;
       color: #2b0000;
-      transform: scale(1.2) rotate(5deg);
+      transform: scale(1.3) rotate(6deg);
     }
 
     .bandfoto {
@@ -133,15 +157,18 @@
       width: 100%;
       max-width: 800px;
       display: block;
-      margin: 40px auto;
+      margin: 0 auto;
       border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
     .overview {
       text-align: center;
+      margin-top: 60px;
     }
 
     .overview h2 {
+      font-size: 2em;
       margin-bottom: 10px;
     }
 
@@ -150,6 +177,7 @@
       margin: 5px 0;
       display: block;
       text-decoration: none;
+      font-size: 1.1em;
     }
 
     .overview a:hover {
@@ -164,6 +192,14 @@
     }
 
     @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+
+      h2 {
+        font-size: 1.6em;
+      }
+
       .video-buttons {
         flex-direction: column;
         align-items: center;
@@ -181,7 +217,9 @@
     <img src="logo.png" alt="Logo">
   </header>
 
-  <video class="background-video" src="bandvideo.mp4" autoplay muted loop></video>
+  <div class="background-video-wrapper">
+    <video class="background-video" src="bandvideo.mp4" autoplay muted loop></video>
+  </div>
 
   <div class="content">
     <h1>Videos</h1>
@@ -212,8 +250,9 @@
         <button class="button" onclick="copyLink('https://www.deineseite.de/videos#video3')">Teilen</button>
       </div>
     </div>
+  </div>
 
-  </div>  <div class="socials">
+  <div class="socials">
     <h2>Folg Uns</h2>
     <div class="social-links">
       <a href="https://youtube.com/@corpseforgemusic?si=LNSm2nWJNqTPzLlb" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
@@ -221,18 +260,19 @@
       <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=xWkBDphZSJmPMCjiZ4amow" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
     </div>
-    <img src="bandfoto.png" alt="Bandfoto" class="mx-auto max-w-sm rounded shadow-lg">
-  </div>
-    
-    <div class="overview">
-      <h2>Überblick</h2>
-      <a href="index.html">Start</a>
-      <a href="bandmembers.html">Bandmembers</a>
-      <a href="news.html">News</a>
-      <a href="musik.html">Musik</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+    <div class="bandfoto">
+      <img src="bandfoto.png" alt="Bandfoto">
     </div>
+  </div>
+
+  <div class="overview">
+    <h2>Überblick</h2>
+    <a href="index.html">Start</a>
+    <a href="bandmembers.html">Bandmembers</a>
+    <a href="news.html">News</a>
+    <a href="musik.html">Musik</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
   </div>
 
   <footer>
