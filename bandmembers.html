@@ -12,7 +12,7 @@
       font-family: Arial, sans-serif;
     }.logo {
   display: block;
-  margin: 30px auto 20px;
+  margin: 30px auto 40px;
   width: 200px;
   animation: heartbeat 1.5s infinite;
 }
@@ -34,58 +34,46 @@
 h1, h2 {
   text-align: center;
   color: #bfa03b;
-  margin-top: 40px;
-}
-
-.member-row {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 30px 10px;
-}
-
-.member {
-  max-width: 45%;
-  text-align: center;
+  margin-top: 50px;
   margin-bottom: 20px;
+  font-size: 2.8em;
 }
 
-.member video {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: contain;
-}
-
-.member p {
-  margin-top: 10px;
-  white-space: pre-line;
-}
-
-.center-video {
-  max-width: 45%;
-  margin: 50px auto;
+.member-section {
+  max-width: 800px;
+  margin: 0 auto 80px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.center-video video {
+.member-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.member-section video {
   width: 100%;
+  max-width: 500px;
   aspect-ratio: 4 / 5;
   object-fit: contain;
 }
 
-.center-video p {
-  margin-top: 10px;
+.member-section p {
+  margin-top: 15px;
+  font-size: 1.3em;
   white-space: pre-line;
 }
 
 .socials {
   text-align: center;
-  margin: 50px 0;
+  margin: 80px 0 40px;
 }
 
 .socials h2 {
   margin-bottom: 20px;
+  font-size: 2em;
 }
 
 .social-links {
@@ -100,16 +88,16 @@ h1, h2 {
   color: #bfa03b;
   text-decoration: none;
   transition: 0.2s;
-  position: relative;
 }
 
 .overview {
   text-align: center;
-  margin: 50px 0;
+  margin: 60px 0;
 }
 
 .overview h2 {
   margin-bottom: 20px;
+  font-size: 2em;
 }
 
 .overview a {
@@ -127,7 +115,6 @@ footer {
   margin: 40px 0 20px;
 }
 
-/* Distortion Hover Effekt */
 a:hover, .social-links a:hover {
   animation: glitch 0.3s infinite;
 }
@@ -141,11 +128,7 @@ a:hover, .social-links a:hover {
 }
 
 @media (max-width: 768px) {
-  .member {
-    max-width: 90%;
-  }
-
-  .center-video {
+  .member-section video {
     max-width: 90%;
   }
 
@@ -160,35 +143,29 @@ a:hover, .social-links a:hover {
 <body>
   <img src="logo.png" alt="Logo" class="logo"><video class="video-full" src="corpseforge.mp4" autoplay muted loop playsinline></video>
 
-  <h1>Bandmembers</h1>  <div class="member-row">
-    <div class="member">
-      <video src="kairi.mp4" autoplay muted loop playsinline></video>
-      <p>Kairi
-Gitarristin
-Backgroundsängerin</p>
-    </div>
-    <div class="member">
-      <video src="phantom.mp4" autoplay muted loop playsinline></video>
-      <p>PhanTom
-DJ
-Keyboarder</p>
-    </div>
-  </div>  <div class="center-video">
+  <h1>Bandmembers</h1>  <div class="member-section">
     <video src="marty.mp4" autoplay muted loop playsinline></video>
     <p>Marty
 Frontsänger
 Gitarrist</p>
-  </div>  <div class="member-row">
-    <div class="member">
-      <video src="julz.mp4" autoplay muted loop playsinline></video>
-      <p>Julz
+  </div>  <div class="member-section">
+    <video src="kairi.mp4" autoplay muted loop playsinline></video>
+    <p>Kairi
+Gitarristin
+Backgroundsängerin</p>
+  </div>  <div class="member-section">
+    <video src="phantom.mp4" autoplay muted loop playsinline></video>
+    <p>PhanTom
+DJ
+Keyboarder</p>
+  </div>  <div class="member-section">
+    <video src="julz.mp4" autoplay muted loop playsinline></video>
+    <p>Julz
 Schlagzeuger</p>
-    </div>
-    <div class="member">
-      <video src="nicro.mp4" autoplay muted loop playsinline></video>
-      <p>NIcro
+  </div>  <div class="member-section">
+    <video src="nicro.mp4" autoplay muted loop playsinline></video>
+    <p>NIcro
 Bassist</p>
-    </div>
   </div>  <div class="socials">
     <h2>Folg Uns</h2>
     <div class="social-links">
@@ -209,6 +186,18 @@ Bassist</p>
     <a href="datenschutz.html">Datenschutz</a>
   </div>  <footer>
     &copy; 2025 Corpseforge. All rights reserved.
-  </footer>
-</body>
+  </footer>  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.member-section').forEach(el => {
+      observer.observe(el);
+    });
+  </script></body>
 </html>
