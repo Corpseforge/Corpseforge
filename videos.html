@@ -18,14 +18,22 @@
       overflow-x: hidden;
     }
 
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.05); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.05); }
+    }
+
+    .logo {
+      animation: heartbeat 2s infinite;
+      width: 200px;
+      max-width: 80%;
+    }
+
     header {
       text-align: center;
       padding: 40px 20px 20px;
-    }
-
-    header img {
-      width: 200px;
-      max-width: 80%;
     }
 
     .background-video-wrapper {
@@ -214,7 +222,7 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Logo">
+    <img src="logo.png" alt="Logo" class="logo">
   </header>
 
   <div class="background-video-wrapper">
