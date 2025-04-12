@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News - Corpseforge</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Rx2dNVq8ldoZGLQVKbqqFHF+G1M6TwuhZm4FgmZBo+UGr6zW27hFfL/6jKguo0YvWWYOqtwfY+a6yZ54myI4Kg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     body {
       margin: 0;
@@ -61,19 +63,28 @@
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 2em;
+      gap: 1.5em;
       margin: 2em 0;
     }
 
     .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5em;
+      border: 2px solid silver;
       color: silver;
       text-decoration: none;
-      font-size: 1.5em;
-      transition: color 0.3s;
+      transition: all 0.3s ease;
     }
 
     .social-links a:hover {
-      color: gold;
+      color: black;
+      background-color: gold;
+      transform: scale(1.2) rotate(5deg);
     }
 
     ul {
@@ -100,11 +111,21 @@
 
   <h1>News</h1>
 
+  <!-- NEUE NEWS -->
+  <h2>Freitag, 11. April 2025</h2>
+  <p>
+    Es ist soweit, unser Album "Love Hate Death" ist jetzt erhältlich und kann überall gestreamt werden.<br><br>
+    Desweitern haben wir unsere Website überarbeitet und den Bereich Bandmembers hinzugefügt.
+  </p>
+
+  <!-- Bestehende News -->
   <h2>Mittwoch, 08. April 2025</h2>
   <p>Die Arbeiten an unserer Website sind vorerst abgeschlossen.</p>
 
   <h2>Montag, 07. April 2025</h2>
   <p>Alle Arbeiten an dem neuen Album "Love Hate Death" sind beendet. Das neue Album erscheint am Freitag, dem 11. April 2025 und ist auf Amazon als digitale Version verfügbar. Des Weiteren kann das Album auf Spotify, Apple Music, YouTube Music, Deezer und Co. gestreamt werden. Wir wünschen euch viel Spaß beim Hören.</p>
+
+  <!-- (alle weiteren News bleiben gleich) -->
 
   <h2>Dienstag, 01. April 2025</h2>
   <p>Die Arbeiten an dem Album "Dark World" sind final beendet. Das Album erscheint am Freitag, dem 04. April 2025 auf Amazon. Ab da kann das Album auch auf Spotify, YouTube, Apple, Deezer und Co. gestreamt werden. Wir wünschen euch viel Spaß mit dem neuen Album.</p>
@@ -150,10 +171,10 @@
 
   <h1>Folge uns</h1>
   <div class="social-links">
-    <a href="#">YouTube</a>
-    <a href="#">TikTok</a>
-    <a href="#">Instagram</a>
-    <a href="#">Spotify</a>
+    <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.spotify.com/" target="_blank"><i class="fab fa-spotify"></i></a>
   </div>
 
   <img src="bandfoto.png" alt="Bandfoto" class="banner">
