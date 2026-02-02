@@ -1,1 +1,22 @@
+name: Deploy GitHub Pages
 
+on:
+  push:
+    branches:
+      - main  # Läuft bei jedem Push auf main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false  # Alte Builds werden nicht gecancelt
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v3
+
+      - name: Deploy GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./  # Root-Ordner, wo deine HTML-Dateien liegen
