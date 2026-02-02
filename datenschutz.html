@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>Datenschutz - Corpseforge</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0a0f0a, #000);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .logo {
+      width: 200px;
+      margin: 30px auto;
+      display: block;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .bandvideo {
+      width: 100vw;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin: 50px 0 30px;
+      text-align: center;
+      color: #bfa03b;
+    }
+
+    .textblock {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      text-align: left;
+      white-space: pre-wrap;
+      border-left: 2px solid #bfa03b;
+      padding-left: 15px;
+      min-height: 200px;
+    }
+
+    .section {
+      text-align: center;
+      margin: 60px auto;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #bfa03b;
+    }
+
+    .section a {
+      display: block;
+      margin: 10px 0;
+      color: #bfa03b;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .section a:hover {
+      animation: glitch 0.3s infinite;
+    }
+
+    .social-links {
+      text-align: center;
+      margin: 80px 0 40px;
+    }
+
+    .social-links .follow-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #bfa03b;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      font-size: 2.2rem;
+    }
+
+    .social-buttons a {
+      color: #bfa03b;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .social-buttons a:hover {
+      animation: glitch 0.3s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: skew(-2deg, 2deg); }
+      25% { transform: skew(2deg, -1deg); }
+      50% { transform: skew(-1deg, 1deg); }
+      75% { transform: skew(1deg, -2deg); }
+      100% { transform: skew(0deg, 0deg); }
+    }
+
+    .bandfoto {
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      .textblock {
+        padding: 15px;
+        font-size: 1rem;
+      }
+
+      .section a {
+        font-size: 1.1rem;
+      }
+
+      .social-buttons {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Corpseforge Logo" class="logo">
+
+  <video class="bandvideo" autoplay muted loop playsinline>
+    <source src="video-hate.mp4" type="video/mp4">
+    Dein Browser unterstützt dieses Video nicht.
+  </video>
+
+  <h1>Datenschutz</h1>
+
+  <div class="textblock" id="typewriter"></div>
+
+  <div class="section">
+    <h2>Überblick</h2>
+    <a href="index.html">Start</a>
+    <a href="bandmembers.html">Bandmembers</a>
+    <a href="news.html">News</a>
+    <a href="musik.html">Musik</a>
+    <a href="videos.html">Videos</a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+
+  <div class="social-links">
+    <p class="follow-title"><strong>Folgt Uns</strong></p>
+    <div class="social-buttons">
+      <a href="https://youtube.com/@corpseforgemusic" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@corpseforge" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/corpseforge" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+    </div>
+  </div>
+
+  <img src="bandfoto.png" alt="Bandfoto" class="bandfoto">
+
+  <footer>
+    &copy; 2025 Corpseforge. All rights reserved.
+  </footer>
+
+  <script>
+    const text = `1. Allgemeine Hinweise
+Diese Datenschutzerklärung informiert Sie über die Art, den Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Webseite gemäß Art. 13 DSGVO.
+
+2. Verantwortlicher
+Josepe Miller
+Metalway 12
+666999 Forgestadt
+E-Mail: Corpseforge@gmail.com
+
+3. Zugriffsdaten
+Beim Besuch dieser Webseite werden durch den Webhoster automatisch Informationen (sogenannte Server-Logfiles) erfasst. Diese beinhalten z. B. die besuchte Seite, Uhrzeit, verwendeter Browser, Betriebssystem und IP-Adresse. Diese Daten dienen der technischen Überwachung und Sicherheit der Seite und werden nicht zur Identifikation verwendet.
+
+4. Eingebettete Inhalte von Drittanbietern
+Auf dieser Webseite sind Inhalte von Drittanbietern eingebettet (z. B. YouTube und Spotify). Beim Aufruf solcher Inhalte können Informationen wie Ihre IP-Adresse an die Server der Drittanbieter übertragen werden.
+
+YouTube
+Unsere Website bindet Videos über die Plattform YouTube (Google Ireland Limited) im erweiterten Datenschutzmodus ein. Dennoch kann YouTube beim Starten eines Videos Daten erfassen. Weitere Infos finden Sie unter: https://policies.google.com/privacy
+
+Spotify
+Zum Abspielen unserer Musik nutzen wir den Spotify Player (Spotify AB). Auch hierbei können Daten übertragen werden. Details unter: https://www.spotify.com/de/legal/privacy-policy/
+
+5. Ihre Rechte
+Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Zur Ausübung Ihrer Rechte wenden Sie sich bitte an die oben genannte Adresse.
+
+6. Keine kommerzielle Nutzung
+Diese Website dient ausschließlich der Promotion der Band Corpseforge. Es erfolgt keine kommerzielle Verarbeitung personenbezogener Daten.`;
+
+    const target = document.getElementById("typewriter");
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        target.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 10); // Geschwindigkeit des Tippens
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', type);
+  </script>
+</body>
+</html>
