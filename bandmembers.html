@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bandmembers | Corpseforge</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+    }.logo {
+  display: block;
+  margin: 30px auto 40px;
+  width: 200px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.05); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.video-full {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #bfa03b;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 2.8em;
+}
+
+.member-section {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.member-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.member-section video {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+}
+
+.member-section p {
+  margin-top: 15px;
+  font-size: 1.3em;
+  white-space: pre-line;
+}
+
+.socials {
+  text-align: center;
+  margin: 80px 0 40px;
+}
+
+.socials h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  font-size: 2em;
+}
+
+.social-links a {
+  color: #bfa03b;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.overview {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.overview h2 {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.overview a {
+  display: block;
+  color: #bfa03b;
+  margin: 5px 0;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  font-size: 0.9em;
+  margin: 40px 0 20px;
+}
+
+a:hover, .social-links a:hover {
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: skew(-2deg, 2deg); }
+  25% { transform: skew(2deg, -1deg); }
+  50% { transform: skew(-1deg, 1deg); }
+  75% { transform: skew(1deg, -2deg); }
+  100% { transform: skew(0deg, 0deg); }
+}
+
+@media (max-width: 768px) {
+  .member-section video {
+    max-width: 90%;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Logo" class="logo"><video class="video-full" src="corpseforge.mp4" autoplay muted loop playsinline></video>
+
+  <h1>Bandmembers</h1>  <div class="member-section">
+    <video src="marty.mp4" autoplay muted loop playsinline></video>
+    <p>Marty
+Frontsänger
+Gitarrist</p>
+  </div>  <div class="member-section">
+    <video src="kairi.mp4" autoplay muted loop playsinline></video>
+    <p>Kairi
+Gitarristin
+Backgroundsängerin</p>
+  </div>  <div class="member-section">
+    <video src="phantom.mp4" autoplay muted loop playsinline></video>
+    <p>PhanTom
+DJ
+Keyboarder</p>
+  </div>  <div class="member-section">
+    <video src="julz.mp4" autoplay muted loop playsinline></video>
+    <p>Julz
+Schlagzeuger</p>
+  </div>  <div class="member-section">
+    <video src="nicro.mp4" autoplay muted loop playsinline></video>
+    <p>Nicro
+Bassist</p>
+  </div>  <div class="socials">
+    <h2>Folg Uns</h2>
+    <div class="social-links">
+      <a href="https://youtube.com/@corpseforgemusic?si=LNSm2nWJNqTPzLlb" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@corpseforge?_t=ZN-8vSJHKeB9Ec&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.instagram.com/corpseforge?igsh=eGd6amMzMnNpMjg1" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://open.spotify.com/artist/5cXjcD3v8tpmQqrde8vd6M?si=xWkBDphZSJmPMCjiZ4amow" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+    </div>
+  </div><video class="video-full" src="corpseforge-2.mp4" autoplay muted loop playsinline></video>
+
+  <div class="overview">
+    <h2>Überblick</h2>
+    <a href="index.html">Start</a>
+    <a href="news.html">News</a>
+    <a href="musik.html">Musik</a>
+    <a href="videos.html">Videos</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>  <footer>
+    &copy; 2025 Corpseforge. All rights reserved.
+  </footer>  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.member-section').forEach(el => {
+      observer.observe(el);
+    });
+  </script></body>
+</html>
